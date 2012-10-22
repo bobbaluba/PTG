@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 2.6)
-project (sfml-gl-template)
+project (PTG)
 
-set(VERSION_MAJOR 1)
-set(VERSION_MINOR 0)
+set(VERSION_MAJOR 0)
+set(VERSION_MINOR 1)
 
 find_package(OpenGL)
 
@@ -25,7 +25,7 @@ include_directories("${PROJECT_SOURCE_DIR}")
 
 #Add the src
 # Define sources and executable
-set(EXECUTABLE_NAME "myproject")
+set(EXECUTABLE_NAME "terrainViewer")
 add_executable(${EXECUTABLE_NAME}
 	main.cpp
 	LandscapeApplication.cpp
