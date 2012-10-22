@@ -1,30 +1,35 @@
-/*
+/**
  * PerlinNoise.h
  *
- *  Created on: 22. okt. 2012
- *      Author: johan
+ * Two dimensional Perlin noise. As described by Ken Perlin in his talk on noise:
+ *     http://www.noisemachine.com/talk1/
  *
- *  Two dimensional Perlin noise. As described by Ken Perlin in his talk on noise:
- *  	http://www.noisemachine.com/talk1/
+ * Memory Footprint
+ * ----------------
  *
- *  = Memory Footprint =
- *  The noise function has a very relatively small memory footprint.
- *  It stores only SAMPLES gradients (8 bytes each) and a permutation table of SAMPLES size
+ * The noise function has a very relatively small memory footprint.
+ * It stores only SAMPLES gradients (8 bytes each) and a permutation table of SAMPLES size
  *
- *  = Complexity =
+ * Complexity
+ * ----------
  *
- *  == Lookup ==
- *  In generalized Perlin noise, computation is n^2. Where n is the number of dimensions.
- *  Since we this is only a two dimensional implementation, n=2, and we have constant time lookup.
- *	O(1)
+ * **Lookup:**
+ * In generalized Perlin noise, computation is n^2. Where n is the number of dimensions.
+ * Since we this is only a two dimensional implementation, n=2, and we have constant time lookup.
  *
- *  ==Initialization==
- *  Initialization is first order polynomial with SAMPLES
- *  O(SAMPLES) where samples is the number of stored gradients/size of the permutation table
+ *     O(1)
  *
- *  Artifacts:
- *  	* The value of the noise will be zero on every whole number
- *  	* The noise will repeat after SAMPLES in either direction.
+ *
+ * **Initialization:**
+ * Initialization is first order polynomial with SAMPLES
+ *
+ *     O(SAMPLES)
+ *
+ * where samples is the number of stored gradients/size of the permutation table
+ *
+ * Artifacts:
+ *  * The value of the noise will be zero on every whole number
+ *  * The noise will repeat after SAMPLES in either direction.
  */
 
 #ifndef PERLINNOISE_H_

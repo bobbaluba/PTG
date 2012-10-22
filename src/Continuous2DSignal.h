@@ -18,6 +18,7 @@ class Continuous2DSignal: public Seedable {
 public:
 	explicit Continuous2DSignal(unsigned int seed = 0);
 	virtual ~Continuous2DSignal();
+	/// @return signal value at the given point
 	virtual float get(float x, float y) = 0;
 };
 
