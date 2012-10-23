@@ -4,8 +4,6 @@
  * @date 23. okt. 2012
  * @author Johan Helsing
  *
- * @brief Interface for creating HeightMaps
- *
  */
 
 #ifndef TERRAINGENERATOR_H_
@@ -15,6 +13,7 @@
 
 #include "helsing/HeightMap.h"
 
+/// @brief Interface for creating HeightMaps
 class TerrainGenerator: public Seedable {
 public:
 	TerrainGenerator(unsigned int seed = 0):Seedable(seed){}
