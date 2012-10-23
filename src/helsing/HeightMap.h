@@ -1,8 +1,8 @@
 /*
  * HeightMap.h
  *
- *  Created on: 14. sep. 2012
- *      Author: johan
+ * \date 2012
+ * \author Johan Helsing
  */
 
 #ifndef HEIGHTMAP_H_

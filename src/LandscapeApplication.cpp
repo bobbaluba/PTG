@@ -11,7 +11,7 @@
 
 using namespace helsing;
 
-namespace landscape {
+namespace ptg {
 
 LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) :
 		Application(settings),
@@ -86,4 +86,4 @@ void LandscapeApplication::onRender(){
 	window->display();
 }
 
-} /* namespace landscape */
+} //namespace ptg

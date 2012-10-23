@@ -9,7 +9,7 @@
 #include "Water.h"
 #include "Actor.h"
 
-namespace landscape {
+namespace ptg {
 
 class Renderer : public helsing::Drawable {
 public:

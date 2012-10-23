@@ -9,7 +9,7 @@
 #include "Renderer.h"
 
 using namespace helsing;
-using namespace landscape;
+using namespace ptg;
 
 HeightMapActor::HeightMapActor(const HeightMap* heightMap) : heightMap(heightMap) {
 }

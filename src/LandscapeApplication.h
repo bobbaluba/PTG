@@ -12,7 +12,7 @@
 #include "SceneApplication.h"
 #include "Renderer.h"
 
-namespace landscape {
+namespace ptg {
 
 class LandscapeApplication: public helsing::Application {
 public:

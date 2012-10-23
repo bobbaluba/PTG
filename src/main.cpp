@@ -7,7 +7,7 @@
 #include "LandscapeApplication.h"
 
 using namespace helsing;
-using namespace landscape;
+using namespace ptg;
 
 int main(int, char*[]){
 	std::cout << "Version " << VERSION_MAJOR << "." << VERSION_MINOR << "\n";

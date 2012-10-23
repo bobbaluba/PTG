@@ -9,7 +9,7 @@
 #include <cassert>
 
 using namespace helsing;
-using namespace landscape;
+using namespace ptg;
 using namespace std;
 
 const Vec4 light_position = { 2.0, 1.0, 0.0, 0.0 };
