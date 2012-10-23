@@ -10,7 +10,6 @@
 
 #include <helsing/Vec2.h>
 
-
 namespace ptg {
 /** @brief Two dimensional Perlin noise.
  *

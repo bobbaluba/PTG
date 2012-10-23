@@ -9,16 +9,24 @@
 #define QUAD_H_
 
 #include <array>
-#include "helsing/HeightMap.h"
+#include <helsing/HeightMap.h>
 
-class Quad {
+/**
+ * This is a collection of functions useful functions for deterministically calculating
+ * seeds for different portions of a two dimensional area.
+ *
+ * Until I implement a bi-directional random number generator, this function can
+ * only calculate sub-trees, and not parents or siblings
+ *
+ */
+class QuadTree {
 public:
 	enum Corner{
 		topLeft, topRight, bottomLeft, bottomRight
 	};
-	Quad(uint32_t seed=0);
+	QuadTree(uint32_t seed=0);
 	void fillHeightMap(helsing::HeightMap* heightMap, uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const;
-	Quad getQuad(Corner corner) const;
+	QuadTree getSubTree(Corner corner) const;
 private:
 	uint32_t seed;
 };

@@ -14,6 +14,7 @@ MidpointDisplacementTerrainGenerator::MidpointDisplacementTerrainGenerator(unsig
 }
 
 MidpointDisplacementTerrainGenerator::~MidpointDisplacementTerrainGenerator() {
+
 }
 
 } /* namespace ptg */

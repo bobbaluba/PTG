@@ -36,8 +36,8 @@ bool LandscapeApplication::handleEvent(const sf::Event& event){
 			return true;
 		case sf::Mouse::Right:{
 			auto heightMap = new HeightMap(heightMapSize);
-			Quad quad(rand());
-			quad.fillHeightMap(heightMap, heightMapSize, 0, 0);
+			//QuadTree quad(rand());
+			//quad.fillHeightMap(heightMap, heightMapSize, 0, 0);
 			HeightMapActor * heightMapActor = new HeightMapActor(heightMap);
 			worldView->setTerrain(heightMapActor);
 		}
