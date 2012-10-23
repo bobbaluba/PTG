@@ -1,5 +1,5 @@
 /*
- * MidpointDisplaceMentTerrainGenerator.h
+ * MidpointDisplacementTerrainGenerator.h
  *
  * @date 2012
  * @author Johan Helsing
@@ -39,10 +39,10 @@ namespace ptg {
  * Unless a bi-directional pseudo-random number generator is used,
  * the maximum level of detail or the maximum area the terrain covers are bounded.
  */
-class MidpointDisplaceMentTerrainGenerator: public TerrainGenerator {
+class MidpointDisplacementTerrainGenerator: public TerrainGenerator {
 public:
-	MidpointDisplaceMentTerrainGenerator();
-	virtual ~MidpointDisplaceMentTerrainGenerator();
+	MidpointDisplacementTerrainGenerator();
+	virtual ~MidpointDisplacementTerrainGenerator();
 };
 
 } /* namespace ptg */
