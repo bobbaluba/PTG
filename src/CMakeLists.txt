@@ -47,6 +47,7 @@ add_executable(${EXECUTABLE_NAME}
 	Seedable.cpp
 	Continuous2DSignal.cpp
 	PerlinNoise.cpp
+	TerrainGenerator.cpp
 )
 add_executable("test_hmath"
 	test_helsing/test_hmath.cpp
