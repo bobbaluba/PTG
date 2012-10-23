@@ -7,12 +7,4 @@
 
 #include "TerrainGenerator.h"
 
-TerrainGenerator::TerrainGenerator() {
-	// TODO Auto-generated constructor stub
-
-}
-
-TerrainGenerator::~TerrainGenerator() {
-	// TODO Auto-generated destructor stub
-}
 
