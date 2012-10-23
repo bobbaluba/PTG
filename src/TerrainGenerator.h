@@ -13,6 +13,8 @@
 
 #include "Seedable.h"
 
+#include "helsing/HeightMap.h"
+
 class TerrainGenerator: public Seedable {
 public:
 	TerrainGenerator(unsigned int seed):Seedable(seed){}
