@@ -17,10 +17,10 @@
 
 class TerrainGenerator: public Seedable {
 public:
-	TerrainGenerator(unsigned int seed):Seedable(seed){}
+	TerrainGenerator(unsigned int seed = 0):Seedable(seed){}
 	virtual ~TerrainGenerator(){}
 	/// Generates a HeightMap
-	virtual helsing::HeightMap generate();
+	virtual helsing::HeightMap generate() = 0;
 };
 
 #endif /* TERRAINGENERATOR_H_ */

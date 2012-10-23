@@ -9,7 +9,7 @@
 
 namespace ptg {
 
-MidpointDisplacementTerrainGenerator::MidpointDisplacementTerrainGenerator() {
+MidpointDisplacementTerrainGenerator::MidpointDisplacementTerrainGenerator(unsigned int seed):TerrainGenerator(seed){
 }
 
 MidpointDisplacementTerrainGenerator::~MidpointDisplacementTerrainGenerator() {

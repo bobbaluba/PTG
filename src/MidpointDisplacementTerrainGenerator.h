@@ -41,7 +41,7 @@ namespace ptg {
  */
 class MidpointDisplacementTerrainGenerator: public TerrainGenerator {
 public:
-	MidpointDisplacementTerrainGenerator();
+	MidpointDisplacementTerrainGenerator(unsigned int seed = 0);
 	virtual ~MidpointDisplacementTerrainGenerator();
 };
 
