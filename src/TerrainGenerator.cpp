@@ -7,4 +7,6 @@
 
 #include "TerrainGenerator.h"
 
+namespace ptg {
 
+} //namespace ptg

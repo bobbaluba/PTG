@@ -13,6 +13,8 @@
 
 #include "helsing/HeightMap.h"
 
+namespace ptg {
+
 /// @brief Interface for creating HeightMaps
 class TerrainGenerator: public Seedable {
 public:
@@ -22,4 +24,6 @@ public:
 	virtual helsing::HeightMap generate() = 0;
 };
 
+} //namespace ptg
 #endif /* TERRAINGENERATOR_H_ */
+

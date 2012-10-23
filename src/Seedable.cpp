@@ -6,4 +6,6 @@
 
 #include "Seedable.h"
 
+namespace ptg {
 
+}// namespace ptg

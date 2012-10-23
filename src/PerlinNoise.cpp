@@ -15,6 +15,8 @@
 #include <functional>
 #include <random>
 
+namespace ptg {
+
 PerlinNoise::PerlinNoise(unsigned int seed) :
 		Continuous2DSignal(seed) {
 	//First we are going to set up the hash function
@@ -82,3 +84,5 @@ float PerlinNoise::gridPointContribution(int x, int y, const helsing::Vec2& posi
 
 	return beforeDropoff*dropoff;
 }
+
+}//namespace ptg

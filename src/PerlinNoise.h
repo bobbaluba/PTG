@@ -1,6 +1,19 @@
 /**
  * PerlinNoise.h
  *
+ */
+
+#ifndef PERLINNOISE_H_
+#define PERLINNOISE_H_
+
+#include "Continuous2DSignal.h"
+
+#include <helsing/Vec2.h>
+
+
+namespace ptg {
+/** @brief Two dimensional Perlin noise.
+ *
  * Two dimensional Perlin noise. As described by Ken Perlin in his talk on noise:
  *     http://www.noisemachine.com/talk1/
  *
@@ -31,14 +44,6 @@
  *  * The value of the noise will be zero on every whole number
  *  * The noise will repeat after SAMPLES in either direction.
  */
-
-#ifndef PERLINNOISE_H_
-#define PERLINNOISE_H_
-
-#include "Continuous2DSignal.h"
-
-#include <helsing/Vec2.h>
-
 class PerlinNoise: public Continuous2DSignal {
 public:
 	PerlinNoise(unsigned int seed = 0);
@@ -59,4 +64,5 @@ private:
 	std::array<helsing::Vec2, SAMPLES> gradients; //holds random gradients of unit length
 };
 
+} //namespace ptg
 #endif /* PERLINNOISE_H_ */

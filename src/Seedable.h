@@ -4,13 +4,14 @@
  * @date 2012
  * @author Johan Helsing
  *
- * @brief This is intended as an abstract interface class for objects that can be seeded and reseeded
- *
  */
 
 #ifndef SEEDABLE_H_
 #define SEEDABLE_H_
 
+namespace ptg {
+
+/// @brief An abstract interface class for objects that can be seeded and reseeded
 class Seedable {
 public:
 	explicit Seedable(unsigned int seed=0):s(seed){}
@@ -23,4 +24,5 @@ private:
 	unsigned int s;
 };
 
+}// namespace ptg
 #endif /* SEEDABLE_H_ */
