@@ -6,6 +6,7 @@
  */
 
 #include "MidpointDisplacementTerrain.h"
+#include "QuadTree.h"
 
 namespace ptg {
 
@@ -25,34 +26,41 @@ helsing::HeightMap MidpointDisplacementTerrain::generate(float resolution) {
 }
 
 /** recursively modifies the given heightmap by displacing midpoints
+ * @param root root node of the quadTree we are filling out
  * @param heightMap The HeightMap to modify
- * @param width width of the heightMap, has to be a power of two + 1
+ * @param gridSize dimensions of the heightMap to fill out, has to be a power of two + 1
  * @param offsetX X offset on heightMap
  * @param offsetY Y offset on heightMap
  */
-void MidpointDisplacementTerrain::fillHeightMap(helsing::HeightMap* heightMap,
-		uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const {
-	std::cout << "getting heightmap, ox: " << offsetX << " oy: " << offsetY << " resolution: " << resolution << std::endl;
-	uint32_t half = resolution/2;
+void MidpointDisplacementTerrain::fillHeightMap(QuadTree root,
+		helsing::HeightMap* heightMap, uint32_t gridSize, uint32_t offsetX,
+		uint32_t offsetY) const {
+	uint32_t half = gridSize/2;
 	float bl = heightMap->getHeight(offsetX, offsetY);
-	float br = heightMap->getHeight(offsetX+resolution-1, offsetY);
-	float tl = heightMap->getHeight(offsetX, offsetY+resolution-1);
-	float tr = heightMap->getHeight(offsetX+resolution-1, offsetY+resolution-1);
-	//srand(seed);
-	float newHeight = (bl+br+tl+tr)/4.0 + displacement(resolution);
+	float br = heightMap->getHeight(offsetX+gridSize-1, offsetY);
+	float tl = heightMap->getHeight(offsetX, offsetY+gridSize-1);
+	float tr = heightMap->getHeight(offsetX+gridSize-1, offsetY+gridSize-1);
+
+	//find the average of the four corners
+	float average = (bl+br+tl+tr)/4.0;
+
+	//displace the midpoint
+	srand(getSeed());
+	float newHeight = average + displacement(static_cast<float>(gridSize));
 	heightMap->setHeight(offsetX+half,offsetY+half, newHeight);
-	//midpoint without displacement
-	heightMap->setHeight(offsetX+half, offsetY, (bl+br)/2.f + displacement(resolution));
-	heightMap->setHeight(offsetX, offsetY+half, (bl+tl)/2.f+ displacement(resolution));
-	heightMap->setHeight(offsetX+resolution-1, offsetY+half, (br+tr)/2.f+ displacement(resolution));
-	heightMap->setHeight(offsetX+half, offsetY+resolution-1, (tl+tr)/2.f+ displacement(resolution));
-	if(resolution>3){
-		getQuad(bottomLeft).fillHeightMap(heightMap, half+1, offsetX, offsetY);
-		getQuad(bottomRight).fillHeightMap(heightMap, half+1, offsetX+half, offsetY);
-		getQuad(topLeft).fillHeightMap(heightMap, half+1, offsetX, offsetY+half);
-		getQuad(topRight).fillHeightMap(heightMap, half+1, offsetX+half, offsetY+half);
+
+	//make recursive calls if appropriate
+	if(gridSize>3){
+		fillHeightMap(root.getSubTree(QuadTree::bottomLeft), heightMap, half+1, offsetX, offsetY);
+		fillHeightMap(root.getSubTree(QuadTree::bottomRight), heightMap, half+1, offsetX+half, offsetY);
+		fillHeightMap(root.getSubTree(QuadTree::topLeft), heightMap, half+1, offsetX, offsetY+half);
+		fillHeightMap(root.getSubTree(QuadTree::topRight), heightMap, half+1, offsetX+half, offsetY+half);
 	}
 }
 
+float MidpointDisplacementTerrain::displacement(float gridSize) {
+	return 0;
+}
 
 } /* namespace ptg */
+

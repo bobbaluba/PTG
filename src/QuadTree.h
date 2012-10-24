@@ -26,7 +26,7 @@ namespace ptg {
 class QuadTree : public Seedable {
 public:
 	enum Corner{
-		topLeft, topRight, bottomLeft, bottomRight
+		topLeft=0, topRight, bottomLeft, bottomRight
 	};
 	QuadTree(unsigned int seed=0);
 	QuadTree getSubTree(Corner corner) const;

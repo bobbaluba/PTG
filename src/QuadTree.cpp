@@ -18,7 +18,7 @@ QuadTree::QuadTree(unsigned int seed)
 }
 
 QuadTree QuadTree::getSubTree(Corner corner) const{
-	unsigned int seed = getSeed + corner;
+	int seed = getSeed() + corner;
 	srand(seed);
 	return QuadTree(rand());
 }

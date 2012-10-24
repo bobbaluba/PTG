@@ -11,6 +11,8 @@
 
 #include "Terrain.h"
 
+#include "QuadTree.h"
+
 namespace ptg {
 
 /** @brief Generates terrain using the midpoint displacement algorithm
@@ -39,11 +41,15 @@ namespace ptg {
  * Unless a bi-directional pseudo-random number generator is used,
  * the maximum level of detail or the maximum area the terrain covers are bounded.
  */
-class MidpointDisplacementTerrain : public Terrain {
+class MidpointDisplacementTerrain: public Terrain {
 public:
 	MidpointDisplacementTerrain(unsigned int seed = 0);
 	virtual ~MidpointDisplacementTerrain();
 	virtual helsing::HeightMap generate(float resolution);
+private:
+	void fillHeightMap(QuadTree root, helsing::HeightMap* heightMap, uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const;
+	///calculates a random displacement based on the size of the current grid
+	static float displacement(float gridSize);
 };
 
 } /* namespace ptg */
