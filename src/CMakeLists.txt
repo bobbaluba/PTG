@@ -37,7 +37,6 @@ add_executable(${EXECUTABLE_NAME}
 	helsing/Shader.cpp
 	helsing/Movable.cpp
 	helsing/Application.cpp
-	helsing/Vec2.cpp
 	Actor.cpp
 	Water.cpp
 	HeightMapActor.cpp

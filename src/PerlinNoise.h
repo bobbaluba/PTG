@@ -8,7 +8,7 @@
 
 #include "Continuous2DSignal.h"
 
-#include <helsing/Vec2.h>
+#include <helsing/math/Vec2.h>
 
 namespace ptg {
 /** @brief Two dimensional Perlin noise.
