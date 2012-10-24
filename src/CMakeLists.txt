@@ -30,7 +30,7 @@ add_executable(${EXECUTABLE_NAME}
 	main.cpp
 	LandscapeApplication.cpp
 	Renderer.cpp
-	quad.cpp
+	QuadTree.cpp
 	helsing/HeightMap.cpp
 	helsing/MatrixStack.cpp
 	helsing/TextFile.cpp

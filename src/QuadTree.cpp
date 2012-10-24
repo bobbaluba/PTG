@@ -11,15 +11,16 @@
 #include <cstdlib>
 #include <iostream>
 
-inline QuadTree::Corner getCorner(uint32_t a){
-	return QuadTree::Corner(a%4);
-}
+namespace ptg {
 
-QuadTree::QuadTree(uint32_t seed)
-		:seed(seed){
+QuadTree::QuadTree(unsigned int seed)
+		: Seedable(seed){
 }
 
 QuadTree QuadTree::getSubTree(Corner corner) const{
-	srand(seed+corner);
+	unsigned int seed = getSeed + corner;
+	srand(seed);
 	return QuadTree(rand());
 }
+
+} //namespace ptg
