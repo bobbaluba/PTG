@@ -42,7 +42,7 @@ namespace ptg {
 class MidpointDisplacementTerrain : public Terrain {
 public:
 	MidpointDisplacementTerrain(unsigned int seed = 0);
-	virtual ~MidpointDisplacementTerrain(){}
+	virtual ~MidpointDisplacementTerrain();
 	virtual helsing::HeightMap generate(float resolution);
 };
 
