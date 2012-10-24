@@ -1,15 +1,15 @@
 /*
- * MidpointDisplacementTerrainGenerator.h
+ * MidpointDisplacementTerrain.h
  *
  * @date 2012
  * @author Johan Helsing
  *
  */
 
-#ifndef MIDPOINTDISPLACEMENTTERRAINGENERATOR_H_
-#define MIDPOINTDISPLACEMENTTERRAINGENERATOR_H_
+#ifndef MIDPOINTDISPLACEMENTTERRAIN_H_
+#define MIDPOINTDISPLACEMENTTERRAIN_H_
 
-#include "TerrainGenerator.h"
+#include "Terrain.h"
 
 namespace ptg {
 
@@ -39,11 +39,12 @@ namespace ptg {
  * Unless a bi-directional pseudo-random number generator is used,
  * the maximum level of detail or the maximum area the terrain covers are bounded.
  */
-class MidpointDisplacementTerrainGenerator: public TerrainGenerator {
+class MidpointDisplacementTerrain : public Terrain {
 public:
-	MidpointDisplacementTerrainGenerator(unsigned int seed = 0);
-	virtual ~MidpointDisplacementTerrainGenerator();
+	MidpointDisplacementTerrain(unsigned int seed = 0);
+	virtual ~MidpointDisplacementTerrain(){}
+	virtual helsing::HeightMap generate(float resolution);
 };
 
 } /* namespace ptg */
-#endif /* MIDPOINTDISPLACEMENTTERRAINGENERATOR_H_ */
+#endif /* MIDPOINTDISPLACEMENTTERRAIN_H_ */
