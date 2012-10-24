@@ -15,15 +15,16 @@ namespace ptg {
 
 LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) :
 		Application(settings),
-		worldView(NULL),
+		renderer(NULL),
 		flymode(false),
-		heightMapSize(65){
+		heightMapSize(5),
+		terrain(NULL){
 }
 
 void LandscapeApplication::onInit(){
-	worldView = new Renderer(window->getSize().x, window->getSize().y);
-	worldView->getCamera().setPosition(Vec4(heightMapSize,heightMapSize,heightMapSize));
-	worldView->getCamera().lookAt(Vec4::origin());
+	renderer = new Renderer(window->getSize().x, window->getSize().y);
+	renderer->getCamera().setPosition(Vec4(heightMapSize,heightMapSize,heightMapSize));
+	renderer->getCamera().lookAt(Vec4::origin());
 }
 
 bool LandscapeApplication::handleEvent(const sf::Event& event){
@@ -35,11 +36,8 @@ bool LandscapeApplication::handleEvent(const sf::Event& event){
 			window->setMouseCursorVisible(!flymode);
 			return true;
 		case sf::Mouse::Right:{
-			MidpointDisplacementTerrain terrain(rand());
-			auto heightMap = new HeightMap(heightMapSize);
-			*heightMap = terrain.generateHeightMap(heightMapSize, heightMapSize);
-			HeightMapActor * heightMapActor = new HeightMapActor(heightMap);
-			worldView->setTerrain(heightMapActor);
+			auto mdt = new MidpointDisplacementTerrain(rand());
+			setTerrain(mdt);
 		}
 			return true;
 		default:
@@ -53,7 +51,7 @@ bool LandscapeApplication::handleEvent(const sf::Event& event){
 }
 
 void LandscapeApplication::onRender(){
-	Camera& camera = worldView->getCamera();
+	Camera& camera = renderer->getCamera();
 
 	const float speed = 0.5f;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
@@ -82,8 +80,20 @@ void LandscapeApplication::onRender(){
 	}
 
 	window->setActive();
-	worldView->draw();
+	renderer->draw();
 	window->display();
+}
+
+void LandscapeApplication::setTerrain(Terrain* terrain) {
+	if (this->terrain == terrain) {
+		return;
+	} else if (this->terrain != NULL) {
+		delete this->terrain;
+	}
+	this->terrain = terrain;
+	HeightMap* heightMap = new HeightMap(heightMapSize);
+	terrain->generateHeightMap(heightMapSize, heightMapSize);
+	renderer->setHeightMap(heightMap);
 }
 
 } //namespace ptg

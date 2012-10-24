@@ -11,6 +11,7 @@
 #include "helsing/Application.h"
 #include "SceneApplication.h"
 #include "Renderer.h"
+#include "Terrain.h"
 
 #include <helsing/HeightMap.h>
 
@@ -19,17 +20,24 @@ namespace ptg {
 class LandscapeApplication: public helsing::Application {
 public:
 	LandscapeApplication(const ApplicationSettings& = ApplicationSettings());
-	virtual ~LandscapeApplication(){delete worldView;}
+	virtual ~LandscapeApplication() {
+		delete renderer;
+	}
 	virtual void onInit();
 	virtual void onRender();
-	virtual void onResize(uint32_t width, uint32_t height){
-		worldView->resize(width,height);
+	virtual void onResize(uint32_t width, uint32_t height) {
+		renderer->resize(width, height);
 	}
 	virtual bool handleEvent(const sf::Event&);
+	/** Set the current terrain the application is displaying
+	 * Takes ownership of the supplied terrain, responsible for deleting it
+	 */
+	virtual void setTerrain(Terrain* terrain);
 private:
-	Renderer* worldView;
+	Renderer* renderer;
 	bool flymode;
 	uint32_t heightMapSize;
+	Terrain* terrain;
 };
 
 } /* namespace landscape */

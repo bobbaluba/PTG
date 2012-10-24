@@ -15,6 +15,7 @@ public:
 	Water(float size):size(size){}
 	virtual ~Water(){}
 	virtual void draw();
+	virtual void setSize(float size){this->size=size;}
 private:
 	float size;
 };

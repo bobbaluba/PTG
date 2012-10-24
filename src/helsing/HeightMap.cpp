@@ -11,7 +11,7 @@ HeightMap::HeightMap(uint32_t size):size(size){
 	this->heights = new float[size*size];
 	//TODO switch to memset
 	for(uint32_t i=0; i<size*size; i++){
-		this->heights[i]=heights[0];
+		this->heights[i]=0;
 	}
 }
 
@@ -60,6 +60,12 @@ const Vec4 HeightMap::getNormal(int x, int z) const {
 	}
 	normal = normal.normalize();
 	return normal;
+}
+
+void HeightMap::flatten() {
+	for(uint32_t i=0; i<size*size; i++){
+		this->heights[i]=0;
+	}
 }
 
 }

@@ -14,6 +14,9 @@
 #include "helsing/hmath.h"
 #include "helsing/Drawable.h"
 
+//TODO remove
+#include <iostream>
+
 namespace helsing {
 
 class HeightMap {
@@ -39,7 +42,12 @@ public:
 	virtual float getHeight(uint32_t x, uint32_t y) const {return heights[x+y*size];}
 
 	/// Sets the height at the given grid coordinate
-	virtual void setHeight(uint32_t x, uint32_t y, float h){heights[x+y*size]=h;}
+	virtual void setHeight(uint32_t x, uint32_t y, float h){
+		std::cout << "Setting height x: " << x << " y: " << y << " " << h << "\n";
+		heights[x+y*size]=h;}
+
+	/// Sets all the heights to zero
+	virtual void flatten();
 
 private:
 	float *heights;

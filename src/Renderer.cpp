@@ -17,13 +17,20 @@ const Vec4 light_position = { 2.0, 1.0, 0.0, 0.0 };
 Renderer::Renderer(uint32_t width, uint32_t height) :
 		width(width),
 		height(height),
-		waterActor(64),
-		landscapeActor(NULL){
+		water(64),
+		heightMap(NULL){
 	resize(width,height);
 	setGLStates();
 }
 
 Renderer::~Renderer(){
+}
+
+void ptg::Renderer::setHeightMap(helsing::HeightMap* heightMap) {
+	this->heightMap=heightMap;
+	if(heightMap!=NULL){
+		water.setSize(heightMap->getSize());
+	}
 }
 
 void Renderer::setGLStates(){
@@ -68,11 +75,12 @@ void Renderer::draw(){
 	glLightfv(GL_LIGHT1, GL_POSITION, (modelView.getMatrix()*light_position).cArray);
 	glLoadMatrixf(cameratransformation.cArray);
 
-	//draw stuff
-	if(landscapeActor)landscapeActor->draw();
-	waterActor.draw();
+	if(heightMap!=NULL){
+		drawHeightMap(*heightMap);
+	}
 
 	glPopMatrix();
+	water.draw();
 
 	GLenum error = glGetError();
 	if(error!=GL_NO_ERROR){
@@ -91,7 +99,7 @@ void Renderer::drawVector(const helsing::Vec4& position, const helsing::Vec4& ve
 void Renderer::drawHeightMap(const HeightMap& heightMap) {
 	auto size = heightMap.getSize();
 	glPushMatrix();
-	glTranslatef(-32, 0, -32);
+	glTranslatef(0, 0, 0);
 	//	glScalef(1.f/(size-1), 1, 1.f/(size-1));
 	for (uint32_t i = 0; i < size - 1; i++) {
 		glColor3f(0.2, 0.8, 0.3);
