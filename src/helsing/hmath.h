@@ -12,11 +12,9 @@
 #ifndef HMATH_H_
 #define HMATH_H_
 
-#include "hmath_misc.h"
-#include "Vec2.h"
-#include "Vec4.h"
-#include "Mat4.h"
-
-#include <initializer_list>
+#include "math/hmath_misc.h"
+#include "math/Vec2.h"
+#include "math/Vec4.h"
+#include "math/Mat4.h"
 
 #endif /* HMATH_H_ */
