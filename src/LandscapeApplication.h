@@ -12,6 +12,8 @@
 #include "SceneApplication.h"
 #include "Renderer.h"
 
+#include <helsing/HeightMap.h>
+
 namespace ptg {
 
 class LandscapeApplication: public helsing::Application {

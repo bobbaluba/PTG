@@ -6,8 +6,8 @@
  */
 
 #include "LandscapeApplication.h"
+#include "MidpointDisplacementTerrain.h"
 #include "HeightMapActor.h"
-#include "QuadTree.h"
 
 using namespace helsing;
 
@@ -35,9 +35,9 @@ bool LandscapeApplication::handleEvent(const sf::Event& event){
 			window->setMouseCursorVisible(!flymode);
 			return true;
 		case sf::Mouse::Right:{
+			MidpointDisplacementTerrain terrain(rand());
 			auto heightMap = new HeightMap(heightMapSize);
-			//QuadTree quad(rand());
-			//quad.fillHeightMap(heightMap, heightMapSize, 0, 0);
+			*heightMap = terrain.generateHeightMap(heightMapSize, heightMapSize);
 			HeightMapActor * heightMapActor = new HeightMapActor(heightMap);
 			worldView->setTerrain(heightMapActor);
 		}

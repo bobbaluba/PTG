@@ -21,9 +21,10 @@ public:
 	Terrain(unsigned int seed = 0):Seedable(seed){}
 	virtual ~Terrain(){}
 	/** @brief Generates a HeightMap
-	 * @param resolution gridpoints per unit in terrain coordinate system
+	 * @param gridPoints number of gridPoints in one direction, or "width" of the HeightMap
+	 * @param gridSpacing gridpoints per unit in terrain coordinate system
 	 */
-	virtual helsing::HeightMap generate(float resolution) = 0;
+	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing) = 0;
 };
 
 } //namespace ptg

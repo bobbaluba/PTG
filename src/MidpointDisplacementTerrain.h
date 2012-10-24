@@ -19,7 +19,8 @@ namespace ptg {
  *
  * Algorithm
  * ---------
- * Recur
+ * Recursive algorithm. The displacement of each point depends on the displacement of the corners on
+ * the level above.
  *
  * Memory footprint
  * ----------------
@@ -45,7 +46,7 @@ class MidpointDisplacementTerrain: public Terrain {
 public:
 	MidpointDisplacementTerrain(unsigned int seed = 0);
 	virtual ~MidpointDisplacementTerrain();
-	virtual helsing::HeightMap generate(float resolution);
+	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float resolution);
 private:
 	void fillHeightMap(QuadTree root, helsing::HeightMap* heightMap, uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const;
 	///calculates a random displacement based on the size of the current grid
