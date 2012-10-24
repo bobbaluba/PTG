@@ -8,7 +8,7 @@ using namespace helsing;
 namespace helsing {
 
 HeightMap::HeightMap(uint32_t size):size(size){
-	this->heights = new float[size*size];
+	heights.resize(size*size);
 	//TODO switch to memset
 	for(uint32_t i=0; i<size*size; i++){
 		this->heights[i]=0;
@@ -16,14 +16,10 @@ HeightMap::HeightMap(uint32_t size):size(size){
 }
 
 HeightMap::HeightMap(const float heights[], const uint32_t size):size(size){
-	this->heights = new float[size*size];
-	for(uint32_t i=0; i<size*size; i++){
-		this->heights[i]=heights[i];
-	}
+	this->heights.assign(heights, heights + size*size); //not tested
 }
 
 HeightMap::~HeightMap(){
-	delete [] heights;
 }
 
 const Vec4 HeightMap::getPoint(uint32_t x, uint32_t z) const {

@@ -29,7 +29,7 @@ Renderer::~Renderer(){
 void ptg::Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	this->heightMap=heightMap;
 	if(heightMap!=NULL){
-		water.setSize(heightMap->getSize());
+		water.setSize(heightMap->getSize()-1);
 	}
 }
 
@@ -79,8 +79,8 @@ void Renderer::draw(){
 		drawHeightMap(*heightMap);
 	}
 
-	glPopMatrix();
 	water.draw();
+	glPopMatrix();
 
 	GLenum error = glGetError();
 	if(error!=GL_NO_ERROR){
@@ -97,9 +97,10 @@ void Renderer::drawVector(const helsing::Vec4& position, const helsing::Vec4& ve
 }
 
 void Renderer::drawHeightMap(const HeightMap& heightMap) {
-	auto size = heightMap.getSize();
+	float size = heightMap.getSize();
+	float midpoint = (size-1)/2;
 	glPushMatrix();
-	glTranslatef(0, 0, 0);
+	glTranslatef(-midpoint, 0, -midpoint);
 	//	glScalef(1.f/(size-1), 1, 1.f/(size-1));
 	for (uint32_t i = 0; i < size - 1; i++) {
 		glColor3f(0.2, 0.8, 0.3);

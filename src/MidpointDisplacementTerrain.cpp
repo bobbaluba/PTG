@@ -53,7 +53,7 @@ void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 
 
 	//displace the midpoint
-	srand(getSeed());
+	srand(root.getSeed());
 	float newHeight = average + displacement(static_cast<float>(gridPoints));
 	heightMap->setHeight(offsetX+half,offsetY+half, newHeight);
 
@@ -66,8 +66,9 @@ void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 	}
 }
 
-float MidpointDisplacementTerrain::displacement(float gridSize) {
-	return 1;
+float MidpointDisplacementTerrain::displacement(float distance) {
+	const float roughness = 0.6f;
+	return (rand()/float(RAND_MAX)-0.5)*distance*roughness; //*resolution/flatness;
 }
 
 } /* namespace ptg */

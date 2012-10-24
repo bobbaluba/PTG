@@ -17,7 +17,7 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		Application(settings),
 		renderer(NULL),
 		flymode(false),
-		heightMapSize(5),
+		heightMapSize(17),
 		terrain(NULL){
 }
 
@@ -92,7 +92,7 @@ void LandscapeApplication::setTerrain(Terrain* terrain) {
 	}
 	this->terrain = terrain;
 	HeightMap* heightMap = new HeightMap(heightMapSize);
-	terrain->generateHeightMap(heightMapSize, heightMapSize);
+	*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
 	renderer->setHeightMap(heightMap);
 }
 

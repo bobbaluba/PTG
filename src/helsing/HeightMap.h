@@ -14,8 +14,9 @@
 #include "helsing/hmath.h"
 #include "helsing/Drawable.h"
 
-//TODO remove
-#include <iostream>
+#include <iostream> //TODO remove
+#include <ostream>
+#include <vector>
 
 namespace helsing {
 
@@ -49,10 +50,27 @@ public:
 	/// Sets all the heights to zero
 	virtual void flatten();
 
+
+
 private:
-	float *heights;
+	std::vector<float> heights;
 	uint32_t size;
 };
+
+inline std::ostream& operator<< (std::ostream &out, const HeightMap& heightMap){
+	//TODO restore these afterwards
+	out.setf(std::ios::fixed);
+	out.setf(std::ios::showpoint);
+	out.precision(2); //to limit to 2 decimal places
+
+	for(unsigned int y=0;y<heightMap.getSize(); ++y){
+		for(unsigned int x=0; x<heightMap.getSize(); ++x){
+			out << heightMap.getHeight(x,y) << " ";
+		}
+		out << "\n";
+	}
+	return out;
+}
 
 }
 
