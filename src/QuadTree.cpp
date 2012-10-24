@@ -6,7 +6,7 @@
  */
 
 
-#include "quad.h"
+#include "QuadTree.h"
 
 #include <cstdlib>
 #include <iostream>

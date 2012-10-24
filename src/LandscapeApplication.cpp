@@ -7,7 +7,7 @@
 
 #include "LandscapeApplication.h"
 #include "HeightMapActor.h"
-#include "quad.h"
+#include "QuadTree.h"
 
 using namespace helsing;
 
