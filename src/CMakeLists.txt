@@ -48,6 +48,7 @@ add_executable(${EXECUTABLE_NAME}
 	PerlinNoise.cpp
 	Terrain.cpp
 	MidpointDisplacementTerrain.cpp
+	DiamondSquareTerrain.cpp
 )
 add_executable("test_hmath"
 	test_helsing/test_hmath.cpp
