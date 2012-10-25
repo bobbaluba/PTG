@@ -39,13 +39,18 @@ void Renderer::setGLStates(){
 	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray);
 	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
 	glLightfv(GL_LIGHT1, GL_AMBIENT, light1_ambient);
+
+	//enable lighting
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT1);
-//
-	glColorMaterial ( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE ) ;
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_COLOR_MATERIAL);
 
+	glEnable (GL_BLEND);
+	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+	//glColorMaterial ( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE ) ;
+	//glEnable(GL_COLOR_MATERIAL);
+
+	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 }
@@ -72,7 +77,7 @@ void Renderer::draw(){
 	//set up camera
 	glLoadIdentity();
 	helsing::Mat4 cameratransformation = camera.getMatrix();
-	glLightfv(GL_LIGHT1, GL_POSITION, (modelView.getMatrix()*light_position).cArray);
+	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray);
 	glLoadMatrixf(cameratransformation.cArray);
 
 	if(heightMap!=NULL){
@@ -99,8 +104,9 @@ void Renderer::drawVector(const helsing::Vec4& position, const helsing::Vec4& ve
 void Renderer::drawHeightMap(const HeightMap& heightMap) {
 	float size = heightMap.getSize();
 	float midpoint = (size-1)/2;
-	glPushMatrix();
+	glEnable(GL_LIGHTING);
 	glEnable(GL_NORMALIZE);
+	glPushMatrix();
 	glScalef(65/size,65/size,65/size);
 	glTranslatef(-midpoint, 0, -midpoint);
 	//	glScalef(1.f/(size-1), 1, 1.f/(size-1));

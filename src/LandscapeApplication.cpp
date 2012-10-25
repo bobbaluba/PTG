@@ -24,7 +24,7 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 
 void LandscapeApplication::onInit(){
 	renderer = new Renderer(window->getSize().x, window->getSize().y);
-	renderer->getCamera().setPosition(Vec4(heightMapSize,heightMapSize,heightMapSize));
+	renderer->getCamera().setPosition(Vec4(30,5,30));
 	renderer->getCamera().lookAt(Vec4::origin());
 }
 
