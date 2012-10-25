@@ -67,7 +67,7 @@ void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 	}
 }
 
-float MidpointDisplacementTerrain::displacement(float distance) {
+float MidpointDisplacementTerrain::displacement(float distance) const{
 	return (rand()/float(RAND_MAX)-0.5)*distance*roughness; //*resolution/flatness;
 }
 
