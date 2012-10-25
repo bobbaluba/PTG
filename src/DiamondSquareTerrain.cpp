@@ -27,24 +27,25 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 	assert(helsing::isPowerOfTwo(gridPoints-1));
 	HeightMap heightMap(gridPoints);
 
-	for(int sideLength = gridPoints; sideLength>=3; sideLength=sideLength/2+1){
+	for(int sideLength = gridPoints-1; sideLength>=2; sideLength/=2){
 		int half = sideLength/2;
 		//displace midpoints
 		//this step is basically midpoint displacement
-		for(unsigned int i=0; i<gridPoints-1; i+=sideLength-1){
-			for(unsigned int j=0; j<gridPoints-1; j+=sideLength-1){
-				float bl = heightMap.getHeight(i,j);
-				float br = heightMap.getHeight(i+sideLength-1,j);
-				float tl = heightMap.getHeight(i,j+sideLength-1);
-				float tr = heightMap.getHeight(i+sideLength-1,j+sideLength-1);
-				float average = (bl+br+tl+tr)/4;
-				heightMap.setHeight(i+half, j+half, average+sideLength/gridPoints*8);
+		for(unsigned int i=0; i<gridPoints/sideLength; i++){
+			for(unsigned int j=0; j<gridPoints/sideLength; j++){
+				float bl = heightMap.getHeight( i      * sideLength, j       * sideLength); //bottom left
+				float br = heightMap.getHeight((i + 1) * sideLength, j       * sideLength); //bottom right
+				float tl = heightMap.getHeight( i      * sideLength, (j + 1) * sideLength); //top left
+				float tr = heightMap.getHeight((i + 1) * sideLength, (j + 1) * sideLength); //top right
+				float average = (bl + br + tl + tr) / 4;
+				heightMap.setHeight(i*sideLength+half, j*sideLength+half, average+displacement(sideLength));
 
-				heightMap.setHeight(i+half, j, (bl+br)/2);
-				heightMap.setHeight(i, j+half, (tl+bl)/2);
-				heightMap.setHeight(i+sideLength-1, j+half, (tr+br)/2);
-				heightMap.setHeight(i+half, j+sideLength-1, (tl+tr)/2);
+				heightMap.setHeight(i*sideLength+half, j*sideLength,      (bl+br)/2); //bottom
+				heightMap.setHeight(i*sideLength+half, (j+1)*sideLength,  (tl+tr)/2); //top
+				heightMap.setHeight(i*sideLength     , j*sideLength+half, (tl+bl)/2); //left
+				heightMap.setHeight((i+1)*sideLength , j*sideLength+half, (tr+br)/2); //right
 			}
+
 		}
 
 	}
