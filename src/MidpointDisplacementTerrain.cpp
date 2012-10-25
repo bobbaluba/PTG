@@ -13,7 +13,8 @@
 namespace ptg {
 
 MidpointDisplacementTerrain::MidpointDisplacementTerrain(unsigned int seed) :
-		Terrain(seed) {
+		Terrain(seed),
+		roughness(0.6){
 }
 
 MidpointDisplacementTerrain::~MidpointDisplacementTerrain() {
@@ -67,7 +68,6 @@ void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 }
 
 float MidpointDisplacementTerrain::displacement(float distance) {
-	const float roughness = 0.6f;
 	return (rand()/float(RAND_MAX)-0.5)*distance*roughness; //*resolution/flatness;
 }
 

@@ -47,10 +47,18 @@ public:
 	MidpointDisplacementTerrain(unsigned int seed = 0);
 	virtual ~MidpointDisplacementTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float resolution);
+	virtual void setRoughness(float roughness){
+		this->roughness=roughness;
+	}
+	virtual float getRoughness() const{
+		return roughness;
+	}
 private:
 	void displaceHeightMap(QuadTree root, helsing::HeightMap* heightMap, uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const;
 	///calculates a random displacement based on the size of the current grid
 	static float displacement(float gridSize);
+
+	float roughness;
 };
 
 } /* namespace ptg */
