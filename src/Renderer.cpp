@@ -17,7 +17,7 @@ const Vec4 light_position = { 2.0, 1.0, 0.0, 0.0 };
 Renderer::Renderer(uint32_t width, uint32_t height) :
 		width(width),
 		height(height),
-		water(64),
+		water(65),
 		heightMap(NULL){
 	resize(width,height);
 	setGLStates();
@@ -28,9 +28,9 @@ Renderer::~Renderer(){
 
 void ptg::Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	this->heightMap=heightMap;
-	if(heightMap!=NULL){
-		water.setSize(heightMap->getSize()-1);
-	}
+//	if(heightMap!=NULL){
+//		water.setSize(heightMap->getSize()-1);
+//	}
 }
 
 void Renderer::setGLStates(){
@@ -100,6 +100,8 @@ void Renderer::drawHeightMap(const HeightMap& heightMap) {
 	float size = heightMap.getSize();
 	float midpoint = (size-1)/2;
 	glPushMatrix();
+	glEnable(GL_NORMALIZE);
+	glScalef(65/size,65/size,65/size);
 	glTranslatef(-midpoint, 0, -midpoint);
 	//	glScalef(1.f/(size-1), 1, 1.f/(size-1));
 	for (uint32_t i = 0; i < size - 1; i++) {

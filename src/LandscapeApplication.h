@@ -33,8 +33,11 @@ public:
 	 * Takes ownership of the supplied terrain, responsible for deleting it
 	 */
 	virtual void setTerrain(Terrain* terrain);
-	virtual void setHeightMapSize(unsigned int size){heightMapSize=size;}
+	virtual void setHeightMapSize(unsigned int size);
 private:
+	virtual void increaseDetail();
+	virtual void decreaseDetail();
+	virtual void updateHeightMap();
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;

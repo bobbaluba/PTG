@@ -28,19 +28,31 @@ void LandscapeApplication::onInit(){
 	renderer->getCamera().lookAt(Vec4::origin());
 }
 
-bool LandscapeApplication::handleEvent(const sf::Event& event){
-	switch(event.type){
+bool LandscapeApplication::handleEvent(const sf::Event& event) {
+	switch (event.type) {
 	case sf::Event::MouseButtonPressed:
-		switch(event.mouseButton.button){
+		switch (event.mouseButton.button) {
 		case sf::Mouse::Left:
-			flymode=!flymode;
+			flymode = !flymode;
 			window->setMouseCursorVisible(!flymode);
 			return true;
-		case sf::Mouse::Right:{
+		case sf::Mouse::Right: {
 			//auto mdt = new MidpointDisplacementTerrain(rand());
 			auto dst = new DiamondSquareTerrain(rand());
 			setTerrain(dst);
 		}
+			return true;
+		default:
+			return false;
+		} // end mouse button switch
+		break;
+	case sf::Event::KeyPressed:
+		switch(event.key.code){
+		case sf::Keyboard::P:
+			increaseDetail();
+			return true;
+		case sf::Keyboard::O:
+			decreaseDetail();
 			return true;
 		default:
 			return false;
@@ -93,6 +105,30 @@ void LandscapeApplication::setTerrain(Terrain* terrain) {
 		delete this->terrain;
 	}
 	this->terrain = terrain;
+	updateHeightMap();
+}
+
+void LandscapeApplication::increaseDetail() {
+	unsigned int newSize = (heightMapSize-1)*2+1;
+	setHeightMapSize(newSize);
+}
+
+void LandscapeApplication::decreaseDetail() {
+	unsigned int newSize = (heightMapSize)/2+1;
+	if(newSize<3)newSize=3;
+	setHeightMapSize(newSize);
+}
+
+void LandscapeApplication::setHeightMapSize(unsigned int size) {
+	heightMapSize=size;
+	updateHeightMap();
+}
+
+void LandscapeApplication::updateHeightMap() {
+	if(terrain==NULL){
+		return;
+	}
+
 	HeightMap* heightMap = new HeightMap(heightMapSize);
 	*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
 	renderer->setHeightMap(heightMap);
