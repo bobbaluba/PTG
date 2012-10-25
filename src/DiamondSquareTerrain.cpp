@@ -34,7 +34,7 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 		int half = sideLength/2;
 		//displace midpoints
 		//this step is basically midpoint displacement
-		int currentGridSize=gridPoints/sideLength;
+		unsigned int currentGridSize=gridPoints/sideLength;
 		for(unsigned int i=0; i<currentGridSize; i++){
 			for(unsigned int j=0; j<currentGridSize; j++){
 				float bl = heightMap.getHeight( i      * sideLength, j       * sideLength); //bottom left
