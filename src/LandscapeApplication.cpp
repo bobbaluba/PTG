@@ -7,6 +7,7 @@
 
 #include "LandscapeApplication.h"
 #include "MidpointDisplacementTerrain.h"
+#include "DiamondSquareTerrain.h"
 #include "HeightMapActor.h"
 
 using namespace helsing;
@@ -17,7 +18,7 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		Application(settings),
 		renderer(NULL),
 		flymode(false),
-		heightMapSize(17),
+		heightMapSize(9),
 		terrain(NULL){
 }
 
@@ -36,8 +37,9 @@ bool LandscapeApplication::handleEvent(const sf::Event& event){
 			window->setMouseCursorVisible(!flymode);
 			return true;
 		case sf::Mouse::Right:{
-			auto mdt = new MidpointDisplacementTerrain(rand());
-			setTerrain(mdt);
+			//auto mdt = new MidpointDisplacementTerrain(rand());
+			auto dst = new DiamondSquareTerrain(rand());
+			setTerrain(dst);
 		}
 			return true;
 		default:

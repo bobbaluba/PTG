@@ -36,7 +36,7 @@ public:
 private:
 	Renderer* renderer;
 	bool flymode;
-	uint32_t heightMapSize;
+	unsigned int heightMapSize;
 	Terrain* terrain;
 };
 

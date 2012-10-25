@@ -14,6 +14,8 @@ namespace ptg {
 
 /** @brief Terrain generated using the diamond square algorithm
  *
+ * Solves some of the artifacts that occur in midpoint displacement
+ *
  * Limitations
  * -----------
  * Size of the grid has to be 2^n+1
@@ -24,6 +26,13 @@ public:
 	explicit DiamondSquareTerrain(unsigned int seed=0);
 	virtual ~DiamondSquareTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing);
+	virtual float displacement(float distance) const;
+	virtual void setRoughness(float roughness){
+		this->roughness=roughness;
+	}
+	virtual float getRoughness() const {return roughness;}
+private:
+	float roughness;
 };
 
 } /* namespace ptg */
