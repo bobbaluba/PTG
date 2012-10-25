@@ -27,6 +27,9 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 	assert(helsing::isPowerOfTwo(gridPoints-1));
 	HeightMap heightMap(gridPoints);
 
+	//seed random generator
+	srand(getSeed());
+
 	for(int sideLength = gridPoints-1; sideLength>=2; sideLength/=2){
 		int half = sideLength/2;
 		//displace midpoints
