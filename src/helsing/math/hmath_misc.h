@@ -20,6 +20,10 @@ inline bool almostEqual(float a, float b, float epsilon){
 	return std::abs(a-b) < epsilon;
 }
 
+inline bool isPowerOfTwo(int x){
+	return ( (x > 0) && ((x & (x - 1)) == 0) );
+}
+
 inline float smoothStep(float t){
 	return t * t * (3 - 2 * t);
 }
