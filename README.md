@@ -3,17 +3,19 @@ PTG
 
 Procedural Terrain Generator
 
-A library and an application for generating two dimensional heightmaps.
+A library and an application for generating and viewing two dimensional heightmaps.
 It's intention is to provide modular and useful abstractions for terrain generation.
+
+This project is at a very early stage. Builds and interfaces will break all the time.
 
 Algorithms
 ----------
 
 The following algorithms are implemented:
-* Diamond Square (has a bug)
+* Midpoint Displacement
 
 The following are in development:
-* Midpoint Displacement
+* Diamond Square (has a bug)
 * Perlin Noise
 
 This project was initiated as an assignment for an algorithms course at UNSW
