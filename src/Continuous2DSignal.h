@@ -6,7 +6,7 @@
  *
  */
 
-#ifndef CONTINOUS2DSIGNAL_H_
+#ifndef CONTINUOUS2DSIGNAL_H_
 #define CONTINUOUS2DSIGNAL_H_
 
 #include "Seedable.h"

@@ -13,6 +13,8 @@
 #include "Renderer.h"
 #include "DiamondSquareTerrain.h"
 #include "MidpointDisplacementTerrain.h"
+#include "Continuous2DSignalTerrain.h"
+#include "PerlinNoise.h"
 
 #include <helsing/HeightMap.h>
 
@@ -48,6 +50,8 @@ private:
 	float roughness;
 	MidpointDisplacementTerrain midpointDisplacementTerrain;
 	DiamondSquareTerrain diamondSquareTerrain;
+	Continuous2DSignalTerrain continuous2DSignalTerrain;
+	PerlinNoise perlinNoise;
 };
 
 } /* namespace landscape */

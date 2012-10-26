@@ -21,6 +21,7 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		heightMapSize(9),
 		terrain(&diamondSquareTerrain),
 		roughness(0.6){
+	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
 
 void LandscapeApplication::onInit(){
@@ -70,6 +71,10 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::Num2:
 			std::cout << "Switching to midpoint displacement terrain\n";
 			setTerrain(&midpointDisplacementTerrain);
+			break;
+		case sf::Keyboard::Num3:
+			std::cout << "Switching to perlin nosie terrain\n";
+			setTerrain(&continuous2DSignalTerrain);
 			break;
 		default:
 			return false;
@@ -141,6 +146,7 @@ void LandscapeApplication::increaseRoughness() {
 	std::cout << "Increasing roughness to: " << roughness << std::endl;
 	midpointDisplacementTerrain.setRoughness(roughness);
 	diamondSquareTerrain.setRoughness(roughness);
+	continuous2DSignalTerrain.setRoughness(roughness);
 	updateHeightMap();
 }
 
@@ -149,6 +155,7 @@ void LandscapeApplication::decreaseRoughness() {
 	std::cout << "Decreasing roughness to: " << roughness << std::endl;
 	midpointDisplacementTerrain.setRoughness(roughness);
 	diamondSquareTerrain.setRoughness(roughness);
+	continuous2DSignalTerrain.setRoughness(roughness);
 	updateHeightMap();
 }
 

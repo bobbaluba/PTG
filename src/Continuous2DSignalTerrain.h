@@ -17,10 +17,13 @@ class Continuous2DSignalTerrain: public ptg::Terrain {
 public:
 	Continuous2DSignalTerrain(unsigned int seed=0);
 	virtual ~Continuous2DSignalTerrain();
-	virtual void setSignal(Continuous2DSignal* signal){this->signal=signal;}
+	virtual void setSignal(Continuous2DSignal* signal);
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing);
+	virtual void onReSeed(unsigned int seed);
+	virtual void setRoughness(float roughness){this->roughness=roughness;}
 private:
 	Continuous2DSignal* signal;
+	float roughness;
 };
 
 } /* namespace ptg */
