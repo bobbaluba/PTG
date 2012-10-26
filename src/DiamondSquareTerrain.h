@@ -16,9 +16,15 @@ namespace ptg {
  *
  * Solves some of the artifacts that occur in midpoint displacement
  *
- * Limitations
- * -----------
- * Size of the grid has to be 2^n+1
+ * Limitations and Artifacts
+ * -------------------------
+ * The size of the grid has to be 2^n+1
+ * The points inside an area depends on all the points along the edges,
+ * this makes inconvenient to calculate just a portion of the heightMap.
+ *
+ * In terms of artifacts, the algorithm is a little better than midpoint displacement.
+ * Mountain tops appear pinched, though. This might be fixed by using a different displacement
+ * function.
  *
  */
 class DiamondSquareTerrain: public ptg::Terrain {

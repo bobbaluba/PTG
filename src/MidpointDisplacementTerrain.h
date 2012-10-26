@@ -54,6 +54,13 @@ public:
 		return roughness;
 	}
 private:
+	/** recursively modifies the given heightmap by displacing midpoints
+	 * @param root root node of the quadTree we are filling out
+	 * @param heightMap The HeightMap to modify
+	 * @param gridPoints dimensions of the heightMap to fill out, has to be a power of two + 1
+	 * @param offsetX X offset on heightMap
+	 * @param offsetY Y offset on heightMap
+	 */
 	void displaceHeightMap(QuadTree root, helsing::HeightMap* heightMap, uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const;
 	///calculates a random displacement based on the size of the current grid
 	float displacement(float gridSize) const;

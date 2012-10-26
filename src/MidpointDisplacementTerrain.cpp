@@ -27,13 +27,6 @@ helsing::HeightMap MidpointDisplacementTerrain::generateHeightMap(unsigned int g
 	return heightMap;
 }
 
-/** recursively modifies the given heightmap by displacing midpoints
- * @param root root node of the quadTree we are filling out
- * @param heightMap The HeightMap to modify
- * @param gridPoints dimensions of the heightMap to fill out, has to be a power of two + 1
- * @param offsetX X offset on heightMap
- * @param offsetY Y offset on heightMap
- */
 void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 		helsing::HeightMap* heightMap, uint32_t gridPoints, uint32_t offsetX,
 		uint32_t offsetY) const {
