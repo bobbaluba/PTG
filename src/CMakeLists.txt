@@ -49,6 +49,7 @@ add_executable(${EXECUTABLE_NAME}
 	Terrain.cpp
 	MidpointDisplacementTerrain.cpp
 	DiamondSquareTerrain.cpp
+	Continuous2DSignalTerrain.cpp
 )
 add_executable("test_hmath"
 	test_helsing/test_hmath.cpp
