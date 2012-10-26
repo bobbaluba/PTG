@@ -16,6 +16,12 @@ namespace ptg {
  *
  * Solves some of the artifacts that occur in midpoint displacement
  *
+ * Complexity
+ * ----------
+ * Since this is just a minor modification of midpoint displacement, the complexity is the same
+ *
+ *     THETA(WIDTH^2)
+ *
  * Limitations and Artifacts
  * -------------------------
  * The size of the grid has to be 2^n+1

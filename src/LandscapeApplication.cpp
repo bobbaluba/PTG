@@ -39,7 +39,9 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 			window->setMouseCursorVisible(!flymode);
 			return true;
 		case sf::Mouse::Right: {
-			terrain->seed(rand());
+			unsigned int seed = rand();
+			std::cout << "Reseeding terrain with seed: " << seed << std::endl;
+			terrain->seed(seed);
 			updateHeightMap();
 		}
 			return true;
@@ -136,6 +138,7 @@ void LandscapeApplication::setHeightMapSize(unsigned int size) {
 
 void LandscapeApplication::increaseRoughness() {
 	roughness *= 1.1;
+	std::cout << "Increasing roughness to: " << roughness << std::endl;
 	midpointDisplacementTerrain.setRoughness(roughness);
 	diamondSquareTerrain.setRoughness(roughness);
 	updateHeightMap();
@@ -143,6 +146,7 @@ void LandscapeApplication::increaseRoughness() {
 
 void LandscapeApplication::decreaseRoughness() {
 	roughness /= 1.1;
+	std::cout << "Decreasing roughness to: " << roughness << std::endl;
 	midpointDisplacementTerrain.setRoughness(roughness);
 	diamondSquareTerrain.setRoughness(roughness);
 	updateHeightMap();
@@ -152,8 +156,12 @@ void LandscapeApplication::updateHeightMap() {
 	if(terrain==NULL){
 		return;
 	}
+
+	std::cout << "Generating " << heightMapSize << "x" << heightMapSize << "heightMap..."; std::flush(std::cout);
 	HeightMap* heightMap = new HeightMap(heightMapSize);
 	*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
+	std::cout << "OK!\n";
+
 	if(renderer!=NULL){
 		renderer->setHeightMap(heightMap);
 	}

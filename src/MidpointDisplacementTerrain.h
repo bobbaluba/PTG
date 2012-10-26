@@ -31,7 +31,7 @@ namespace ptg {
  * ----------
  * All gridpoints are visited exactly once, each point use constant time, making the complexity
  *
- *     O(WIDTH^2)
+ *     THETA(WIDTH^2)
  *
  * Limitations and Artifacts
  * -------------------------
