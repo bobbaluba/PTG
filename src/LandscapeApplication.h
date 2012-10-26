@@ -11,7 +11,8 @@
 #include "helsing/Application.h"
 #include "SceneApplication.h"
 #include "Renderer.h"
-#include "Terrain.h"
+#include "DiamondSquareTerrain.h"
+#include "MidpointDisplacementTerrain.h"
 
 #include <helsing/HeightMap.h>
 
@@ -30,18 +31,23 @@ public:
 	}
 	virtual bool handleEvent(const sf::Event&);
 	/** Set the current terrain the application is displaying
-	 * Takes ownership of the supplied terrain, responsible for deleting it
+	 * Does not take ownership of the terrain
 	 */
 	virtual void setTerrain(Terrain* terrain);
 	virtual void setHeightMapSize(unsigned int size);
 private:
 	virtual void increaseDetail();
 	virtual void decreaseDetail();
+	virtual void increaseRoughness();
+	virtual void decreaseRoughness();
 	virtual void updateHeightMap();
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;
 	Terrain* terrain;
+	float roughness;
+	MidpointDisplacementTerrain midpointDisplacementTerrain;
+	DiamondSquareTerrain diamondSquareTerrain;
 };
 
 } /* namespace landscape */

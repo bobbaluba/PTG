@@ -19,13 +19,15 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		renderer(NULL),
 		flymode(false),
 		heightMapSize(9),
-		terrain(NULL){
+		terrain(&diamondSquareTerrain),
+		roughness(0.6){
 }
 
 void LandscapeApplication::onInit(){
 	renderer = new Renderer(window->getSize().x, window->getSize().y);
 	renderer->getCamera().setPosition(Vec4(30,5,30));
 	renderer->getCamera().lookAt(Vec4::origin());
+	updateHeightMap();
 }
 
 bool LandscapeApplication::handleEvent(const sf::Event& event) {
@@ -37,9 +39,8 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 			window->setMouseCursorVisible(!flymode);
 			return true;
 		case sf::Mouse::Right: {
-			//auto mdt = new MidpointDisplacementTerrain(rand());
-			auto dst = new DiamondSquareTerrain(rand());
-			setTerrain(dst);
+			terrain->seed(rand());
+			updateHeightMap();
 		}
 			return true;
 		default:
@@ -54,6 +55,20 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::O:
 			decreaseDetail();
 			return true;
+		case sf::Keyboard::L:
+			increaseRoughness();
+			break;
+		case sf::Keyboard::K:
+			decreaseRoughness();
+			break;
+		case sf::Keyboard::Num1:
+			std::cout << "Switching to diamond square terrain\n";
+			setTerrain(&diamondSquareTerrain);
+			break;
+		case sf::Keyboard::Num2:
+			std::cout << "Switching to midpoint displacement terrain\n";
+			setTerrain(&midpointDisplacementTerrain);
+			break;
 		default:
 			return false;
 		}
@@ -99,11 +114,6 @@ void LandscapeApplication::onRender(){
 }
 
 void LandscapeApplication::setTerrain(Terrain* terrain) {
-	if (this->terrain == terrain) {
-		return;
-	} else if (this->terrain != NULL) {
-		delete this->terrain;
-	}
 	this->terrain = terrain;
 	updateHeightMap();
 }
@@ -124,14 +134,29 @@ void LandscapeApplication::setHeightMapSize(unsigned int size) {
 	updateHeightMap();
 }
 
+void LandscapeApplication::increaseRoughness() {
+	roughness *= 1.1;
+	midpointDisplacementTerrain.setRoughness(roughness);
+	diamondSquareTerrain.setRoughness(roughness);
+	updateHeightMap();
+}
+
+void LandscapeApplication::decreaseRoughness() {
+	roughness /= 1.1;
+	midpointDisplacementTerrain.setRoughness(roughness);
+	diamondSquareTerrain.setRoughness(roughness);
+	updateHeightMap();
+}
+
 void LandscapeApplication::updateHeightMap() {
 	if(terrain==NULL){
 		return;
 	}
-
 	HeightMap* heightMap = new HeightMap(heightMapSize);
 	*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
-	renderer->setHeightMap(heightMap);
+	if(renderer!=NULL){
+		renderer->setHeightMap(heightMap);
+	}
 }
 
 } //namespace ptg
