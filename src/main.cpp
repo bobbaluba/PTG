@@ -17,12 +17,14 @@ using namespace std;
 int main(int argc, char* argv[] ){
 	cout << "PTG Version " << VERSION_MAJOR << "." << VERSION_MINOR << "\n\n";
 
+	bool fullscreen;
 	unsigned int heightMapSize=65;
 	for(int i=1; i<argc; ++i){
 		string argument(argv[i]);
 		if(argument=="-h" || argument=="--help"){
 			cout << "Command line Arguments:\n";
 			cout << "\t-d <number>, --dimensions <number>:\tSet the width of the HeightMap\n";
+			cout << "\t-f, --fullscreen\t\t\tRun in fullscreen mode\n";
 			cout << "\t-h, --help\t\t\t\tDisplay this help screen\n";
 			cout << endl;
 			return EXIT_SUCCESS;
@@ -37,10 +39,15 @@ int main(int argc, char* argv[] ){
 				}
 				cout << "Setting heightmap dimensions to: " << heightMapSize << endl;
 			}
+		} else if (argument=="-f" || argument=="--fullscreen"){
+			cout << "Launching in fullscreen mode.\n";
+			fullscreen=true;
 		}
 	}
-
-	LandscapeApplication app;
+	Application::ApplicationSettings settings;
+	settings.windowTitle="PTG - Terrain Viewer";
+	settings.fullscreen=fullscreen;
+	LandscapeApplication app(settings);
 	app.setHeightMapSize(heightMapSize);
 	app.start();
 	cout << "\nClosing...\n\n";

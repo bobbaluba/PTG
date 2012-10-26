@@ -16,9 +16,10 @@ class Application {
 public:
 	class ApplicationSettings {
 	public:
-		ApplicationSettings():width(800),height(600), windowTitle("My Application"){}
+		ApplicationSettings():width(800),height(600), windowTitle("My Application"), fullscreen(false){}
 		uint32_t width, height;
 		std::string windowTitle;
+		bool fullscreen;
 	};
 	Application(const ApplicationSettings& = ApplicationSettings());
 	virtual ~Application();

@@ -25,12 +25,17 @@ Application::~Application() {
 }
 
 void Application::start(){
-	auto videoMode = sf::VideoMode(settings.width, settings.height);
 	sf::ContextSettings contextSettings;
 	contextSettings.majorVersion = 2;
 	contextSettings.minorVersion = 1;
-	window = new sf::RenderWindow(videoMode, settings.windowTitle, sf::Style::Default, contextSettings);
 
+	if(settings.fullscreen){
+		auto videoMode = sf::VideoMode::getDesktopMode();
+		window = new sf::RenderWindow(videoMode, settings.windowTitle, sf::Style::Fullscreen, contextSettings);
+	} else {
+		auto videoMode = sf::VideoMode(settings.width, settings.height);
+		window = new sf::RenderWindow(videoMode, settings.windowTitle, sf::Style::Default, contextSettings);
+	}
 	if (GLEW_OK != glewInit())
 	{
 	    // GLEW failed!
