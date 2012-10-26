@@ -107,7 +107,7 @@ void Renderer::drawHeightMap(const HeightMap& heightMap) {
 	glEnable(GL_LIGHTING);
 	glEnable(GL_NORMALIZE);
 	glPushMatrix();
-	glScalef(65/size,65/size,65/size);
+	glScalef(65/(size-1),65/(size-1),65/(size-1));
 	glTranslatef(-midpoint, 0, -midpoint);
 	//	glScalef(1.f/(size-1), 1, 1.f/(size-1));
 	for (uint32_t i = 0; i < size - 1; i++) {
