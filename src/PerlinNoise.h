@@ -48,6 +48,7 @@ public:
 	PerlinNoise(unsigned int seed = 0);
 	virtual ~PerlinNoise();
 	virtual float get(float x, float y);
+	virtual void onReSeed(unsigned int seed);
 private:
 	/**
 	 * hash function
@@ -56,7 +57,7 @@ private:
 	 */
 	unsigned int hash(int x, int y);
 	float gridPointContribution(int x, int y, const helsing::Vec2& position);
-
+	void init(); //helper function, the same stuff should happen on instantiation and reseeding
 
 	static const unsigned int SAMPLES = 256;
 	std::array<unsigned int, SAMPLES> permutations; //holds indexes from 0 to SAMPLES in random order
