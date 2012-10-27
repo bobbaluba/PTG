@@ -20,10 +20,10 @@ public:
 	virtual void setSignal(Continuous2DSignal* signal);
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing);
 	virtual void onReSeed(unsigned int seed);
-	virtual void setRoughness(float roughness){this->roughness=roughness;}
+	virtual void setAmplitude(float amplitude){this->amplitude=amplitude;}
 private:
 	Continuous2DSignal* signal;
-	float roughness;
+	float amplitude;
 };
 
 } /* namespace ptg */

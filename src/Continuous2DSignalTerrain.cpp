@@ -14,7 +14,7 @@ namespace ptg {
 Continuous2DSignalTerrain::Continuous2DSignalTerrain(unsigned int seed):
 	Terrain(seed),
 	signal(NULL),
-	roughness(0.6){
+	amplitude(0.6){
 }
 
 Continuous2DSignalTerrain::~Continuous2DSignalTerrain() {
@@ -35,7 +35,7 @@ helsing::HeightMap Continuous2DSignalTerrain::generateHeightMap(
 
 	for(unsigned int i=0; i<gridPoints; ++i){
 		for(unsigned int j=0; j<gridPoints; ++j){
-			heightMap.setHeight(i,j, signal->get(i/gridSpacing, j/gridSpacing)*gridSpacing*roughness); //TODO GRIDSPACING?
+			heightMap.setHeight(i,j, signal->get(i/gridSpacing, j/gridSpacing)*gridSpacing*amplitude); //TODO GRIDSPACING?
 		}
 	}
 	return heightMap;

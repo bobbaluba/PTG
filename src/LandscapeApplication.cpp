@@ -20,7 +20,7 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		flymode(false),
 		heightMapSize(9),
 		terrain(&diamondSquareTerrain),
-		roughness(0.6){
+		amplitude(0.6){
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
 
@@ -59,10 +59,10 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 			decreaseDetail();
 			return true;
 		case sf::Keyboard::L:
-			increaseRoughness();
+			increaseAmplitude();
 			break;
 		case sf::Keyboard::K:
-			decreaseRoughness();
+			decreaseAmplitude();
 			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to diamond square terrain\n";
@@ -141,21 +141,21 @@ void LandscapeApplication::setHeightMapSize(unsigned int size) {
 	updateHeightMap();
 }
 
-void LandscapeApplication::increaseRoughness() {
-	roughness *= 1.1;
-	std::cout << "Increasing roughness to: " << roughness << std::endl;
-	midpointDisplacementTerrain.setRoughness(roughness);
-	diamondSquareTerrain.setRoughness(roughness);
-	continuous2DSignalTerrain.setRoughness(roughness);
+void LandscapeApplication::increaseAmplitude() {
+	amplitude *= 1.1;
+	std::cout << "Increasing amplitude to: " << amplitude << std::endl;
+	midpointDisplacementTerrain.setAmplitude(amplitude);
+	diamondSquareTerrain.setAmplitude(amplitude);
+	continuous2DSignalTerrain.setAmplitude(amplitude);
 	updateHeightMap();
 }
 
-void LandscapeApplication::decreaseRoughness() {
-	roughness /= 1.1;
-	std::cout << "Decreasing roughness to: " << roughness << std::endl;
-	midpointDisplacementTerrain.setRoughness(roughness);
-	diamondSquareTerrain.setRoughness(roughness);
-	continuous2DSignalTerrain.setRoughness(roughness);
+void LandscapeApplication::decreaseAmplitude() {
+	amplitude /= 1.1;
+	std::cout << "Decreasing amplitude to: " << amplitude << std::endl;
+	midpointDisplacementTerrain.setAmplitude(amplitude);
+	diamondSquareTerrain.setAmplitude(amplitude);
+	continuous2DSignalTerrain.setAmplitude(amplitude);
 	updateHeightMap();
 }
 

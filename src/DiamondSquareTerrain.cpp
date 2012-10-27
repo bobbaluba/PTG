@@ -13,9 +13,10 @@ using helsing::HeightMap;
 
 namespace ptg {
 
-DiamondSquareTerrain::DiamondSquareTerrain(unsigned int seed) :
+DiamondSquareTerrain::DiamondSquareTerrain(float gain, unsigned int seed) :
 		Terrain(seed),
-		roughness(0.6){
+		amplitude(0.6),
+		gain(gain){
 }
 
 DiamondSquareTerrain::~DiamondSquareTerrain() {
@@ -29,7 +30,7 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 
 	//seed random generator
 	srand(getSeed());
-
+	float octaveAmplitude=amplitude*gridSpacing;
 	for(int sideLength = gridPoints-1; sideLength>=2; sideLength/=2){
 		int half = sideLength/2;
 		//displace midpoints
@@ -42,7 +43,7 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 				float tl = heightMap.getHeight( i      * sideLength, (j + 1) * sideLength); //top left
 				float tr = heightMap.getHeight((i + 1) * sideLength, (j + 1) * sideLength); //top right
 				float average = (bl + br + tl + tr) / 4;
-				heightMap.setHeight(i*sideLength+half, j*sideLength+half, average+displacement(half*sqrt(2)));
+				heightMap.setHeight(i*sideLength+half, j*sideLength+half, average+whiteNoise()*sqrt(2)*octaveAmplitude);
 
 //				heightMap.setHeight(i*sideLength+half, j*sideLength,      (bl+br)/2); //bottom
 //				heightMap.setHeight(i*sideLength+half, (j+1)*sideLength,  (tl+tr)/2); //top
@@ -86,18 +87,18 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 				}
 				average /= neighbours;
 
-				heightMap.setHeight(i*half, j*half, average+displacement(half));
+				heightMap.setHeight(i*half, j*half, average+whiteNoise()*octaveAmplitude);
 
 			}
 		}
-
+		octaveAmplitude*=gain;
 	}
 
 	return heightMap;
 }
 
-float DiamondSquareTerrain::displacement(float distance) const{
-	return (rand()/float(RAND_MAX)-0.5)*distance*roughness;
+float DiamondSquareTerrain::whiteNoise() const{
+	return (rand()/float(RAND_MAX)-0.5);
 }
 
 } /* namespace ptg */

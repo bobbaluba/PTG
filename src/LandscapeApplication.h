@@ -40,14 +40,14 @@ public:
 private:
 	virtual void increaseDetail();
 	virtual void decreaseDetail();
-	virtual void increaseRoughness();
-	virtual void decreaseRoughness();
+	virtual void increaseAmplitude();
+	virtual void decreaseAmplitude();
 	virtual void updateHeightMap();
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;
 	Terrain* terrain;
-	float roughness;
+	float amplitude;
 	MidpointDisplacementTerrain midpointDisplacementTerrain;
 	DiamondSquareTerrain diamondSquareTerrain;
 	Continuous2DSignalTerrain continuous2DSignalTerrain;

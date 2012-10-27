@@ -35,16 +35,21 @@ namespace ptg {
  */
 class DiamondSquareTerrain: public ptg::Terrain {
 public:
-	explicit DiamondSquareTerrain(unsigned int seed=0);
+	/**
+	 * @param gain, how fast the amplitude decreases each octave, low (<0.5) will create smooth terrains
+	 */
+	explicit DiamondSquareTerrain(float gain=0.5, unsigned int seed=0);
 	virtual ~DiamondSquareTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing);
-	virtual float displacement(float distance) const;
-	virtual void setRoughness(float roughness){
-		this->roughness=roughness;
+	///The amplitude is basically just the scaling factor
+	virtual void setAmplitude(float amplitude){
+		this->amplitude=amplitude;
 	}
-	virtual float getRoughness() const {return roughness;}
+	virtual float getAmplitude() const {return amplitude;}
 private:
-	float roughness;
+	float whiteNoise() const;
+	float amplitude;
+	float gain;
 };
 
 } /* namespace ptg */
