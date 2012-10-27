@@ -30,5 +30,9 @@ float FractionalBrownianMotion::get(float x, float y) {
 	return fbmSum;
 }
 
+void ptg::FractionalBrownianMotion::onReSeed(unsigned int seed) {
+	baseNoise.seed(seed);
+}
+
 }//namespace ptg
 

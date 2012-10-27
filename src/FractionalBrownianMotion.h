@@ -19,6 +19,7 @@ public:
 	FractionalBrownianMotion(unsigned int seed=0);
 	virtual ~FractionalBrownianMotion();
 	virtual float get(float x, float y);
+	virtual void onReSeed(unsigned int seed);
 private:
 	PerlinNoise baseNoise;
 };
