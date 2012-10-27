@@ -20,6 +20,7 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		flymode(false),
 		heightMapSize(9),
 		terrain(&diamondSquareTerrain),
+		gain(0.5),
 		amplitude(0.6){
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
@@ -63,6 +64,12 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 			break;
 		case sf::Keyboard::K:
 			decreaseAmplitude();
+			break;
+		case sf::Keyboard::M:
+			increaseGain();
+			break;
+		case sf::Keyboard::N:
+			decreaseGain();
 			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to diamond square terrain\n";
@@ -156,6 +163,20 @@ void LandscapeApplication::decreaseAmplitude() {
 	midpointDisplacementTerrain.setAmplitude(amplitude);
 	diamondSquareTerrain.setAmplitude(amplitude);
 	continuous2DSignalTerrain.setAmplitude(amplitude);
+	updateHeightMap();
+}
+
+void LandscapeApplication::increaseGain() {
+	gain*=1.05;
+	std::cout << "Increasing gain to: " << gain << std::endl;
+	diamondSquareTerrain.setGain(gain);
+	updateHeightMap();
+}
+
+void LandscapeApplication::decreaseGain() {
+	gain/=1.05;
+	std::cout << "Decreasing gain to: " << gain << std::endl;
+	diamondSquareTerrain.setGain(gain);
 	updateHeightMap();
 }
 

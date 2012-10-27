@@ -46,6 +46,7 @@ public:
 		this->amplitude=amplitude;
 	}
 	virtual float getAmplitude() const {return amplitude;}
+	virtual void setGain(float gain){this->gain=gain;}
 private:
 	float whiteNoise() const;
 	float amplitude;
