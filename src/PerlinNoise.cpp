@@ -69,7 +69,7 @@ unsigned int PerlinNoise::hash(int x, int y) {
 	//he exploited byte overflow as an automatic modulus function. This requires samples=256
 	//another trick is to use a bit mask, although this has a less strict requirement, it still
 	//requires samples to be a power of two. I used modulo here for modifiability and readability purposes
-	return permutations[y+permutations[x%SAMPLES]%SAMPLES];
+	return permutations[(y+permutations[x%SAMPLES])%SAMPLES];
 }
 
 float PerlinNoise::gridPointContribution(int x, int y, const helsing::Vec2& position) {

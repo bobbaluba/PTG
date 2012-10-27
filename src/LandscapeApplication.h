@@ -15,6 +15,7 @@
 #include "MidpointDisplacementTerrain.h"
 #include "Continuous2DSignalTerrain.h"
 #include "PerlinNoise.h"
+#include "FractionalBrownianMotion.h"
 
 #include <helsing/HeightMap.h>
 
@@ -55,6 +56,7 @@ private:
 	DiamondSquareTerrain diamondSquareTerrain;
 	Continuous2DSignalTerrain continuous2DSignalTerrain;
 	PerlinNoise perlinNoise;
+	FractionalBrownianMotion fractionalBrownianMotion;
 };
 
 } /* namespace landscape */

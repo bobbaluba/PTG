@@ -80,7 +80,13 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 			setTerrain(&midpointDisplacementTerrain);
 			break;
 		case sf::Keyboard::Num3:
-			std::cout << "Switching to perlin nosie terrain\n";
+			std::cout << "Switching to perlin noise terrain\n";
+			continuous2DSignalTerrain.setSignal(&perlinNoise);
+			setTerrain(&continuous2DSignalTerrain);
+			break;
+		case sf::Keyboard::Num4:
+			std::cout << "Switching to fractional brownian noise terrain\n";
+			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
 			setTerrain(&continuous2DSignalTerrain);
 			break;
 		default:
