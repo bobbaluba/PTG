@@ -50,6 +50,7 @@ add_executable(${EXECUTABLE_NAME}
 	MidpointDisplacementTerrain.cpp
 	DiamondSquareTerrain.cpp
 	Continuous2DSignalTerrain.cpp
+	FractionalBrownianMotion.cpp
 )
 add_executable("test_hmath"
 	test_helsing/test_hmath.cpp
