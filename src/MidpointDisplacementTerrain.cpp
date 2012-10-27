@@ -12,9 +12,10 @@
 
 namespace ptg {
 
-MidpointDisplacementTerrain::MidpointDisplacementTerrain(unsigned int seed) :
+MidpointDisplacementTerrain::MidpointDisplacementTerrain(float gain, unsigned int seed) :
 		Terrain(seed),
-		amplitude(0.6){
+		amplitude(0.6),
+		gain(gain){
 }
 
 MidpointDisplacementTerrain::~MidpointDisplacementTerrain() {
@@ -23,13 +24,13 @@ MidpointDisplacementTerrain::~MidpointDisplacementTerrain() {
 
 helsing::HeightMap MidpointDisplacementTerrain::generateHeightMap(unsigned int gridPoints, float resolution) {
 	helsing::HeightMap heightMap(gridPoints);
-	displaceHeightMap(QuadTree(getSeed()), &heightMap, gridPoints, 0,0);
+	displaceHeightMap(QuadTree(getSeed()), &heightMap, gridPoints, 0,0,amplitude*gridPoints);
 	return heightMap;
 }
 
 void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 		helsing::HeightMap* heightMap, uint32_t gridPoints, uint32_t offsetX,
-		uint32_t offsetY) const {
+		uint32_t offsetY, float octaveAmplitude) const {
 	uint32_t half = gridPoints/2;
 	float bl = heightMap->getHeight(offsetX, offsetY);
 	float br = heightMap->getHeight(offsetX+gridPoints-1, offsetY);
@@ -48,20 +49,21 @@ void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
 
 	//displace the midpoint
 	srand(root.getSeed());
-	float newHeight = average + displacement(static_cast<float>(gridPoints));
+	float newHeight = average + displacement(octaveAmplitude);
 	heightMap->setHeight(offsetX+half,offsetY+half, newHeight);
 
 	//make recursive calls if appropriate
 	if(gridPoints>3){
-		displaceHeightMap(root.getSubTree(QuadTree::bottomLeft), heightMap, half+1, offsetX, offsetY);
-		displaceHeightMap(root.getSubTree(QuadTree::bottomRight), heightMap, half+1, offsetX+half, offsetY);
-		displaceHeightMap(root.getSubTree(QuadTree::topLeft), heightMap, half+1, offsetX, offsetY+half);
-		displaceHeightMap(root.getSubTree(QuadTree::topRight), heightMap, half+1, offsetX+half, offsetY+half);
+		const float nextAmplitude = octaveAmplitude*gain;
+		displaceHeightMap(root.getSubTree(QuadTree::bottomLeft), heightMap, half+1, offsetX, offsetY, nextAmplitude);
+		displaceHeightMap(root.getSubTree(QuadTree::bottomRight), heightMap, half+1, offsetX+half, offsetY, nextAmplitude);
+		displaceHeightMap(root.getSubTree(QuadTree::topLeft), heightMap, half+1, offsetX, offsetY+half, nextAmplitude);
+		displaceHeightMap(root.getSubTree(QuadTree::topRight), heightMap, half+1, offsetX+half, offsetY+half, nextAmplitude);
 	}
 }
 
-float MidpointDisplacementTerrain::displacement(float distance) const{
-	return (rand()/float(RAND_MAX)-0.5)*distance*amplitude; //*resolution/flatness;
+float MidpointDisplacementTerrain::displacement(float octaveAmplitude) const{
+	return (rand()/float(RAND_MAX)-0.5)*octaveAmplitude; //*resolution/flatness;
 }
 
 } /* namespace ptg */

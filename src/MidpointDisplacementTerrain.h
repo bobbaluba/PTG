@@ -44,7 +44,7 @@ namespace ptg {
  */
 class MidpointDisplacementTerrain: public Terrain {
 public:
-	MidpointDisplacementTerrain(unsigned int seed = 0);
+	MidpointDisplacementTerrain(float gain=0.5, unsigned int seed = 0);
 	virtual ~MidpointDisplacementTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float resolution);
 	virtual void setAmplitude(float amplitude){
@@ -53,6 +53,7 @@ public:
 	virtual float getAmplitude() const{
 		return amplitude;
 	}
+	virtual void setGain(float gain){this->gain=gain;}
 private:
 	/** recursively modifies the given heightmap by displacing midpoints
 	 * @param root root node of the quadTree we are filling out
@@ -61,11 +62,13 @@ private:
 	 * @param offsetX X offset on heightMap
 	 * @param offsetY Y offset on heightMap
 	 */
-	void displaceHeightMap(QuadTree root, helsing::HeightMap* heightMap, uint32_t resolution, uint32_t offsetX, uint32_t offsetY) const;
+	void displaceHeightMap(QuadTree root, helsing::HeightMap* heightMap,
+				uint32_t resolution, uint32_t offsetX, uint32_t offsetY,
+				float octaveAmplitude) const;
 	///calculates a random displacement based on the size of the current grid
 	float displacement(float gridSize) const;
-
 	float amplitude;
+	float gain;
 };
 
 } /* namespace ptg */

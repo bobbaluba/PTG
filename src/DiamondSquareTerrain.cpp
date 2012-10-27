@@ -43,7 +43,7 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 				float tl = heightMap.getHeight( i      * sideLength, (j + 1) * sideLength); //top left
 				float tr = heightMap.getHeight((i + 1) * sideLength, (j + 1) * sideLength); //top right
 				float average = (bl + br + tl + tr) / 4;
-				heightMap.setHeight(i*sideLength+half, j*sideLength+half, average+whiteNoise()*sqrt(2)*octaveAmplitude);
+				heightMap.setHeight(i*sideLength+half, j*sideLength+half, average+whiteNoise()*octaveAmplitude*sqrt(2));
 
 //				heightMap.setHeight(i*sideLength+half, j*sideLength,      (bl+br)/2); //bottom
 //				heightMap.setHeight(i*sideLength+half, (j+1)*sideLength,  (tl+tr)/2); //top
