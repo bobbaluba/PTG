@@ -1,8 +1,8 @@
-/*
+/**
  * DiamondSquareTerrain.hpp
  *
- *  Created on: 25. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 25. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #ifndef DIAMONDSQUARETERRAIN_H_
@@ -41,7 +41,7 @@ public:
 	explicit DiamondSquareTerrain(float gain=0.5, unsigned int seed=0);
 	virtual ~DiamondSquareTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing);
-	///The amplitude is basically just the scaling factor
+	///@brief Set the amplitude. The amplitude is basically just the scaling factor
 	virtual void setAmplitude(float amplitude){
 		this->amplitude=amplitude;
 	}
