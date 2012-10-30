@@ -1,5 +1,4 @@
 #include "Renderer.h"
-#include "QuadTree.h"
 #include "Water.h"
 
 #include <SFML/OpenGL.hpp>

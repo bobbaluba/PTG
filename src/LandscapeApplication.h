@@ -2,7 +2,7 @@
  * LandscapeApplication.h
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef LANDSCAPEAPPLICATION_H_
@@ -11,11 +11,12 @@
 #include "helsing/Application.h"
 #include "SceneApplication.h"
 #include "Renderer.h"
-#include "DiamondSquareTerrain.h"
-#include "MidpointDisplacementTerrain.h"
-#include "Continuous2DSignalTerrain.h"
-#include "PerlinNoise.h"
-#include "FractionalBrownianMotion.h"
+
+#include "ptg/DiamondSquareTerrain.h"
+#include "ptg/MidpointDisplacementTerrain.h"
+#include "ptg/Continuous2DSignalTerrain.h"
+#include "ptg/PerlinNoise.h"
+#include "ptg/FractionalBrownianMotion.h"
 
 #include <helsing/HeightMap.h>
 

@@ -6,9 +6,10 @@
  */
 
 #include "LandscapeApplication.h"
-#include "MidpointDisplacementTerrain.h"
-#include "DiamondSquareTerrain.h"
 #include "HeightMapActor.h"
+
+#include "ptg/MidpointDisplacementTerrain.h"
+#include "ptg/DiamondSquareTerrain.h"
 
 using namespace helsing;
 

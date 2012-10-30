@@ -30,7 +30,6 @@ add_executable(${EXECUTABLE_NAME}
 	main.cpp
 	LandscapeApplication.cpp
 	Renderer.cpp
-	QuadTree.cpp
 	helsing/HeightMap.cpp
 	helsing/MatrixStack.cpp
 	helsing/TextFile.cpp
@@ -43,14 +42,15 @@ add_executable(${EXECUTABLE_NAME}
 	Scene.cpp
 	BasicScene.cpp
 	SceneApplication.cpp
-	Seedable.cpp
-	Continuous2DSignal.cpp
-	PerlinNoise.cpp
-	Terrain.cpp
-	MidpointDisplacementTerrain.cpp
-	DiamondSquareTerrain.cpp
-	Continuous2DSignalTerrain.cpp
-	FractionalBrownianMotion.cpp
+	ptg/QuadTree.cpp
+	ptg/Seedable.cpp
+	ptg/Continuous2DSignal.cpp
+	ptg/PerlinNoise.cpp
+	ptg/Terrain.cpp
+	ptg/MidpointDisplacementTerrain.cpp
+	ptg/DiamondSquareTerrain.cpp
+	ptg/Continuous2DSignalTerrain.cpp
+	ptg/FractionalBrownianMotion.cpp
 )
 add_executable("test_hmath"
 	test_helsing/test_hmath.cpp
