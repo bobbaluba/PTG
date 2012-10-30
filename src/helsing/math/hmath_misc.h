@@ -28,6 +28,12 @@ inline float smoothStep(float t){
 	return t * t * (3 - 2 * t);
 }
 
+/// As suggested by Ken Perlin
+inline float smootherStep(float t){
+	//6T^5-15T^4+10T^3
+	return t*t*t*(t*(t*6-15) + 10);
+}
+
 class Angle {
 public:
 	static Angle degrees(float deg){
