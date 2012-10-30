@@ -36,6 +36,7 @@ add_subdirectory("${PROJECT_SOURCE_DIR}/src/ptg")
 
 #output the binary to the root of the build directory
 add_subdirectory("${PROJECT_SOURCE_DIR}/src/ptgview" "ptgview") 
+add_subdirectory("${PROJECT_SOURCE_DIR}/src/test_helsing" "test_helsing") 
 
 #what's this? ghost code... ?
 #CPack packaging
