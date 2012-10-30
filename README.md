@@ -13,7 +13,9 @@ The project was initiated as an assignment for an algorithms course at UNSW
 Algorithms
 ----------
 
-The following algorithms are implemented:
+The following (major) algorithms are implemented:
+
+Terrain algorithms:
 * Midpoint Displacement
 * Diamond Square
 * Fractional Brownian Motion
@@ -23,6 +25,7 @@ Noise functions:
 
 Additional algorithms in development:
 * Value noise
+* Erosion filter
 
 Building
 --------
@@ -42,6 +45,36 @@ To build project on *nix, run the following:
     cd build
     cmake ..
     make
+
+Using the viewer
+----------------
+
+A viewer, ptgview, is provided for viewing generated terrains.
+
+The viewer accepts the following command line options:
+
+-h, --help
+    View help and available command line arguments.
+
+-f, --fullscreen
+    Run the application in fullscreen using the current resolution of the desktop.
+
+===Navigating the viewer===
+
+* A/D: Move left/right
+* W/S: Move forward/backward
+* Left Mouse button: Toggle viewing mode (flying or centered)
+* Right Mouse button: Reseed the terrains
+* R/F: Move up/down
+* O/P: Adjust terrain detail
+* K/L: Adjust amplitude of terrain (just a scaling factor)
+* N/M: Adjust gain. For fractal algorithms, this is the factor the amplitude is multiplied with each iteration.
+* 1-4: Algorithm seletion
+    * 1: Diamond-Square
+    * 2: Midpoint Displacement
+    * 3: Pure perlin noise
+    * 4: Fractional Brownian motion using perlin noise as input signal
+
 
 License
 -------
