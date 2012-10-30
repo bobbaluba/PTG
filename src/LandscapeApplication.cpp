@@ -105,7 +105,7 @@ void LandscapeApplication::onRender(){
 	Camera& camera = renderer->getCamera();
 
 	//camera movement
-	const float speed = 0.5f;
+	const float speed = 0.5f; //todo scale with time
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
 		camera.forward(speed);
 	}
@@ -118,9 +118,15 @@ void LandscapeApplication::onRender(){
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
 		camera.right(speed);
 	}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
+		camera.up(speed);
+	}
+	if(sf::Keyboard::isKeyPressed(sf::Keyboard::F)){
+		camera.up(-speed);
+	}
 
 	//Water levels
-	const float waterSpeed=0.1f;
+	const float waterSpeed=0.1f; //todo scale with time
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
 		raiseWater(waterSpeed);
 	}
