@@ -1,13 +1,13 @@
-/*
+/**
  * Continous2DSignal.hpp
  *
- *  Created on: 22. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 22. okt. 2012
+ * @author Johan Klokkhammer Helsing
  *
  */
 
-#ifndef CONTINUOUS2DSIGNAL_H_
-#define CONTINUOUS2DSIGNAL_H_
+#ifndef CONTINUOUS2DSIGNAL_HPP
+#define CONTINUOUS2DSIGNAL_HPP
 
 #include <ptg/Seedable.hpp>
 
@@ -22,9 +22,12 @@ class Continuous2DSignal: public Seedable {
 public:
 	explicit Continuous2DSignal(unsigned int seed = 0);
 	virtual ~Continuous2DSignal();
-	/// @return signal value at the given point
+
+	/** Compute the signal value at the given point
+	 * @return signal value
+	 */
 	virtual float get(float x, float y) = 0;
 };
 
-}// namespace ptg
-#endif /* CONTINOUS2DSIGNAL_H_ */
+} //namespace ptg
+#endif //CONTINOUS2DSIGNAL_HPP
