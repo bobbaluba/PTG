@@ -1,8 +1,8 @@
 /*
- * Drawable.h
+ * Drawable.hpp
  *
  *  Created on: 15. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 #ifndef DRAWABLE_H_
 #define DRAWABLE_H_

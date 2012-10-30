@@ -1,14 +1,14 @@
 /*
- * Water.h
+ * Water.hpp
  *
  *  Created on: 15. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef WATER_H_
 #define WATER_H_
 
-#include <helsing/Drawable.h>
+#include <helsing/Drawable.hpp>
 
 class Water: public helsing::Drawable {
 public:

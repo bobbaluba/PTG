@@ -1,8 +1,8 @@
 /*
- * hmath_misc.h
+ * hmath_misc.hpp
  *
  *  Created on: 24. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef HMATH_MISC_H_

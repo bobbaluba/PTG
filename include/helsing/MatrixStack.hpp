@@ -1,14 +1,14 @@
 /*
- * MatrixStack.h
+ * MatrixStack.hpp
  *
  *  Created on: 11. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef MATRIXSTACK_H_
 #define MATRIXSTACK_H_
 
-#include <helsing/hmath.h>
+#include <helsing/hmath.hpp>
 
 #include <vector>
 

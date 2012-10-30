@@ -1,8 +1,8 @@
 /*
- * hfile.h
+ * TextFile.hpp
  *
  *  Created on: 12. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef HFILE_H_

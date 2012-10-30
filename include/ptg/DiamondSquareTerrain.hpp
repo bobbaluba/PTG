@@ -1,14 +1,14 @@
 /*
- * DiamondSquareTerrain.h
+ * DiamondSquareTerrain.hpp
  *
  *  Created on: 25. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef DIAMONDSQUARETERRAIN_H_
 #define DIAMONDSQUARETERRAIN_H_
 
-#include <ptg/Terrain.h>
+#include <ptg/Terrain.hpp>
 
 namespace ptg {
 

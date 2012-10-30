@@ -2,10 +2,11 @@
  * Continous2DSignal.cpp
  *
  *  Created on: 22. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <ptg/Continuous2DSignal.h>
+#include <ptg/Continuous2DSignal.hpp>
+
 namespace ptg {
 
 Continuous2DSignal::Continuous2DSignal(unsigned int seed):Seedable(seed){

@@ -1,14 +1,14 @@
 /*
- * Vec4.h
+ * Vec4.hpp
  *
  *  Created on: 24. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef VEC4_H_
 #define VEC4_H_
 
-#include <helsing/hmath.h>
+#include <helsing/hmath.hpp>
 #include <array>
 #include <cassert>
 #include <ostream>

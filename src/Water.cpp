@@ -2,10 +2,10 @@
  * Water.cpp
  *
  *  Created on: 15. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include "Water.h"
+#include "Water.hpp"
 #include "GL/gl.h"
 
 void Water::draw(){

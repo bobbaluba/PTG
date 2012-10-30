@@ -1,5 +1,5 @@
-#include "Renderer.h"
-#include "Water.h"
+#include "Renderer.hpp"
+#include "Water.hpp"
 
 #include <SFML/OpenGL.hpp>
 

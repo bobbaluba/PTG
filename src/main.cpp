@@ -1,13 +1,13 @@
 #include "config.h"
 
-#include "LandscapeApplication.h"
+#include "LandscapeApplication.hpp"
 
-#include <iostream>
-#include <sstream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/OpenGL.hpp>
 
+#include <iostream>
+#include <sstream>
 
 using namespace helsing;
 using namespace ptg;

@@ -1,8 +1,8 @@
 /*
- * Vec2.h
+ * Vec2.hpp
  *
  *  Created on: 22. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  *
  * 2-Dimensional vector
  */

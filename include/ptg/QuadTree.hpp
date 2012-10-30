@@ -1,17 +1,18 @@
 	/*
- * quad.h
+ * quad.hpp
  *
  *  Created on: 29. aug. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef QUAD_H_
 #define QUAD_H_
 
-#include <array>
-#include <helsing/HeightMap.h>
+#include <ptg/Seedable.hpp>
 
-#include <ptg/Seedable.h>
+#include <helsing/HeightMap.hpp>
+
+#include <array>
 
 namespace ptg {
 

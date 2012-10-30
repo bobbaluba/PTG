@@ -1,8 +1,8 @@
 /*
- * Shader.h
+ * Shader.hpp
  *
  *  Created on: 12. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef SHADER_H_

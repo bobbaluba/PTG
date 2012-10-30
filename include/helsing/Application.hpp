@@ -1,8 +1,8 @@
 /*
- * Application.h
+ * Application.hpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef APPLICATION_H_

@@ -1,15 +1,15 @@
 /*
- * Continuous2DSignalTerrain.h
+ * Continuous2DSignalTerrain.hpp
  *
  *  Created on: 26. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef CONTINUOUS2DSIGNALTERRAIN_H_
 #define CONTINUOUS2DSIGNALTERRAIN_H_
 
-#include <ptg/Terrain.h>
-#include <ptg/Continuous2DSignal.h>
+#include <ptg/Terrain.hpp>
+#include <ptg/Continuous2DSignal.hpp>
 
 namespace ptg {
 

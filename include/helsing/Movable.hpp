@@ -1,14 +1,14 @@
 /*
- * Position.h
+ * Movable.hpp
  *
  *  Created on: 14. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef MOVABLE_H_
 #define MOVABLE_H_
 
-#include "hmath.h"
+#include <helsing/hmath.hpp>
 
 namespace helsing {
 

@@ -2,14 +2,14 @@
  * LandscapeApplication.cpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include "LandscapeApplication.h"
-#include "HeightMapActor.h"
+#include "LandscapeApplication.hpp"
+#include "HeightMapActor.hpp"
 
-#include <ptg/MidpointDisplacementTerrain.h>
-#include <ptg/DiamondSquareTerrain.h>
+#include <ptg/MidpointDisplacementTerrain.hpp>
+#include <ptg/DiamondSquareTerrain.hpp>
 
 using namespace helsing;
 

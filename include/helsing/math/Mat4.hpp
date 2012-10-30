@@ -1,15 +1,15 @@
 /*
- * Mat4.h
+ * Mat4.hpp
  *
  *  Created on: 24. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef MAT4_H_
 #define MAT4_H_
 
-#include "hmath_misc.h"
-#include "Vec4.h"
+#include "Vec4.hpp"
+#include "hmath_misc.hpp"
 #include <GL/gl.h>
 #include <GL/glu.h>
 

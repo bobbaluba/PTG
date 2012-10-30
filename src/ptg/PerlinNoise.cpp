@@ -2,13 +2,13 @@
  * PerlinNoise.cpp
  *
  *  Created on: 22. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  *
  */
 
-#include <ptg/PerlinNoise.h>
+#include <ptg/PerlinNoise.hpp>
 
-#include <helsing/hmath.h>
+#include <helsing/hmath.hpp>
 
 #include <numeric>
 #include <algorithm>

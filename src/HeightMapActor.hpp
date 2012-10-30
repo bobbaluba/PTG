@@ -1,16 +1,16 @@
 /*
- * HeightMapActor.h
+ * HeightMapActor.hpp
  *
  *  Created on: 27. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef HEIGHTMAPACTOR_H_
 #define HEIGHTMAPACTOR_H_
 
-#include "Actor.h"
+#include "Actor.hpp"
 
-#include <helsing/HeightMap.h>
+#include <helsing/HeightMap.hpp>
 
 class HeightMapActor: public Actor {
 public:

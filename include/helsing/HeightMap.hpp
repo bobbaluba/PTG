@@ -1,8 +1,8 @@
 /**
- * HeightMap.h
+ * HeightMap.hpp
  *
  * @date 2012
- * @author Johan Helsing
+ * @author Johan Klokkhammer Helsing
  *
  * A HeightMap is a two dimensional grid of float values
  *
@@ -11,8 +11,8 @@
 #ifndef HEIGHTMAP_H_
 #define HEIGHTMAP_H_
 
-#include <helsing/hmath.h>
-#include <helsing/Drawable.h>
+#include <helsing/hmath.hpp>
+#include <helsing/Drawable.hpp>
 
 #include <iostream> //TODO remove
 #include <ostream>

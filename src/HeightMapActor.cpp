@@ -5,8 +5,8 @@
  *      Author: johan
  */
 
-#include "HeightMapActor.h"
-#include "Renderer.h"
+#include "HeightMapActor.hpp"
+#include "Renderer.hpp"
 
 using namespace helsing;
 using namespace ptg;

@@ -1,8 +1,8 @@
 /**
- * Seedable.h
+ * Seedable.hpp
  *
  * @date 2012
- * @author Johan Helsing
+ * @author Johan Klokkhammer Helsing
  *
  */
 

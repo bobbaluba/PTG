@@ -1,16 +1,16 @@
 /*
- * MidpointDisplacementTerrain.h
+ * MidpointDisplacementTerrain.hpp
  *
  * @date 2012
- * @author Johan Helsing
+ * @author Johan Klokkhammer Helsing
  *
  */
 
 #ifndef MIDPOINTDISPLACEMENTTERRAIN_H_
 #define MIDPOINTDISPLACEMENTTERRAIN_H_
 
-#include <ptg/Terrain.h>
-#include <ptg/QuadTree.h>
+#include <ptg/Terrain.hpp>
+#include <ptg/QuadTree.hpp>
 
 namespace ptg {
 

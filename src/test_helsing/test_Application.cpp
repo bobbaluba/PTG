@@ -2,10 +2,10 @@
  * test_Application.cpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <helsing/Application.h>
+#include <helsing/Application.hpp>
 
 #include <iostream>
 #include <cassert>

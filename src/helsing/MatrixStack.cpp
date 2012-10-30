@@ -2,10 +2,10 @@
  * MatrixStack.cpp
  *
  *  Created on: 11. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <helsing/MatrixStack.h>
+#include <helsing/MatrixStack.hpp>
 
 namespace helsing {
 

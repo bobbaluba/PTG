@@ -1,14 +1,14 @@
 /**
- * PerlinNoise.h
+ * PerlinNoise.hpp
  *
  */
 
 #ifndef PERLINNOISE_H_
 #define PERLINNOISE_H_
 
-#include <ptg/Continuous2DSignal.h>
+#include <ptg/Continuous2DSignal.hpp>
 
-#include <helsing/math/Vec2.h>
+#include <helsing/math/Vec2.hpp>
 
 namespace ptg {
 /** @brief Two dimensional Perlin noise.

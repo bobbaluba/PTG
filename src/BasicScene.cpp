@@ -2,10 +2,10 @@
  * BasicScene.cpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include "BasicScene.h"
+#include "BasicScene.hpp"
 
 BasicScene::BasicScene(){
 }

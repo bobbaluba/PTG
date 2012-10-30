@@ -5,7 +5,7 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#include <ptg/DiamondSquareTerrain.h>
+#include <ptg/DiamondSquareTerrain.hpp>
 
 #include <cassert>
 

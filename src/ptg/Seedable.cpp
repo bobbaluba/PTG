@@ -1,10 +1,10 @@
-/*
+/* Seedable.cpp
  *
  *  Created on: 22. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <ptg/Seedable.h>
+#include <ptg/Seedable.hpp>
 
 namespace ptg {
 

@@ -1,14 +1,14 @@
 /*
- * BasicScene.h
+ * BasicScene.hpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef BASICSCENE_H_
 #define BASICSCENE_H_
 
-#include "Scene.h"
+#include "Scene.hpp"
 
 class BasicScene: public Scene {
 public:

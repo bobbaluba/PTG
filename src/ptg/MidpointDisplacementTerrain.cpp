@@ -2,11 +2,11 @@
  * MidpointDisplacementTerrain.cpp
  *
  *  Created on: 23. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <ptg/MidpointDisplacementTerrain.h>
-#include <ptg/QuadTree.h>
+#include <ptg/MidpointDisplacementTerrain.hpp>
+#include <ptg/QuadTree.hpp>
 
 #include <cassert>
 

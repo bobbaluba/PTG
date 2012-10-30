@@ -1,15 +1,15 @@
 /*
- * Continous2DSignal.h
+ * Continous2DSignal.hpp
  *
  *  Created on: 22. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  *
  */
 
 #ifndef CONTINUOUS2DSIGNAL_H_
 #define CONTINUOUS2DSIGNAL_H_
 
-#include <ptg/Seedable.h>
+#include <ptg/Seedable.hpp>
 
 namespace ptg {
 

@@ -2,10 +2,10 @@
  * Shader.cpp
  *
  *  Created on: 12. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <helsing/Shader.h>
+#include <helsing/Shader.hpp>
 
 #include <GL/glew.h>
 #include <GL/gl.h>

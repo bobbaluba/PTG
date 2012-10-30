@@ -1,4 +1,4 @@
-#include <helsing/TextFile.h>
+#include <helsing/TextFile.hpp>
 
 #include <fstream>
 #include <sstream>

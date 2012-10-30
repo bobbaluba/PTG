@@ -2,10 +2,10 @@
  * FractionalBrownianMotion.cpp
  *
  *  Created on: 27. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <ptg/FractionalBrownianMotion.h>
+#include <ptg/FractionalBrownianMotion.hpp>
 
 namespace ptg {
 

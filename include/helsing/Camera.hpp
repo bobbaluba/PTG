@@ -1,14 +1,14 @@
 /*
- * Camera.h
+ * Camera.hpp
  *
  *  Created on: 6. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef CAMERA_H_
 #define CAMERA_H_
 
-#include "helsing/hmath.h"
+#include <helsing/hmath.hpp>
 
 #include <iostream> //TODO remove
 

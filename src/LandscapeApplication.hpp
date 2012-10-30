@@ -1,5 +1,5 @@
 /*
- * LandscapeApplication.h
+ * LandscapeApplication.hpp
  *
  *  Created on: 25. sep. 2012
  *      Author: Johan Klokkhammer Helsing
@@ -8,16 +8,16 @@
 #ifndef LANDSCAPEAPPLICATION_H_
 #define LANDSCAPEAPPLICATION_H_
 
-#include "SceneApplication.h"
-#include "Renderer.h"
+#include "SceneApplication.hpp"
+#include "Renderer.hpp"
 
-#include <helsing/Application.h>
+#include <helsing/Application.hpp>
 
-#include <ptg/DiamondSquareTerrain.h>
-#include <ptg/MidpointDisplacementTerrain.h>
-#include <ptg/Continuous2DSignalTerrain.h>
-#include <ptg/PerlinNoise.h>
-#include <ptg/FractionalBrownianMotion.h>
+#include <ptg/DiamondSquareTerrain.hpp>
+#include <ptg/MidpointDisplacementTerrain.hpp>
+#include <ptg/Continuous2DSignalTerrain.hpp>
+#include <ptg/PerlinNoise.hpp>
+#include <ptg/FractionalBrownianMotion.hpp>
 
 namespace ptg {
 

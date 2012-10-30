@@ -2,10 +2,10 @@
  * Actor.cpp
  *
  *  Created on: 14. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include "Actor.h"
+#include "Actor.hpp"
 
 
 Actor::Actor() {

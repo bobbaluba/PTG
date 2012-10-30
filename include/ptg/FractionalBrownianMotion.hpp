@@ -1,15 +1,15 @@
 /*
- * FractionalBrownianMotion.h
+ * FractionalBrownianMotion.hpp
  *
  *  Created on: 27. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef FRACTIONALBROWNIANMOTION_H_
 #define FRACTIONALBROWNIANMOTION_H_
 
-#include <ptg/Continuous2DSignal.h>
-#include <ptg/PerlinNoise.h>
+#include <ptg/Continuous2DSignal.hpp>
+#include <ptg/PerlinNoise.hpp>
 
 namespace ptg {
 

@@ -1,16 +1,16 @@
 /*
- * SceneApplication.h
+ * SceneApplication.hpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
 #ifndef SCENEAPPLICATION_H_
 #define SCENEAPPLICATION_H_
 
-#include "Scene.h"
+#include "Scene.hpp"
 
-#include <helsing/Application.h>
+#include <helsing/Application.hpp>
 
 class LayoutApplication: public helsing::Application {
 public:

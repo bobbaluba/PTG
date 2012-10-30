@@ -1,17 +1,17 @@
 /**
- * Terrain.h
+ * Terrain.hpp
  *
  * @date 23. okt. 2012
- * @author Johan Helsing
+ * @author Johan Klokkhammer Helsing
  *
  */
 
 #ifndef TERRAIN_H_
 #define TERRAIN_H_
 
-#include <ptg/Seedable.h>
+#include <ptg/Seedable.hpp>
 
-#include <helsing/HeightMap.h>
+#include <helsing/HeightMap.hpp>
 
 namespace ptg {
 

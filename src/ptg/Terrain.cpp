@@ -2,10 +2,10 @@
  * Terrain.cpp
  *
  *  Created on: 23. okt. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <ptg/Terrain.h>
+#include <ptg/Terrain.hpp>
 
 namespace ptg {
 

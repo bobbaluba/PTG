@@ -1,12 +1,12 @@
 #ifndef RENDERER_H_
 #define RENDERER_H_
 
-#include <helsing/Camera.h>
-#include <helsing/MatrixStack.h>
-#include <helsing/HeightMap.h>
-#include <helsing/Movable.h>
-#include "Water.h"
-#include "Actor.h"
+#include <helsing/Camera.hpp>
+#include <helsing/MatrixStack.hpp>
+#include <helsing/HeightMap.hpp>
+#include <helsing/Movable.hpp>
+#include "Water.hpp"
+#include "Actor.hpp"
 
 namespace ptg {
 

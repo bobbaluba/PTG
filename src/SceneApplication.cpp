@@ -2,10 +2,10 @@
  * SceneApplication.cpp
  *
  *  Created on: 25. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include "SceneApplication.h"
+#include "SceneApplication.hpp"
 
 LayoutApplication::LayoutApplication(const ApplicationSettings& settings) : Application(settings), scene(NULL){
 }

@@ -2,11 +2,11 @@
  * test_shader.cpp
  *
  *  Created on: 27. sep. 2012
- *      Author: johan
+ *      Author: Johan Klokkhammer Helsing
  */
 
-#include <helsing/Shader.h>
-#include <helsing/Application.h>
+#include <helsing/Shader.hpp>
+#include <helsing/Application.hpp>
 
 #include <cstdlib>
 #include <iostream>

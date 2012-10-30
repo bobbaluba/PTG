@@ -1,6 +1,6 @@
-#include <helsing/HeightMap.h>
+#include <helsing/HeightMap.hpp>
 
-#include <helsing/hmath.h>
+#include <helsing/hmath.hpp>
 
 #include <SFML/OpenGL.hpp>
 
