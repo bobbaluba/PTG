@@ -82,8 +82,8 @@ float PerlinNoise::gridPointContribution(int x, int y, const helsing::Vec2& posi
 	const float beforeDropoff = (position - gridPoint) * gradient; //dot product of gradient and offset from gridPoint
 
 	//compute the dropoff
-	const float dropoffX = helsing::smoothStep(1-fabs(position.x - gridPoint.x));
-	const float dropoffY = helsing::smoothStep(1-fabs(position.y - gridPoint.y));
+	const float dropoffX = helsing::smootherStep(1-fabs(position.x - gridPoint.x));
+	const float dropoffY = helsing::smootherStep(1-fabs(position.y - gridPoint.y));
 	const float dropoff = dropoffX*dropoffY;
 
 	return beforeDropoff*dropoff;
