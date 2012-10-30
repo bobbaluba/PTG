@@ -31,8 +31,8 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 	//seed random generator
 	srand(getSeed());
 	float octaveAmplitude=amplitude*gridSpacing;
-	for(int sideLength = gridPoints-1; sideLength>=2; sideLength/=2){
-		int half = sideLength/2;
+	for(unsigned int sideLength = gridPoints-1; sideLength>=2; sideLength/=2){
+		unsigned int half = sideLength/2;
 		//displace midpoints
 		//this step is basically midpoint displacement
 		unsigned int currentGridSize=gridPoints/sideLength;
@@ -55,8 +55,8 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 		//diamond step
 		//this grid is the double size of that above
 		currentGridSize=currentGridSize*2+1;
-		for(int i=0; i<currentGridSize; i++){
-			for(int j=0; j<currentGridSize; j++){
+		for(unsigned int i=0; i<currentGridSize; i++){
+			for(unsigned int j=0; j<currentGridSize; j++){
 				//we are going to calculate displacement for every second point on this grid, starting with the second
 				// + x + x + // we are displacing the x'es in this pattern
 				// x + x + x // the pluses are the points that already have a height
