@@ -20,8 +20,9 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		flymode(false),
 		heightMapSize(9),
 		terrain(&diamondSquareTerrain),
-		gain(0.5),
-		amplitude(0.6){
+		amplitude(0.6),
+		gain(0.5)
+{
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
 
