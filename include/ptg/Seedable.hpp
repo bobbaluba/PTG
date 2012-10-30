@@ -6,12 +6,14 @@
  *
  */
 
-#ifndef SEEDABLE_H_
-#define SEEDABLE_H_
+#ifndef SEEDABLE_HPP
+#define SEEDABLE_HPP
 
 namespace ptg {
 
-/// @brief An abstract interface class for objects that can be seeded and reseeded
+/**
+ * @brief An abstract interface class for objects that can be seeded and reseeded
+ */
 class Seedable {
 public:
 	explicit Seedable(unsigned int seed=0):s(seed){}
@@ -25,5 +27,5 @@ private:
 	unsigned int s;
 };
 
-}// namespace ptg
-#endif /* SEEDABLE_H_ */
+} //namespace ptg
+#endif //SEEDABLE_HPP
