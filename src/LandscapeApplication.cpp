@@ -21,7 +21,8 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 		heightMapSize(9),
 		terrain(&diamondSquareTerrain),
 		amplitude(0.6),
-		gain(0.5)
+		gain(0.5),
+		waterLevel(0)
 {
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
@@ -103,6 +104,7 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 void LandscapeApplication::onRender(){
 	Camera& camera = renderer->getCamera();
 
+	//camera movement
 	const float speed = 0.5f;
 	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
 		camera.forward(speed);
@@ -117,6 +119,14 @@ void LandscapeApplication::onRender(){
 		camera.right(speed);
 	}
 
+	//Water levels
+	const float waterSpeed=0.1f;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
+		raiseWater(waterSpeed);
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
+		raiseWater(-waterSpeed);
+	}
 
 	if(flymode){
 		const sf::Vector2i mid = sf::Vector2i(window->getSize().x/2, window->getSize().y/2)+window->getPosition();
@@ -187,6 +197,11 @@ void LandscapeApplication::decreaseGain() {
 	diamondSquareTerrain.setGain(gain);
 	midpointDisplacementTerrain.setGain(gain);
 	updateHeightMap();
+}
+
+void LandscapeApplication::raiseWater(float amount) {
+	waterLevel+=amount;
+	renderer->setWaterLevel(waterLevel);
 }
 
 void LandscapeApplication::updateHeightMap() {

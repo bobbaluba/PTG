@@ -18,6 +18,7 @@ public:
 	helsing::Camera& getCamera(){return camera;}
 	virtual void resize(uint32_t width, uint32_t height);
 	virtual void setHeightMap(helsing::HeightMap* heightMap);
+	virtual void setWaterLevel(float level){waterLevel=level;}
 
 	//Drawing functions
 	static void drawVector(const helsing::Vec4& position, const helsing::Vec4& vector);
@@ -29,6 +30,7 @@ private:
 	helsing::Camera camera;
 	helsing::MatrixStack modelView, projection;
 	Water water;
+	float waterLevel;
 	helsing::HeightMap* heightMap;
 };
 

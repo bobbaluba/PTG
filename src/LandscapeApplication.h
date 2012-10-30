@@ -45,6 +45,7 @@ private:
 	virtual void decreaseAmplitude();
 	virtual void increaseGain();
 	virtual void decreaseGain();
+	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
 	Renderer* renderer;
 	bool flymode;
@@ -52,6 +53,7 @@ private:
 	Terrain* terrain;
 	float amplitude;
 	float gain;
+	float waterLevel;
 	MidpointDisplacementTerrain midpointDisplacementTerrain;
 	DiamondSquareTerrain diamondSquareTerrain;
 	Continuous2DSignalTerrain continuous2DSignalTerrain;

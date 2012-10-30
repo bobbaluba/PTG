@@ -18,6 +18,7 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 		width(width),
 		height(height),
 		water(65),
+		waterLevel(0),
 		heightMap(NULL){
 	resize(width,height);
 	setGLStates();
@@ -84,7 +85,11 @@ void Renderer::draw(){
 		drawHeightMap(*heightMap);
 	}
 
+	glPushMatrix();
+	glTranslatef(0,waterLevel,0);
 	water.draw();
+	glPopMatrix();
+
 	glPopMatrix();
 
 	GLenum error = glGetError();
