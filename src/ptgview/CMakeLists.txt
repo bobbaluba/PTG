@@ -20,7 +20,6 @@ add_executable(ptgview
 target_link_libraries(ptgview
 	helsing
 	ptg
-        ${EXTRA_LIBS} #what's this?
         ${SFML_LIBRARIES}
         ${OPENGL_LIBRARIES}
         ${GLEW_LIBRARY}
