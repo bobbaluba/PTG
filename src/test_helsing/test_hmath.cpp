@@ -41,13 +41,11 @@ void identity(){
 	cout << "OK!\n";
 }
 
-void rotation(){
-	cout << "Testing vector rotation...";
+void rotationAxes(){
+	cout << "Testing vector rotation about coordinate axes...";
 	{
 		const Mat4 rot = Mat4::rotation(Axis::z, Angle::degrees(90));
 		const Vec4 y = rot.dot(Vec4::axis(Axis::x));
-	//	cout << "Rotation: " << rot << std::endl;
-	//	cout << "x: " << x << " y: " << y << std::endl;
 		assert(almostEqual(y.x, 0, 0.001));
 		assert(almostEqual(y.y, 1, 0.001));
 		assert(almostEqual(y.z, 0, 0.001));
@@ -69,6 +67,19 @@ void rotation(){
 	cout << "OK!\n";
 }
 
+void rotationArbitrary(){
+	cout << "Testing vector rotation about arbitrary axes...";
+	{
+		//rotation about an "arbitrary" axis
+		const Mat4 rot = Mat4::rotation(Vec4::axis(Axis::y), Angle::degrees(90));
+		const Vec4 x = rot*Vec4::axis(Axis::z);
+		assert(almostEqual(x.x, 1, 0.001));
+		assert(almostEqual(x.y, 0, 0.001));
+		assert(almostEqual(x.z, 0, 0.001));
+	}
+	cout << "OK!\n";
+}
+
 }
 
 int main(){
@@ -79,6 +90,7 @@ int main(){
 	cout << "Testing math lib\n\n";
 	angles();
 	identity();
-	rotation();
+	rotationAxes();
+	rotationArbitrary();
 	cout << "\nAll tests completed\n";
 }

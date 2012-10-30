@@ -112,15 +112,24 @@ public:
 		rotation.column[secondColumn][secondRow] = std::cos(radians);
 		return rotation;
 	}
+	/** Generates a rotation matrix about an arbitrary axis
+	 * @return Rotation matrix
+	 */
 	static const Mat4 rotation(Vec4 axis, Angle angle){
-		float degrees = angle.degrees();
-		glMatrixMode(GL_MODELVIEW);
-		glPushMatrix();
-		glLoadIdentity();
+		//This implementation is based on the method described here:
+		//http://science.kennesaw.edu/~plaval/math4490/rotgen.pdf
+		const float radians = angle.radians();
+		const float c = cos(radians);
+		const float s = sin(radians);
+		const float t = 1 - c;
+		const Vec4& u = axis; //to make shorter expressions that more closely resembles the proof in the pdf mentioned above
+
 		float m[16];
-		glRotatef(degrees, axis.x, axis.y, axis.z);
-		glGetFloatv(GL_MODELVIEW_MATRIX, m);
-		glPopMatrix();
+		m[0] = t*u.x*u.x + c;     m[4] = t*u.x*u.y - s*u.z; m[8] = t*u.x*u.z + s*u.y; m[12] = 0;
+		m[1] = t*u.x*u.y + s*u.z; m[5] = t*u.y*u.y + c;     m[9] = t*u.y*u.z - s*u.x; m[13] = 0;
+		m[2] = t*u.x*u.z - s*u.y; m[6] = t*u.y*u.z + s*u.x; m[10] = t*u.z*u.z + c;    m[14] = 0;
+		m[3] = 0;                 m[7] = 0;                 m[11] = 0;                m[15] = 1;
+
 		const Mat4 rotation(m);
 		return rotation;
 	}
