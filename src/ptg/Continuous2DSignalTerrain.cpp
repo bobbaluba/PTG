@@ -5,7 +5,7 @@
  *      Author: johan
  */
 
-#include "Continuous2DSignalTerrain.h"
+#include <ptg/Continuous2DSignalTerrain.h>
 
 #include <cstdlib> // for NULL
 

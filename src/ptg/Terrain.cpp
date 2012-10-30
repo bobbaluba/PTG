@@ -5,7 +5,7 @@
  *      Author: johan
  */
 
-#include "Terrain.h"
+#include <ptg/Terrain.h>
 
 namespace ptg {
 

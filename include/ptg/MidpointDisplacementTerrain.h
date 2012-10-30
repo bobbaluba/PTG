@@ -9,9 +9,8 @@
 #ifndef MIDPOINTDISPLACEMENTTERRAIN_H_
 #define MIDPOINTDISPLACEMENTTERRAIN_H_
 
-#include "Terrain.h"
-
-#include "QuadTree.h"
+#include <ptg/Terrain.h>
+#include <ptg/QuadTree.h>
 
 namespace ptg {
 

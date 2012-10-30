@@ -9,9 +9,9 @@
 #ifndef TERRAIN_H_
 #define TERRAIN_H_
 
-#include "Seedable.h"
+#include <ptg/Seedable.h>
 
-#include "helsing/HeightMap.h"
+#include <helsing/HeightMap.h>
 
 namespace ptg {
 

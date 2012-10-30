@@ -5,7 +5,7 @@
  *      Author: johan
  */
 
-#include "Shader.h"
+#include <helsing/Shader.h>
 
 #include <GL/glew.h>
 #include <GL/gl.h>

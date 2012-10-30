@@ -8,7 +8,7 @@
 #ifndef MATRIXSTACK_H_
 #define MATRIXSTACK_H_
 
-#include "hmath.h"
+#include <helsing/hmath.h>
 
 #include <vector>
 

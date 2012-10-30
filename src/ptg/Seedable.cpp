@@ -4,7 +4,7 @@
  *      Author: johan
  */
 
-#include "Seedable.h"
+#include <ptg/Seedable.h>
 
 namespace ptg {
 

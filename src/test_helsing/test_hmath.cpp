@@ -1,4 +1,4 @@
-#include "helsing/hmath.h"
+#include <helsing/hmath.h>
 
 #include <iostream>
 #include <cassert>

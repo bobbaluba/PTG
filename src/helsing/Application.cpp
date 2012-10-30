@@ -4,9 +4,9 @@
  *  Created on: 25. sep. 2012
  *      Author: johan
  */
-#include "helsing/Application.h"
+#include <helsing/Application.h>
 
-#include "GL/glew.h"
+#include <GL/glew.h>
 
 #include <cstdlib>
 #include <cassert>

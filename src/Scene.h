@@ -10,9 +10,9 @@
 #ifndef SCENE_H_
 #define SCENE_H_
 
-#include <SFML/Graphics.hpp>
+#include <helsing/Drawable.h>
 
-#include "helsing/Drawable.h"
+#include <SFML/Graphics.hpp>
 
 class Scene: public helsing::Drawable {
 public:

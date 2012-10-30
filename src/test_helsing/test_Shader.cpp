@@ -5,8 +5,8 @@
  *      Author: johan
  */
 
-#include "helsing/Shader.h"
-#include "helsing/Application.h"
+#include <helsing/Shader.h>
+#include <helsing/Application.h>
 
 #include <cstdlib>
 #include <iostream>

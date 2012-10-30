@@ -5,7 +5,8 @@
  *      Author: johan
  */
 
-#include "helsing/Application.h"
+#include <helsing/Application.h>
+
 #include <iostream>
 #include <cassert>
 

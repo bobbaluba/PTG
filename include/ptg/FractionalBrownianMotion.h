@@ -8,9 +8,8 @@
 #ifndef FRACTIONALBROWNIANMOTION_H_
 #define FRACTIONALBROWNIANMOTION_H_
 
-#include "Continuous2DSignal.h"
-
-#include "PerlinNoise.h"
+#include <ptg/Continuous2DSignal.h>
+#include <ptg/PerlinNoise.h>
 
 namespace ptg {
 

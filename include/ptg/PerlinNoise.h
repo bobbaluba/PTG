@@ -6,7 +6,7 @@
 #ifndef PERLINNOISE_H_
 #define PERLINNOISE_H_
 
-#include "Continuous2DSignal.h"
+#include <ptg/Continuous2DSignal.h>
 
 #include <helsing/math/Vec2.h>
 

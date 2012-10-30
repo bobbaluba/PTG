@@ -5,7 +5,7 @@
  *      Author: johan
  */
 
-#include "Continuous2DSignal.h"
+#include <ptg/Continuous2DSignal.h>
 namespace ptg {
 
 Continuous2DSignal::Continuous2DSignal(unsigned int seed):Seedable(seed){

@@ -11,8 +11,8 @@
 #ifndef HEIGHTMAP_H_
 #define HEIGHTMAP_H_
 
-#include "helsing/hmath.h"
-#include "helsing/Drawable.h"
+#include <helsing/hmath.h>
+#include <helsing/Drawable.h>
 
 #include <iostream> //TODO remove
 #include <ostream>

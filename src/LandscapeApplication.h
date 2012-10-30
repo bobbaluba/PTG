@@ -8,17 +8,16 @@
 #ifndef LANDSCAPEAPPLICATION_H_
 #define LANDSCAPEAPPLICATION_H_
 
-#include "helsing/Application.h"
 #include "SceneApplication.h"
 #include "Renderer.h"
 
-#include "ptg/DiamondSquareTerrain.h"
-#include "ptg/MidpointDisplacementTerrain.h"
-#include "ptg/Continuous2DSignalTerrain.h"
-#include "ptg/PerlinNoise.h"
-#include "ptg/FractionalBrownianMotion.h"
+#include <helsing/Application.h>
 
-#include <helsing/HeightMap.h>
+#include <ptg/DiamondSquareTerrain.h>
+#include <ptg/MidpointDisplacementTerrain.h>
+#include <ptg/Continuous2DSignalTerrain.h>
+#include <ptg/PerlinNoise.h>
+#include <ptg/FractionalBrownianMotion.h>
 
 namespace ptg {
 

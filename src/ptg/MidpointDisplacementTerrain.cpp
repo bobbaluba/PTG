@@ -5,8 +5,8 @@
  *      Author: johan
  */
 
-#include "MidpointDisplacementTerrain.h"
-#include "QuadTree.h"
+#include <ptg/MidpointDisplacementTerrain.h>
+#include <ptg/QuadTree.h>
 
 #include <cassert>
 

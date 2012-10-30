@@ -6,7 +6,7 @@
  *
  */
 
-#include "PerlinNoise.h"
+#include <ptg/PerlinNoise.h>
 
 #include <helsing/hmath.h>
 

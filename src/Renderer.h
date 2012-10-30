@@ -1,10 +1,10 @@
 #ifndef RENDERER_H_
 #define RENDERER_H_
 
-#include "helsing/Camera.h"
-#include "helsing/MatrixStack.h"
-#include "helsing/HeightMap.h"
-#include "helsing/Movable.h"
+#include <helsing/Camera.h>
+#include <helsing/MatrixStack.h>
+#include <helsing/HeightMap.h>
+#include <helsing/Movable.h>
 #include "Water.h"
 #include "Actor.h"
 

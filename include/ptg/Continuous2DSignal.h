@@ -9,7 +9,7 @@
 #ifndef CONTINUOUS2DSIGNAL_H_
 #define CONTINUOUS2DSIGNAL_H_
 
-#include "Seedable.h"
+#include <ptg/Seedable.h>
 
 namespace ptg {
 

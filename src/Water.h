@@ -8,7 +8,7 @@
 #ifndef WATER_H_
 #define WATER_H_
 
-#include "helsing/Drawable.h"
+#include <helsing/Drawable.h>
 
 class Water: public helsing::Drawable {
 public:

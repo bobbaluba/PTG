@@ -9,7 +9,8 @@
 #define HEIGHTMAPACTOR_H_
 
 #include "Actor.h"
-#include "helsing/HeightMap.h"
+
+#include <helsing/HeightMap.h>
 
 class HeightMapActor: public Actor {
 public:

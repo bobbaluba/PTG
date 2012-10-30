@@ -8,8 +8,9 @@
 #ifndef SCENEAPPLICATION_H_
 #define SCENEAPPLICATION_H_
 
-#include "helsing/Application.h"
 #include "Scene.h"
+
+#include <helsing/Application.h>
 
 class LayoutApplication: public helsing::Application {
 public:

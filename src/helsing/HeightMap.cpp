@@ -1,7 +1,8 @@
-#include "Renderer.h"
-#include <SFML/OpenGL.hpp>
+#include <helsing/HeightMap.h>
 
-#include "helsing/hmath.h"
+#include <helsing/hmath.h>
+
+#include <SFML/OpenGL.hpp>
 
 using namespace helsing;
 

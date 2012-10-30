@@ -34,7 +34,6 @@ add_executable(${EXECUTABLE_NAME}
 	helsing/MatrixStack.cpp
 	helsing/TextFile.cpp
 	helsing/Shader.cpp
-	helsing/Movable.cpp
 	helsing/Application.cpp
 	Actor.cpp
 	Water.cpp

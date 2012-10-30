@@ -8,8 +8,8 @@
 #ifndef CONTINUOUS2DSIGNALTERRAIN_H_
 #define CONTINUOUS2DSIGNALTERRAIN_H_
 
-#include "Terrain.h"
-#include "Continuous2DSignal.h"
+#include <ptg/Terrain.h>
+#include <ptg/Continuous2DSignal.h>
 
 namespace ptg {
 

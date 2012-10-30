@@ -1,12 +1,12 @@
 /*
- * quad.cpp
+ * QuadTree.cpp
  *
  *  Created on: 30. aug. 2012
- *      Author: johan
+ *      Author: Johan Helsing
  */
 
 
-#include "QuadTree.h"
+#include <ptg/QuadTree.h>
 
 #include <cstdlib>
 #include <iostream>

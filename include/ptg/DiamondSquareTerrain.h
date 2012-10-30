@@ -8,7 +8,7 @@
 #ifndef DIAMONDSQUARETERRAIN_H_
 #define DIAMONDSQUARETERRAIN_H_
 
-#include "ptg/Terrain.h"
+#include <ptg/Terrain.h>
 
 namespace ptg {
 

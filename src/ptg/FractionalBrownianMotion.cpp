@@ -5,7 +5,7 @@
  *      Author: johan
  */
 
-#include "FractionalBrownianMotion.h"
+#include <ptg/FractionalBrownianMotion.h>
 
 namespace ptg {
 

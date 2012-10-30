@@ -8,8 +8,8 @@
 #ifndef ACTOR_H_
 #define ACTOR_H_
 
-#include "helsing/Drawable.h"
-#include "helsing/Movable.h"
+#include <helsing/Drawable.h>
+#include <helsing/Movable.h>
 
 
 class Actor: public helsing::Drawable, public virtual helsing::Movable {

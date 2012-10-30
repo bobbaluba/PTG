@@ -5,7 +5,7 @@
  *      Author: johan
  */
 
-#include "helsing/MatrixStack.h"
+#include <helsing/MatrixStack.h>
 
 namespace helsing {
 
