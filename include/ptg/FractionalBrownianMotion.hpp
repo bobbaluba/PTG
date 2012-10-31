@@ -50,8 +50,17 @@ public:
 	virtual ~FractionalBrownianMotion();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);
+
+	/** @brief Set the "depth" of the fractal noise.
+	 * Sets how many "layers" of noise we are going to add together.
+	 * Typical values lie between 3 and 9.
+	 */
+	virtual void setOctaves(unsigned int octaves){this->octaves=octaves;}
+
+	virtual unsigned int getOctaves() const {return octaves;}
 private:
 	PerlinNoise baseNoise;
+	unsigned int octaves;
 };
 
 } // namespace ptg
