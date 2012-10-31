@@ -1,12 +1,11 @@
-/*
- * BasicScene.hpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file BasicScene.hpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef BASICSCENE_H_
-#define BASICSCENE_H_
+#ifndef BASICSCENE_HPP
+#define BASICSCENE_HPP
 
 #include "Scene.hpp"
 
@@ -20,4 +19,4 @@ private:
 	std::vector<Drawable*> drawables;
 };
 
-#endif /* BASICSCENE_H_ */
+#endif /* BASICSCENE_HPP */

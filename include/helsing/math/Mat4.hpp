@@ -1,20 +1,22 @@
-/*
- * Mat4.hpp
- *
- *  Created on: 24. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Mat4.hpp
+ * @date 24. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #ifndef MAT4_H_
 #define MAT4_H_
 
-#include "Vec4.hpp"
-#include "hmath_misc.hpp"
+#include <helsing/math/Vec4.hpp>
+#include <helsing/math/hmath_misc.hpp>
 #include <GL/gl.h>
 #include <GL/glu.h>
 
 namespace helsing {
 
+/** @brief Matrix using homogeneous coordinates
+ * Designed to be easy to use with OpenGL
+ */
 class Mat4 {
 public:
 	Mat4(){
@@ -162,6 +164,7 @@ public:
 	}
 
 	static const Mat4 perspective(Angle fov, float width, float height, float near, float far){
+		//TODO remove this dependency on OpenGL
 		glMatrixMode (GL_MODELVIEW); //set the matrix to projection
 		glPushMatrix();
 		glLoadIdentity();

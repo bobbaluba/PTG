@@ -1,8 +1,7 @@
-/*
- * QuadTree.cpp
- *
- *  Created on: 30. aug. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file QuadTree.cpp
+ * @date 30. aug. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 

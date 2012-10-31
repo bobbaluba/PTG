@@ -1,8 +1,7 @@
-/*
- * SceneApplication.cpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file SceneApplication.cpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include "SceneApplication.hpp"

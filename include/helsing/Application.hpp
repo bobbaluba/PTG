@@ -1,12 +1,11 @@
-/*
- * Application.hpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Application.hpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef APPLICATION_H_
-#define APPLICATION_H_
+#ifndef APPLICATION_HPP
+#define APPLICATION_HPP
 
 #include <SFML/Graphics.hpp>
 
@@ -43,4 +42,4 @@ private:
 };
 
 } /* namespace helsing */
-#endif /* APPLICATION_H_ */
+#endif /* APPLICATION_HPP */

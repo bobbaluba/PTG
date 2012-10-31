@@ -1,8 +1,8 @@
 /*
  * test_shader.cpp
  *
- *  Created on: 27. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 27. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <helsing/Shader.hpp>

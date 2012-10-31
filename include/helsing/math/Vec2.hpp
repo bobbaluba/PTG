@@ -1,10 +1,7 @@
-/*
- * Vec2.hpp
- *
- *  Created on: 22. okt. 2012
- *      Author: Johan Klokkhammer Helsing
- *
- * 2-Dimensional vector
+/**
+ * @file Vec2.hpp
+ * @date 22. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #ifndef VEC2_H_
@@ -14,6 +11,9 @@
 
 namespace helsing{
 
+/** @brief A 2D vector using non-homogeneous coordinates
+ * @ingroup math
+ */
 class Vec2 {
 public:
 	Vec2(float x, float y):x(x),y(y){}

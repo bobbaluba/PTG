@@ -1,8 +1,7 @@
-/*
- * HeightMapActor.cpp
- *
- *  Created on: 27. sep. 2012
- *      Author: johan
+/**
+ * @file HeightMapActor.cpp
+ * @date 27. sep. 2012
+ * @author johan
  */
 
 #include "HeightMapActor.hpp"

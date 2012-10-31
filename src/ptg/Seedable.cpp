@@ -1,7 +1,7 @@
-/* Seedable.cpp
- *
- *  Created on: 22. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Seedable.cpp
+ * @date 22. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/Seedable.hpp>

@@ -1,8 +1,7 @@
-/*
- * Continuous2DSignalTerrain.cpp
- *
- *  Created on: 26. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Continuous2DSignalTerrain.cpp
+ * @date 26. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/Continuous2DSignalTerrain.hpp>

@@ -1,12 +1,11 @@
-/*
- * SceneApplication.hpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file SceneApplication.hpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef SCENEAPPLICATION_H_
-#define SCENEAPPLICATION_H_
+#ifndef SCENEAPPLICATION_HPP
+#define SCENEAPPLICATION_HPP
 
 #include "Scene.hpp"
 
@@ -26,4 +25,4 @@ private:
 	Scene* scene;
 };
 
-#endif /* SCENEAPPLICATION_H_ */
+#endif /* SCENEAPPLICATION_HPP */

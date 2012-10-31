@@ -1,8 +1,7 @@
-/*
- * MidpointDisplacementTerrain.cpp
- *
- *  Created on: 23. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file MidpointDisplacementTerrain.cpp
+ * @date 23. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/MidpointDisplacementTerrain.hpp>

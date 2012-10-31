@@ -1,13 +1,11 @@
 /**
- * Terrain.hpp
- *
+ * @file Terrain.hpp
  * @date 23. okt. 2012
  * @author Johan Klokkhammer Helsing
- *
  */
 
-#ifndef TERRAIN_H_
-#define TERRAIN_H_
+#ifndef TERRAIN_HPP
+#define TERRAIN_HPP
 
 #include <ptg/Seedable.hpp>
 
@@ -28,5 +26,5 @@ public:
 };
 
 } //namespace ptg
-#endif /* TERRAIN_H_ */
+#endif /* TERRAIN_HPP */
 

@@ -1,8 +1,7 @@
-/*
- * LandscapeApplication.cpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file LandscapeApplication.cpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include "LandscapeApplication.hpp"
@@ -10,6 +9,8 @@
 
 #include <ptg/MidpointDisplacementTerrain.hpp>
 #include <ptg/DiamondSquareTerrain.hpp>
+
+#include <iostream>
 
 using namespace helsing;
 

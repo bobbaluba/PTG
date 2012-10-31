@@ -1,9 +1,7 @@
-/*
- * PerlinNoise.cpp
- *
- *  Created on: 22. okt. 2012
- *      Author: Johan Klokkhammer Helsing
- *
+/**
+ * @file PerlinNoise.cpp
+ * @date 22. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/PerlinNoise.hpp>

@@ -1,8 +1,8 @@
 /*
  * FractionalBrownianMotion.hpp
  *
- *  Created on: 27. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 27. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #ifndef FRACTIONALBROWNIANMOTION_HPP

@@ -1,12 +1,11 @@
-/*
- * Shader.hpp
- *
- *  Created on: 12. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Shader.hpp
+ * @date 12. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef SHADER_H_
-#define SHADER_H_
+#ifndef SHADER_HPP
+#define SHADER_HPP
 
 #include <string>
 
@@ -20,5 +19,5 @@ private:
 	unsigned int hVertexShader;
 };
 
-} /* namespace helsing */
-#endif /* SHADER_H_ */
+} // namespace helsing
+#endif // SHADER_HPP

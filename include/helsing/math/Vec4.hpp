@@ -1,8 +1,7 @@
-/*
- * Vec4.hpp
- *
- *  Created on: 24. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Vec4.hpp
+ * @date 24. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #ifndef VEC4_H_
@@ -15,6 +14,10 @@
 
 namespace helsing {
 
+/** @brief 3D vector using homogeneous coordinates
+ * @ingroup math
+ * Designed to be easy to use with OpenGL
+ */
 class Vec4 {
 public:
 	Vec4(float x, float y, float z, float w):x(x),y(y),z(z),w(w){}

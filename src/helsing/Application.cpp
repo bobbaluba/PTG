@@ -1,8 +1,7 @@
-/*
- * Application.cpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Application.cpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 #include <helsing/Application.hpp>
 

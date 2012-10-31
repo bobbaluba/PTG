@@ -1,3 +1,8 @@
+/**
+ * @file HeightMap.cpp
+ * @date 2012
+ * @author Johan Klokkhammer Helsing
+ */
 #include <helsing/HeightMap.hpp>
 
 #include <helsing/hmath.hpp>

@@ -1,16 +1,14 @@
-/*
+/**
  * Camera.hpp
  *
- *  Created on: 6. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 6. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef CAMERA_H_
-#define CAMERA_H_
+#ifndef CAMERA_HPP
+#define CAMERA_HPP
 
 #include <helsing/hmath.hpp>
-
-#include <iostream> //TODO remove
 
 namespace helsing {
 
@@ -103,4 +101,4 @@ private:
 
 }
 
-#endif /* CAMERA_H_ */
+#endif /* CAMERA_HPP */

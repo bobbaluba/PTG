@@ -3,8 +3,8 @@
  *
  */
 
-#ifndef PERLINNOISE_H_
-#define PERLINNOISE_H_
+#ifndef PERLINNOISE_HPP
+#define PERLINNOISE_HPP
 
 #include <ptg/Continuous2DSignal.hpp>
 
@@ -65,4 +65,4 @@ private:
 };
 
 } //namespace ptg
-#endif /* PERLINNOISE_H_ */
+#endif /* PERLINNOISE_HPP */

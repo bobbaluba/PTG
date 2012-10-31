@@ -1,8 +1,7 @@
-/*
- * Water.cpp
- *
- *  Created on: 15. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Water.cpp
+ * @date 15. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include "Water.hpp"

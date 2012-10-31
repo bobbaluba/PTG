@@ -5,8 +5,8 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef DIAMONDSQUARETERRAIN_H_
-#define DIAMONDSQUARETERRAIN_H_
+#ifndef DIAMONDSQUARETERRAIN_HPP
+#define DIAMONDSQUARETERRAIN_HPP
 
 #include <ptg/Terrain.hpp>
 
@@ -54,4 +54,4 @@ private:
 };
 
 } /* namespace ptg */
-#endif /* DIAMONDSQUARETERRAIN_H_ */
+#endif /* DIAMONDSQUARETERRAIN_HPP */

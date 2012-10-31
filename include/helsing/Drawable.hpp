@@ -1,11 +1,11 @@
-/*
+/**
  * Drawable.hpp
  *
- *  Created on: 15. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 15. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
-#ifndef DRAWABLE_H_
-#define DRAWABLE_H_
+#ifndef DRAWABLE_HPP
+#define DRAWABLE_HPP
 
 namespace helsing {
 

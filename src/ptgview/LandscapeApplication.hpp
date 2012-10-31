@@ -1,12 +1,11 @@
-/*
- * LandscapeApplication.hpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file LandscapeApplication.hpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef LANDSCAPEAPPLICATION_H_
-#define LANDSCAPEAPPLICATION_H_
+#ifndef LANDSCAPEAPPLICATION_HPP
+#define LANDSCAPEAPPLICATION_HPP
 
 #include "SceneApplication.hpp"
 #include "Renderer.hpp"
@@ -62,4 +61,4 @@ private:
 };
 
 } /* namespace landscape */
-#endif /* LANDSCAPEAPPLICATION_H_ */
+#endif /* LANDSCAPEAPPLICATION_HPP */

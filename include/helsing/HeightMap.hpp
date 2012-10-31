@@ -4,22 +4,22 @@
  * @date 2012
  * @author Johan Klokkhammer Helsing
  *
- * A HeightMap is a two dimensional grid of float values
- *
  */
 
-#ifndef HEIGHTMAP_H_
-#define HEIGHTMAP_H_
+#ifndef HEIGHTMAP_HPP
+#define HEIGHTMAP_HPP
 
 #include <helsing/hmath.hpp>
 #include <helsing/Drawable.hpp>
 
-#include <iostream> //TODO remove
 #include <ostream>
 #include <vector>
 
 namespace helsing {
 
+/** @brief A HeightMap is a two dimensional grid of float values
+ *
+ */
 class HeightMap {
 public:
 	/// @param size width and height of the heightmap
@@ -72,4 +72,4 @@ inline std::ostream& operator<< (std::ostream &out, const HeightMap& heightMap){
 
 }
 
-#endif
+#endif // HEIGHTMAP_HPP

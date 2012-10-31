@@ -1,8 +1,7 @@
-/*
- * Terrain.cpp
- *
- *  Created on: 23. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Terrain.cpp
+ * @date 23. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/Terrain.hpp>

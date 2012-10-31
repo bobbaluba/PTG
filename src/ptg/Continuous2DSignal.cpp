@@ -1,8 +1,7 @@
-/*
- * Continous2DSignal.cpp
- *
- *  Created on: 22. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Continous2DSignal.cpp
+ * @date 22. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/Continuous2DSignal.hpp>

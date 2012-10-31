@@ -66,6 +66,7 @@ The viewer accepts the following command line options:
 * Left Mouse button: Toggle viewing mode (flying or centered)
 * Right Mouse button: Reseed the terrains
 * R/F: Move up/down
+* U/J: Raise/Lower water
 * O/P: Adjust terrain detail
 * K/L: Adjust amplitude of terrain (just a scaling factor)
 * N/M: Adjust gain. For fractal algorithms, this is the factor the amplitude is multiplied with each iteration.

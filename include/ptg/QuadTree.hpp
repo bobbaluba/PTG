@@ -1,12 +1,12 @@
 	/*
  * quad.hpp
  *
- *  Created on: 29. aug. 2012
- *      Author: Johan Klokkhammer Helsing
+ * @date 29. aug. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef QUAD_H_
-#define QUAD_H_
+#ifndef QUAD_HPP
+#define QUAD_HPP
 
 #include <ptg/Seedable.hpp>
 
@@ -35,4 +35,4 @@ public:
 
 
 } //namespace ptg
-#endif /* QUAD_H_ */
+#endif /* QUAD_HPP */

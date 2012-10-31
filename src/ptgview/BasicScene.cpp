@@ -1,8 +1,7 @@
-/*
- * BasicScene.cpp
- *
- *  Created on: 25. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file BasicScene.cpp
+ * @date 25. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include "BasicScene.hpp"

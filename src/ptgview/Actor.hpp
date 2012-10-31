@@ -1,12 +1,11 @@
-/*
- * Actor.hpp
- *
- *  Created on: 14. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Actor.hpp
+ * @date 14. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef ACTOR_H_
-#define ACTOR_H_
+#ifndef ACTOR_HPP
+#define ACTOR_HPP
 
 #include <helsing/Drawable.hpp>
 #include <helsing/Movable.hpp>
@@ -21,4 +20,4 @@ private:
 
 };
 
-#endif /* ACTOR_H_ */
+#endif /* ACTOR_HPP */

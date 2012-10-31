@@ -1,12 +1,11 @@
-/*
- * Water.hpp
- *
- *  Created on: 15. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Water.hpp
+ * @date 15. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef WATER_H_
-#define WATER_H_
+#ifndef WATER_HPP
+#define WATER_HPP
 
 #include <helsing/Drawable.hpp>
 
@@ -20,4 +19,4 @@ private:
 	float size;
 };
 
-#endif /* WATER_H_ */
+#endif /* WATER_HPP */

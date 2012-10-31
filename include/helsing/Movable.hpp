@@ -1,12 +1,11 @@
-/*
- * Movable.hpp
- *
- *  Created on: 14. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Movable.hpp
+ * @date 14. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef MOVABLE_H_
-#define MOVABLE_H_
+#ifndef MOVABLE_HPP
+#define MOVABLE_HPP
 
 #include <helsing/hmath.hpp>
 
@@ -23,4 +22,4 @@ protected:
 };
 
 } /* namespace gfx */
-#endif /* POSITION_H_ */
+#endif /* POSITION_HPP */

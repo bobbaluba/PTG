@@ -6,8 +6,8 @@
  *
  */
 
-#ifndef MIDPOINTDISPLACEMENTTERRAIN_H_
-#define MIDPOINTDISPLACEMENTTERRAIN_H_
+#ifndef MIDPOINTDISPLACEMENTTERRAIN_HPP
+#define MIDPOINTDISPLACEMENTTERRAIN_HPP
 
 #include <ptg/Terrain.hpp>
 #include <ptg/QuadTree.hpp>
@@ -71,4 +71,4 @@ private:
 };
 
 } /* namespace ptg */
-#endif /* MIDPOINTDISPLACEMENTTERRAIN_H_ */
+#endif /* MIDPOINTDISPLACEMENTTERRAIN_HPP */

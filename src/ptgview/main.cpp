@@ -1,3 +1,8 @@
+/**
+ * @file main.cpp
+ * @date 2012
+ * @author Johan Klokkhammer Helsing
+ */
 #include "config.h"
 
 #include "LandscapeApplication.hpp"

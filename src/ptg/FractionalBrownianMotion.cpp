@@ -1,8 +1,7 @@
-/*
- * FractionalBrownianMotion.cpp
- *
- *  Created on: 27. okt. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file FractionalBrownianMotion.cpp
+ * @date 27. okt. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <ptg/FractionalBrownianMotion.hpp>

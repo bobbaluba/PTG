@@ -1,5 +1,10 @@
-#ifndef RENDERER_H_
-#define RENDERER_H_
+/**
+ * @file Renderer.hpp
+ * @date 2012
+ * @author Johan Klokkhammer Helsing
+ */
+#ifndef RENDERER_HPP
+#define RENDERER_HPP
 
 #include <helsing/Camera.hpp>
 #include <helsing/MatrixStack.hpp>
@@ -36,4 +41,4 @@ private:
 
 }
 
-#endif /* RENDERER_H_ */
+#endif /* RENDERER_HPP */

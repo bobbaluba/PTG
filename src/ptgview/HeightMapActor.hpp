@@ -1,12 +1,11 @@
-/*
- * HeightMapActor.hpp
- *
- *  Created on: 27. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file HeightMapActor.hpp
+ * @date 27. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef HEIGHTMAPACTOR_H_
-#define HEIGHTMAPACTOR_H_
+#ifndef HEIGHTMAPACTOR_HPP
+#define HEIGHTMAPACTOR_HPP
 
 #include "Actor.hpp"
 
@@ -21,4 +20,4 @@ private:
 	const helsing::HeightMap * heightMap;
 };
 
-#endif /* HEIGHTMAPACTOR_H_ */
+#endif /* HEIGHTMAPACTOR_HPP */

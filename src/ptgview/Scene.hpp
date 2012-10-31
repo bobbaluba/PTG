@@ -1,19 +1,17 @@
-/*
- * Scene.hpp
- *
- * abstract/interface class
- *
- *  Created on: 14. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Scene.hpp
+ * @date 14. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
-#ifndef SCENE_H_
-#define SCENE_H_
+#ifndef SCENE_HPP
+#define SCENE_HPP
 
 #include <helsing/Drawable.hpp>
 
 #include <SFML/Graphics.hpp>
 
+/// @brief abstract/interface class
 class Scene: public helsing::Drawable {
 public:
 	virtual ~Scene(){}
@@ -23,4 +21,4 @@ public:
 	virtual bool handleEvent(const sf::Event&){return false;}
 };
 
-#endif /* SCENE_H_ */
+#endif // SCENE_HPP

@@ -1,9 +1,7 @@
 /**
- * Seedable.hpp
- *
+ * @file Seedable.hpp
  * @date 2012
  * @author Johan Klokkhammer Helsing
- *
  */
 
 #ifndef SEEDABLE_HPP

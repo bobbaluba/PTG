@@ -1,8 +1,7 @@
-/*
- * Actor.cpp
- *
- *  Created on: 14. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Actor.cpp
+ * @date 14. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include "Actor.hpp"

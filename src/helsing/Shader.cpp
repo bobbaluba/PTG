@@ -1,8 +1,7 @@
-/*
- * Shader.cpp
- *
- *  Created on: 12. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file Shader.cpp
+ * @date 12. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <helsing/Shader.hpp>

@@ -1,8 +1,7 @@
-/*
- * MatrixStack.cpp
- *
- *  Created on: 11. sep. 2012
- *      Author: Johan Klokkhammer Helsing
+/**
+ * @file MatrixStack.cpp
+ * @date 11. sep. 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #include <helsing/MatrixStack.hpp>
