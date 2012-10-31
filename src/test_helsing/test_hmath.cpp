@@ -1,4 +1,9 @@
-#include <helsing/hmath.hpp>
+/**
+ * @file test_hmath.cpp
+ * @date 2012
+ * @file test_hmath.cpp
+ */
+hmath.hpp>
 
 #include <iostream>
 #include <cassert>

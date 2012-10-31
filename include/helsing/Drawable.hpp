@@ -1,6 +1,5 @@
 /**
- * Drawable.hpp
- *
+ * @file Drawable.hpp
  * @date 15. sep. 2012
  * @author Johan Klokkhammer Helsing
  */

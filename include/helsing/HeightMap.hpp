@@ -1,9 +1,7 @@
 /**
- * HeightMap.hpp
- *
+ * @file HeightMap.hpp
  * @date 2012
  * @author Johan Klokkhammer Helsing
- *
  */
 
 #ifndef HEIGHTMAP_HPP

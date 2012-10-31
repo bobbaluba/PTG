@@ -1,9 +1,7 @@
-/*
- * MidpointDisplacementTerrain.hpp
- *
+/**
+ * @file MidpointDisplacementTerrain.hpp
  * @date 2012
  * @author Johan Klokkhammer Helsing
- *
  */
 
 #ifndef MIDPOINTDISPLACEMENTTERRAIN_HPP

@@ -1,6 +1,5 @@
 /**
- * DiamondSquareTerrain.hpp
- *
+ * @file DiamondSquareTerrain.hpp
  * @date 25. okt. 2012
  * @author Johan Klokkhammer Helsing
  */

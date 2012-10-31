@@ -1,6 +1,5 @@
-/*
- * FractionalBrownianMotion.hpp
- *
+/**
+ * @file FractionalBrownianMotion.hpp
  * @date 27. okt. 2012
  * @author Johan Klokkhammer Helsing
  */

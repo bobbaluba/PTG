@@ -1,6 +1,5 @@
-/*
- * test_shader.cpp
- *
+/**
+ * @file test_shader.cpp
  * @date 27. sep. 2012
  * @author Johan Klokkhammer Helsing
  */

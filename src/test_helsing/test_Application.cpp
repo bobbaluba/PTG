@@ -1,6 +1,5 @@
-/*
- * test_Application.cpp
- *
+/**
+ * @file test_Application.cpp
  * @date 25. sep. 2012
  * @author Johan Klokkhammer Helsing
  */

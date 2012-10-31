@@ -1,12 +1,11 @@
-	/*
- * quad.hpp
- *
+/**
+ * @file QuadTree.hpp
  * @date 29. aug. 2012
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef QUAD_HPP
-#define QUAD_HPP
+#ifndef QUADTREE_HPP
+#define QUADTREE_HPP
 
 #include <ptg/Seedable.hpp>
 

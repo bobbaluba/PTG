@@ -1,6 +1,5 @@
 /**
- * Camera.hpp
- *
+ * @file Camera.hpp
  * @date 6. sep. 2012
  * @author Johan Klokkhammer Helsing
  */

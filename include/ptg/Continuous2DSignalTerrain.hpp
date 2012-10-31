@@ -1,6 +1,5 @@
-/*
- * Continuous2DSignalTerrain.hpp
- *
+/**
+ * @file Continuous2DSignalTerrain.hpp
  * @date 26. okt. 2012
  * @author Johan Klokkhammer Helsing
  */

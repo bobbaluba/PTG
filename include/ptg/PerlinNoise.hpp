@@ -1,6 +1,7 @@
 /**
- * PerlinNoise.hpp
- *
+ * @file PerlinNoise.hpp
+ * @date 2012
+ * @author Johan Klokkhammer Helsing
  */
 
 #ifndef PERLINNOISE_HPP

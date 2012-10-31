@@ -1,5 +1,5 @@
 /**
- * @file Continous2DSignal.hpp
+ * @file Continuous2DSignal.hpp
  * @date 22. okt. 2012
  * @author Johan Klokkhammer Helsing
  */
