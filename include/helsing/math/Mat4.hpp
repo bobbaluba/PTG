@@ -4,8 +4,8 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef MAT4_H_
-#define MAT4_H_
+#ifndef MAT4_HPP
+#define MAT4_HPP
 
 #include <helsing/math/Vec4.hpp>
 #include <helsing/math/hmath_misc.hpp>
@@ -197,4 +197,4 @@ inline std::ostream& operator<< (std::ostream &out, const Mat4& m){
 }
 
 } /* namespace helsing */
-#endif /* MAT4_H_ */
+#endif /* MAT4_HPP */

@@ -4,8 +4,8 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef VEC4_H_
-#define VEC4_H_
+#ifndef VEC4_HPP
+#define VEC4_HPP
 
 #include <helsing/hmath.hpp>
 #include <array>
@@ -117,4 +117,4 @@ inline Vec4 operator * (const Vec4& lhs, const float rhs){
 }
 
 } /* namespace helsing */
-#endif /* VEC4_H_ */
+#endif /* VEC4_HPP */

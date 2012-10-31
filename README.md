@@ -76,6 +76,20 @@ The viewer accepts the following command line options:
     * 3: Pure perlin noise
     * 4: Fractional Brownian motion using perlin noise as input signal
 
+Documentation
+-------------
+
+Documentation for the library can be found in the header files in the include/ptg
+directory.
+
+You can also compile the documentation using doxygen to get a pdf or an html site.
+To compile the documentation run
+
+    cd PTG
+    sudo apt-get install doxygen
+    doxygen
+
+Or similar, the documentation will appear in PTG/docs/html/
 
 License
 -------

@@ -4,8 +4,8 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef VEC2_H_
-#define VEC2_H_
+#ifndef VEC2_HPP
+#define VEC2_HPP
 
 #include <array>
 
@@ -63,4 +63,4 @@ public:
 
 }
 
-#endif /* VEC2_H_ */
+#endif /* VEC2_HPP */
