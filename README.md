@@ -46,7 +46,7 @@ To build project on *nix, run the following:
     cmake ..
     make
 
-Using the viewer
+The viewer
 ----------------
 
 A viewer, ptgview, is provided for viewing generated terrains.
@@ -59,7 +59,7 @@ The viewer accepts the following command line options:
 -f, --fullscreen
     Run the application in fullscreen using the current resolution of the desktop.
 
-===Navigating the viewer===
+**Navigating the viewer:**
 
 * A/D: Move left/right
 * W/S: Move forward/backward
