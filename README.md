@@ -79,6 +79,8 @@ The viewer accepts the following command line options:
 Documentation
 -------------
 
+[Documentation for the API](http://bobbaluba.github.com/PTG/docs/html)
+
 Documentation for the library can be found in the header files in the include/ptg
 directory.
 
