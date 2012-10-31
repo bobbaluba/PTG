@@ -14,7 +14,7 @@ var searchData=
   ['setheight',['setHeight',['../classhelsing_1_1HeightMap.html#ade8d9c03a4d22687316f53fa3b972ba4',1,'helsing::HeightMap']]],
   ['setoctaves',['setOctaves',['../classptg_1_1FractionalBrownianMotion.html#a53c82c3b5e6cf5b93b3ddd633c601179',1,'ptg::FractionalBrownianMotion']]],
   ['setsignal',['setSignal',['../classptg_1_1Continuous2DSignalTerrain.html#a449d94057222d7e9cd65449401439ac3',1,'ptg::Continuous2DSignalTerrain']]],
-  ['setterrain',['setTerrain',['../classptg_1_1LandscapeApplication.html#a6659bf09b9982e9ff8308c41909ffcb6',1,'ptg::LandscapeApplication']]],
+  ['setterrain',['setTerrain',['../classLandscapeApplication.html#ac0fbc8144fbc94c5c005ac41db2f7576',1,'LandscapeApplication']]],
   ['shader',['Shader',['../classhelsing_1_1Shader.html',1,'helsing']]],
   ['shader_2ecpp',['Shader.cpp',['../Shader_8cpp.html',1,'']]],
   ['shader_2ehpp',['Shader.hpp',['../Shader_8hpp.html',1,'']]],

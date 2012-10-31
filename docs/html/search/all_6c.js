@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['landscapeapplication',['LandscapeApplication',['../classptg_1_1LandscapeApplication.html',1,'ptg']]],
+  ['landscapeapplication',['LandscapeApplication',['../classLandscapeApplication.html',1,'']]],
   ['landscapeapplication_2ecpp',['LandscapeApplication.cpp',['../LandscapeApplication_8cpp.html',1,'']]],
   ['landscapeapplication_2ehpp',['LandscapeApplication.hpp',['../LandscapeApplication_8hpp.html',1,'']]],
   ['layoutapplication',['LayoutApplication',['../classLayoutApplication.html',1,'']]],

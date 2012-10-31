@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['landscapeapplication',['LandscapeApplication',['../classptg_1_1LandscapeApplication.html',1,'ptg']]],
+  ['landscapeapplication',['LandscapeApplication',['../classLandscapeApplication.html',1,'']]],
   ['layoutapplication',['LayoutApplication',['../classLayoutApplication.html',1,'']]]
 ];
