@@ -13,8 +13,6 @@
 #include "Water.hpp"
 #include "Actor.hpp"
 
-namespace ptg {
-
 class Renderer{
 public:
 	Renderer(uint32_t, uint32_t);
@@ -38,7 +36,5 @@ private:
 	float waterLevel;
 	helsing::HeightMap* heightMap;
 };
-
-}
 
 #endif /* RENDERER_HPP */

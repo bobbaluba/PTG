@@ -8,7 +8,6 @@
 #include "Renderer.hpp"
 
 using namespace helsing;
-using namespace ptg;
 
 HeightMapActor::HeightMapActor(const HeightMap* heightMap) : heightMap(heightMap) {
 }

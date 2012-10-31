@@ -14,8 +14,6 @@
 
 using namespace helsing;
 
-namespace ptg {
-
 LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) :
 		Application(settings),
 		renderer(NULL),
@@ -226,5 +224,3 @@ void LandscapeApplication::updateHeightMap() {
 		renderer->setHeightMap(heightMap);
 	}
 }
-
-} //namespace ptg

@@ -3,7 +3,7 @@
  * @date 2012
  * @file test_hmath.cpp
  */
-hmath.hpp>
+#include <helsing/hmath.hpp>
 
 #include <iostream>
 #include <cassert>

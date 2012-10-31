@@ -18,7 +18,7 @@
 #include <ptg/PerlinNoise.hpp>
 #include <ptg/FractionalBrownianMotion.hpp>
 
-namespace ptg {
+using namespace ptg;
 
 class LandscapeApplication: public helsing::Application {
 public:
@@ -60,5 +60,4 @@ private:
 	FractionalBrownianMotion fractionalBrownianMotion;
 };
 
-} /* namespace landscape */
 #endif /* LANDSCAPEAPPLICATION_HPP */

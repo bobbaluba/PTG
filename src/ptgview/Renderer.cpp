@@ -13,7 +13,6 @@
 #include <cassert>
 
 using namespace helsing;
-using namespace ptg;
 using namespace std;
 
 const Vec4 light_position = { 2.0, 1.0, 0.0, 0.0 };
@@ -31,11 +30,8 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 Renderer::~Renderer(){
 }
 
-void ptg::Renderer::setHeightMap(helsing::HeightMap* heightMap) {
+void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	this->heightMap=heightMap;
-//	if(heightMap!=NULL){
-//		water.setSize(heightMap->getSize()-1);
-//	}
 }
 
 void Renderer::setGLStates(){
