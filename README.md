@@ -1,4 +1,4 @@
-PTG
+PTG                                    {#mainpage}
 ===
 
 Procedural Terrain Generator
