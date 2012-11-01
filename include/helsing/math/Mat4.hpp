@@ -163,16 +163,23 @@ public:
 		return Mat4(i);
 	}
 
-	static const Mat4 perspective(Angle fov, float width, float height, float near, float far){
-		//TODO remove this dependency on OpenGL
-		glMatrixMode (GL_MODELVIEW); //set the matrix to projection
-		glPushMatrix();
-		glLoadIdentity();
-		gluPerspective(fov.degrees(), (GLfloat)width / (GLfloat)height, near, far);
+	/** @brief creates a perspective projection matrix
+	 * @param fov field of view in the y direction
+	 * @param aspectRatio aspect ratio, this is typically width/height
+	 * @param near The near clipping plane, objects nearer than this will be clipped off.
+	 * @param far The far clippling plane, objects further away will be clipped off.
+	 * @return perspective projection matrix
+	 */
+	static const Mat4 perspective(Angle fov, float aspectRatio, float near, float far){
 		float m[16];
-		glGetFloatv(GL_MODELVIEW_MATRIX, m);
-		glLoadIdentity();
-		glPopMatrix();
+		const float scaleY = 1/tan(fov.radians()/2);
+		const float scaleX = scaleY/aspectRatio;
+
+		m[0] = scaleX; m[4] = 0;      m[8]  = 0;                     m[12] = 0;
+		m[1] = 0;      m[5] = scaleY; m[9]  = 0;                     m[13] = 0;
+		m[2] = 0;      m[6] = 0;      m[10] = (far+near)/(near-far); m[14] = 2*near*far/(near-far);
+		m[3] = 0;      m[7] = 0;      m[11] = -1;                    m[15] = 0;
+
 		return Mat4(m);
 	}
 private:
