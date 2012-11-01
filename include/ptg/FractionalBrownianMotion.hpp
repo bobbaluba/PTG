@@ -56,10 +56,15 @@ public:
 	 */
 	virtual void setOctaves(unsigned int octaves){this->octaves=octaves;}
 
+	// @brief Gets number of octaves, see setOctaves
 	virtual unsigned int getOctaves() const {return octaves;}
+
+	virtual void setGain(float gain){this->gain=gain;}
+	virtual float getGain(){return gain;}
 private:
 	PerlinNoise baseNoise;
 	unsigned int octaves;
+	float gain;
 };
 
 } // namespace ptg

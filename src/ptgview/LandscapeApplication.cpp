@@ -194,6 +194,7 @@ void LandscapeApplication::increaseGain() {
 	std::cout << "Increasing gain to: " << gain << std::endl;
 	diamondSquareTerrain.setGain(gain);
 	midpointDisplacementTerrain.setGain(gain);
+	fractionalBrownianMotion.setGain(gain);
 	updateHeightMap();
 }
 
@@ -202,6 +203,7 @@ void LandscapeApplication::decreaseGain() {
 	std::cout << "Decreasing gain to: " << gain << std::endl;
 	diamondSquareTerrain.setGain(gain);
 	midpointDisplacementTerrain.setGain(gain);
+	fractionalBrownianMotion.setGain(gain);
 	updateHeightMap();
 }
 

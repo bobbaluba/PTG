@@ -11,7 +11,8 @@ namespace ptg {
 FractionalBrownianMotion::FractionalBrownianMotion(unsigned int seed):
 	Continuous2DSignal(seed),
 	baseNoise(seed),
-	octaves(7){
+	octaves(7),
+	gain(0.5){
 }
 
 FractionalBrownianMotion::~FractionalBrownianMotion() {
@@ -23,7 +24,7 @@ float FractionalBrownianMotion::get(float x, float y) {
 	float fbmSum=0;
 	for(unsigned int i = 0; i < octaves; i++){
 		fbmSum += baseNoise.get(x*frequency,y*frequency)*amplitude;
-		amplitude /= 2;
+		amplitude *= gain;
 		frequency *= 2;
 	}
 	return fbmSum;
