@@ -9,8 +9,6 @@
 
 #include <helsing/math/Vec4.hpp>
 #include <helsing/math/hmath_misc.hpp>
-#include <GL/gl.h>
-#include <GL/glu.h>
 
 namespace helsing {
 
