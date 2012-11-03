@@ -13,10 +13,12 @@ namespace helsing {
 
 class Shader {
 public:
-	Shader(const std::string text);
+	Shader(const std::string vertexShader, const std::string fragmenShader);
 	virtual ~Shader();
 private:
 	unsigned int hVertexShader;
+	unsigned int hFragmentShader;
+	unsigned int hShaderProgram;
 };
 
 } // namespace helsing
