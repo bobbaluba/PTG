@@ -3,6 +3,8 @@ PTG                                    {#mainpage}
 
 Procedural Terrain Generator
 
+![screenshot](http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png)
+
 A library and an application for generating and viewing two dimensional heightmaps.
 It's intention is to provide modular and useful abstractions for terrain generation.
 
