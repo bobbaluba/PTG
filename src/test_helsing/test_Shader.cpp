@@ -29,8 +29,28 @@ void ctordtor(){
 
 	auto theTest = [] (TestApplication& app, uint32_t ticks) {
 		if(ticks==3){
-			helsing::Shader* shader = new helsing::Shader("#version 140\nvoid main() {}");
+			const std::string vertexShader = "#version 120\nvoid main() {gl_Position = gl_Vertex;}";
+			const std::string fragmentShader = "#version 120\nvoid main() {}";
+			helsing::Shader* shader = new helsing::Shader(vertexShader,fragmentShader);
 			delete shader;
+		}
+		if(ticks>10)app.stop();
+	};
+	TestApplication app(theTest);
+	app.start();
+
+
+	cout << "OK\n";
+}
+
+void flatShader(){
+	cout << "Testing flat shader...";
+
+	auto theTest = [] (TestApplication& app, uint32_t ticks) {
+		if(ticks==3){
+			const std::string vertexShader = "#version 120\nvoid main() {gl_Position = gl_Vertex;}";
+			const std::string fragmentShader = "#version 120\nvoid main() {}";
+			helsing::Shader(vertexShader,fragmentShader);
 		}
 		if(ticks>10)app.stop();
 	};
@@ -45,6 +65,7 @@ int main(){
 	cout << "\nTesting basic Shader class:\n\n";
 
 	ctordtor();
+	flatShader();
 
 	cout << "\nAll tests completed\n\n";
 	return EXIT_SUCCESS;

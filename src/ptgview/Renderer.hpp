@@ -6,12 +6,14 @@
 #ifndef RENDERER_HPP
 #define RENDERER_HPP
 
-#include <helsing/Camera.hpp>
-#include <helsing/MatrixStack.hpp>
-#include <helsing/HeightMap.hpp>
-#include <helsing/Movable.hpp>
 #include "Water.hpp"
 #include "Actor.hpp"
+#include "TerrainMesh.hpp"
+
+#include <helsing/HeightMap.hpp>
+#include <helsing/Camera.hpp>
+#include <helsing/MatrixStack.hpp>
+#include <helsing/Movable.hpp>
 
 class Renderer{
 public:
@@ -35,6 +37,7 @@ private:
 	Water water;
 	float waterLevel;
 	helsing::HeightMap* heightMap;
+	TerrainMesh* terrainMesh;
 };
 
 #endif /* RENDERER_HPP */

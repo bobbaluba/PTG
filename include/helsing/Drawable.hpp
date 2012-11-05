@@ -6,11 +6,13 @@
 #ifndef DRAWABLE_HPP
 #define DRAWABLE_HPP
 
+#include <helsing/math/Mat4.hpp>
+
 namespace helsing {
 
 class Drawable {
 public:
-	virtual void draw() = 0;
+	virtual void draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix) = 0;
 	virtual ~Drawable() {
 	}
 };

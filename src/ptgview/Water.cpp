@@ -7,7 +7,7 @@
 #include "Water.hpp"
 #include "GL/gl.h"
 
-void Water::draw(){
+void Water::draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix){
 	glDisable(GL_LIGHTING);
 	float half = size/2.f;
 	glPushMatrix();

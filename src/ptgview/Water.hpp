@@ -13,7 +13,7 @@ class Water: public helsing::Drawable {
 public:
 	Water(float size):size(size){}
 	virtual ~Water(){}
-	virtual void draw();
+	virtual void draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix);
 	virtual void setSize(float size){this->size=size;}
 private:
 	float size;
