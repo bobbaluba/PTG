@@ -16,6 +16,7 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
 	helsing::TextFile fragmentFile("data/shaders/terrain.frag.glsl");
 	shader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
+	width = heightMap.getSize();
 
 	//create vertices
 	unsigned int size = heightMap.getSize();
@@ -34,7 +35,16 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 			vertices.push_back(getVertex(i+1,j+1,heightMap));
 		}
 	}
+//	TerrainVertex a = {helsing::Vec4(-0.5, 0.0, 0.0, 1),helsing::Vec4(0,0,1,0)};
+//	TerrainVertex b = {helsing::Vec4( 0.5, 0.0, 0.0, 1),helsing::Vec4(0,0,1,0)};
+//	TerrainVertex c = {helsing::Vec4( 0.0, 0.5, 0.0, 1),helsing::Vec4(0,0,1,0)};
+//	vertices.push_back(a);
+//	vertices.push_back(b);
+//	vertices.push_back(c);
+
+	//debug stuff
 	numberOfVertices = vertices.size();
+
 
 	//Create and bind vertex array object
 	glGenVertexArrays(1, &vaoId);
@@ -49,26 +59,36 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 	glBindBuffer(GL_ARRAY_BUFFER, vboId);
 
 	//specify the data
-	glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(TerrainVertex), &(vertices[0]), GL_STATIC_DRAW); //offsetof?
+	glBufferData(GL_ARRAY_BUFFER, sizeof(TerrainVertex)*vertices.size(), &(vertices[0]), GL_STATIC_DRAW); //offsetof?
 	GLint positionAttributeIndex = shader->getPositionAttributeIndex();
+	if(positionAttributeIndex==-1){
+		std::cerr << "Error: Can't find attribute index for the position\n";
+		exit(EXIT_FAILURE);
+	}
 	glVertexAttribPointer(
-		positionAttributeIndex, //attribute index
-		4,                      //size
-		GL_FLOAT,               //type
-		GL_FALSE,               //normalize?
-		sizeof(TerrainVertex),  //stride
-		0                       //array buffer offset
+		positionAttributeIndex,           //attribute index
+		4,                                //size
+		GL_FLOAT,                         //type
+		GL_FALSE,                         //normalize?
+		sizeof(TerrainVertex),            //stride
+		(GLvoid*)offsetof(TerrainVertex, position) //array buffer offset
 	);
+	glEnableVertexAttribArray(positionAttributeIndex);
+
 	GLint normalAttributeIndex = shader->getNormalAttributeIndex();
+	if(normalAttributeIndex==-1){
+		std::cerr << "Error: Can't find attribute index for the normal\n";
+		exit(EXIT_FAILURE);
+	}
 	glVertexAttribPointer(
-		normalAttributeIndex,  //attribute index
-		4,                     //size
-		GL_FLOAT,              //type
-		GL_FALSE,              //normalize?
-		sizeof(TerrainVertex), //stride
-		(GLvoid*)sizeof(helsing::Vec4)  //array buffer offset
+		normalAttributeIndex,                     //attribute index
+		4,                                        //size
+		GL_FLOAT,                                 //type
+		GL_FALSE,                                 //normalize?
+		sizeof(TerrainVertex),                    //stride
+		(GLvoid*)offsetof(TerrainVertex, normal)  //array buffer offset
 	);
-	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(normalAttributeIndex);
 
 	//clean up
 	glBindVertexArray(0); // disable vertex array object
@@ -86,7 +106,14 @@ TerrainMesh::~TerrainMesh() {
 }
 
 void TerrainMesh::draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix) {
-	shader->use(modelViewMatrix, projectionMatrix);
+	using helsing::Mat4;
+	float midpoint = (width-1)/2.0;
+	float s = 65.0/(width-1.0);
+	Mat4 mv = modelViewMatrix;
+	mv = mv.scale(s,s,s);
+	mv = mv.translate(-midpoint,0,-midpoint);
+
+	shader->use(mv, projectionMatrix);
 	glBindVertexArray(vaoId);
 	glDrawArrays(
 			GL_TRIANGLES,    //which primitive to draw
@@ -96,10 +123,10 @@ void TerrainMesh::draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4
 	glBindVertexArray(0); //disable vertex array object
 }
 
-TerrainMesh::TerrainVertex TerrainMesh::getVertex(int x, int z, const helsing::HeightMap&) {
+TerrainMesh::TerrainVertex TerrainMesh::getVertex(int x, int z, const helsing::HeightMap& heightMap) {
 	using helsing::Vec4;
-	Vec4 position = Vec4(x,0,z);
-	Vec4 normal = Vec4::axis(helsing::axis::y);
+	Vec4 position = Vec4(x,heightMap.getHeight(x,z),z);
+	Vec4 normal = heightMap.getNormal(x,z);
 	TerrainVertex vertex = {position,normal};
 	return vertex;
 }

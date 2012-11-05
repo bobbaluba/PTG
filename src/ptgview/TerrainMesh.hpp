@@ -27,6 +27,7 @@ private:
 	unsigned int vaoId;
 	unsigned int vboId;
 	unsigned int numberOfVertices;
+	unsigned int width;
 	helsing::Shader* shader;
 
     // Disable value copying
