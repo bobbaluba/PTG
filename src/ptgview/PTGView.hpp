@@ -40,6 +40,7 @@ public:
 	virtual void setTerrain(Terrain* terrain);
 	virtual void setHeightMapSize(unsigned int size);
 private:
+	virtual void reseedTerrain();
 	virtual void increaseDetail();
 	virtual void decreaseDetail();
 	virtual void increaseAmplitude();

@@ -41,12 +41,8 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			flymode = !flymode;
 			window->setMouseCursorVisible(!flymode);
 			return true;
-		case sf::Mouse::Right: {
-			unsigned int seed = rand();
-			std::cout << "Reseeding terrain with seed: " << seed << std::endl;
-			terrain->seed(seed);
-			updateHeightMap();
-		}
+		case sf::Mouse::Right:
+			reseedTerrain();
 			return true;
 		default:
 			return false;
@@ -54,6 +50,10 @@ bool PTGView::handleEvent(const sf::Event& event) {
 		break;
 	case sf::Event::KeyPressed:
 		switch(event.key.code){
+		case sf::Keyboard::Return:
+		case sf::Keyboard::Space:
+			reseedTerrain();
+			break;
 		case sf::Keyboard::P:
 			increaseDetail();
 			return true;
@@ -224,4 +224,11 @@ void PTGView::updateHeightMap() {
 	if(renderer!=NULL){
 		renderer->setHeightMap(heightMap);
 	}
+}
+
+void PTGView::reseedTerrain() {
+	unsigned int seed = rand();
+	std::cout << "Reseeding terrain with seed: " << seed << std::endl;
+	terrain->seed(seed);
+	updateHeightMap();
 }

@@ -66,7 +66,7 @@ The viewer accepts the following command line options:
 * A/D: Move left/right
 * W/S: Move forward/backward
 * Left Mouse button: Toggle viewing mode (flying or centered)
-* Right Mouse button: Reseed the terrains
+* Space/Return/Right Mouse button: Reseed the terrains
 * R/F: Move up/down
 * U/J: Raise/Lower water
 * O/P: Adjust terrain detail
