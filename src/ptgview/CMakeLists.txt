@@ -5,8 +5,6 @@ set(ptgview_src
 	LandscapeApplication.cpp
 	main.cpp
 	Renderer.cpp
-	SceneApplication.cpp
-	Scene.cpp
 	Water.cpp
 	TerrainMesh.cpp
 )
