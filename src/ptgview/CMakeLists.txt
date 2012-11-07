@@ -2,8 +2,6 @@
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(ptgview_src
-	Actor.cpp
-	HeightMapActor.cpp
 	LandscapeApplication.cpp
 	main.cpp
 	Renderer.cpp

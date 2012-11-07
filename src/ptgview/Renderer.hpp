@@ -7,7 +7,6 @@
 #define RENDERER_HPP
 
 #include "Water.hpp"
-#include "Actor.hpp"
 #include "TerrainMesh.hpp"
 
 #include <helsing/HeightMap.hpp>

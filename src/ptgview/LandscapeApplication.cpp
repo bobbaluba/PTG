@@ -5,7 +5,6 @@
  */
 
 #include "LandscapeApplication.hpp"
-#include "HeightMapActor.hpp"
 
 #include <ptg/MidpointDisplacementTerrain.hpp>
 #include <ptg/DiamondSquareTerrain.hpp>
