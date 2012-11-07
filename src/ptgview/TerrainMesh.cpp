@@ -18,6 +18,9 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 	shader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
 	width = heightMap.getSize();
 
+	std::cout << "Creating terrain mesh...";
+	std::cout.flush();
+
 	//create vertices
 	unsigned int size = heightMap.getSize();
 	std::vector<TerrainVertex> vertices;
@@ -35,16 +38,8 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 			vertices.push_back(getVertex(i+1,j+1,heightMap));
 		}
 	}
-//	TerrainVertex a = {helsing::Vec4(-0.5, 0.0, 0.0, 1),helsing::Vec4(0,0,1,0)};
-//	TerrainVertex b = {helsing::Vec4( 0.5, 0.0, 0.0, 1),helsing::Vec4(0,0,1,0)};
-//	TerrainVertex c = {helsing::Vec4( 0.0, 0.5, 0.0, 1),helsing::Vec4(0,0,1,0)};
-//	vertices.push_back(a);
-//	vertices.push_back(b);
-//	vertices.push_back(c);
 
-	//debug stuff
 	numberOfVertices = vertices.size();
-
 
 	//Create and bind vertex array object
 	glGenVertexArrays(1, &vaoId);
@@ -62,7 +57,7 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 	glBufferData(GL_ARRAY_BUFFER, sizeof(TerrainVertex)*vertices.size(), &(vertices[0]), GL_STATIC_DRAW); //offsetof?
 	GLint positionAttributeIndex = shader->getPositionAttributeIndex();
 	if(positionAttributeIndex==-1){
-		std::cerr << "Error: Can't find attribute index for the position\n";
+		std::cerr << "\nError: Can't find attribute index for the position\n";
 		exit(EXIT_FAILURE);
 	}
 	glVertexAttribPointer(
@@ -77,7 +72,7 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 
 	GLint normalAttributeIndex = shader->getNormalAttributeIndex();
 	if(normalAttributeIndex==-1){
-		std::cerr << "Error: Can't find attribute index for the normal\n";
+		std::cerr << "\nError: Can't find attribute index for the normal\n";
 		exit(EXIT_FAILURE);
 	}
 	glVertexAttribPointer(
@@ -92,6 +87,8 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 
 	//clean up
 	glBindVertexArray(0); // disable vertex array object
+
+	std::cout << "OK!\n";
 }
 
 TerrainMesh::~TerrainMesh() {
