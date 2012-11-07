@@ -19,6 +19,9 @@
 
 using namespace ptg;
 
+/** @brief An Application for generating and viewing terraings using the PTG library
+ *
+ */
 class PTGView: public helsing::Application {
 public:
 	PTGView(const ApplicationSettings& = ApplicationSettings());
