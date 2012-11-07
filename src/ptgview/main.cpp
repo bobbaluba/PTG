@@ -5,7 +5,7 @@
  */
 #include "config.h"
 
-#include "LandscapeApplication.hpp"
+#include "PTGView.hpp"
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -52,7 +52,7 @@ int main(int argc, char* argv[] ){
 	Application::ApplicationSettings settings;
 	settings.windowTitle="PTG - Terrain Viewer";
 	settings.fullscreen=fullscreen;
-	LandscapeApplication app(settings);
+	PTGView app(settings);
 	app.setHeightMapSize(heightMapSize);
 	app.start();
 	cout << "\nClosing...\n\n";

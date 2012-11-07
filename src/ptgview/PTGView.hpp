@@ -1,11 +1,11 @@
 /**
- * @file LandscapeApplication.hpp
+ * @file PTGView.hpp
  * @date 25. sep. 2012
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef LANDSCAPEAPPLICATION_HPP
-#define LANDSCAPEAPPLICATION_HPP
+#ifndef PTGVIEW_HPP
+#define PTGVIEW_HPP
 
 #include "Renderer.hpp"
 
@@ -19,10 +19,10 @@
 
 using namespace ptg;
 
-class LandscapeApplication: public helsing::Application {
+class PTGView: public helsing::Application {
 public:
-	LandscapeApplication(const ApplicationSettings& = ApplicationSettings());
-	virtual ~LandscapeApplication() {
+	PTGView(const ApplicationSettings& = ApplicationSettings());
+	virtual ~PTGView() {
 		delete renderer;
 	}
 	virtual void onInit();
@@ -59,4 +59,4 @@ private:
 	FractionalBrownianMotion fractionalBrownianMotion;
 };
 
-#endif /* LANDSCAPEAPPLICATION_HPP */
+#endif // PTGVIEW_HPP

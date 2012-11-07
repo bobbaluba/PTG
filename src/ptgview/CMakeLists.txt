@@ -2,7 +2,7 @@
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(ptgview_src
-	LandscapeApplication.cpp
+	PTGView.cpp
 	main.cpp
 	Renderer.cpp
 	Water.cpp

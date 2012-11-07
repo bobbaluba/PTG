@@ -1,10 +1,10 @@
 /**
- * @file LandscapeApplication.cpp
+ * @file PTGView.cpp
  * @date 25. sep. 2012
  * @author Johan Klokkhammer Helsing
  */
 
-#include "LandscapeApplication.hpp"
+#include "PTGView.hpp"
 
 #include <ptg/MidpointDisplacementTerrain.hpp>
 #include <ptg/DiamondSquareTerrain.hpp>
@@ -13,7 +13,7 @@
 
 using namespace helsing;
 
-LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) :
+PTGView::PTGView(const ApplicationSettings& settings) :
 		Application(settings),
 		renderer(NULL),
 		flymode(false),
@@ -26,14 +26,14 @@ LandscapeApplication::LandscapeApplication(const ApplicationSettings& settings) 
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
 
-void LandscapeApplication::onInit(){
+void PTGView::onInit(){
 	renderer = new Renderer(window->getSize().x, window->getSize().y);
 	renderer->getCamera().setPosition(Vec4(30,5,30));
 	renderer->getCamera().lookAt(Vec4::origin());
 	updateHeightMap();
 }
 
-bool LandscapeApplication::handleEvent(const sf::Event& event) {
+bool PTGView::handleEvent(const sf::Event& event) {
 	switch (event.type) {
 	case sf::Event::MouseButtonPressed:
 		switch (event.mouseButton.button) {
@@ -100,7 +100,7 @@ bool LandscapeApplication::handleEvent(const sf::Event& event) {
 	return false;
 }
 
-void LandscapeApplication::onRender(){
+void PTGView::onRender(){
 	Camera& camera = renderer->getCamera();
 
 	//camera movement
@@ -149,28 +149,28 @@ void LandscapeApplication::onRender(){
 	window->display();
 }
 
-void LandscapeApplication::setTerrain(Terrain* terrain) {
+void PTGView::setTerrain(Terrain* terrain) {
 	this->terrain = terrain;
 	updateHeightMap();
 }
 
-void LandscapeApplication::increaseDetail() {
+void PTGView::increaseDetail() {
 	unsigned int newSize = (heightMapSize-1)*2+1;
 	setHeightMapSize(newSize);
 }
 
-void LandscapeApplication::decreaseDetail() {
+void PTGView::decreaseDetail() {
 	unsigned int newSize = (heightMapSize)/2+1;
 	if(newSize<3)newSize=3;
 	setHeightMapSize(newSize);
 }
 
-void LandscapeApplication::setHeightMapSize(unsigned int size) {
+void PTGView::setHeightMapSize(unsigned int size) {
 	heightMapSize=size;
 	updateHeightMap();
 }
 
-void LandscapeApplication::increaseAmplitude() {
+void PTGView::increaseAmplitude() {
 	amplitude *= 1.1;
 	std::cout << "Increasing amplitude to: " << amplitude << std::endl;
 	midpointDisplacementTerrain.setAmplitude(amplitude);
@@ -179,7 +179,7 @@ void LandscapeApplication::increaseAmplitude() {
 	updateHeightMap();
 }
 
-void LandscapeApplication::decreaseAmplitude() {
+void PTGView::decreaseAmplitude() {
 	amplitude /= 1.1;
 	std::cout << "Decreasing amplitude to: " << amplitude << std::endl;
 	midpointDisplacementTerrain.setAmplitude(amplitude);
@@ -188,7 +188,7 @@ void LandscapeApplication::decreaseAmplitude() {
 	updateHeightMap();
 }
 
-void LandscapeApplication::increaseGain() {
+void PTGView::increaseGain() {
 	gain*=1.05;
 	std::cout << "Increasing gain to: " << gain << std::endl;
 	diamondSquareTerrain.setGain(gain);
@@ -197,7 +197,7 @@ void LandscapeApplication::increaseGain() {
 	updateHeightMap();
 }
 
-void LandscapeApplication::decreaseGain() {
+void PTGView::decreaseGain() {
 	gain/=1.05;
 	std::cout << "Decreasing gain to: " << gain << std::endl;
 	diamondSquareTerrain.setGain(gain);
@@ -206,12 +206,12 @@ void LandscapeApplication::decreaseGain() {
 	updateHeightMap();
 }
 
-void LandscapeApplication::raiseWater(float amount) {
+void PTGView::raiseWater(float amount) {
 	waterLevel+=amount;
 	renderer->setWaterLevel(waterLevel);
 }
 
-void LandscapeApplication::updateHeightMap() {
+void PTGView::updateHeightMap() {
 	if(terrain==NULL){
 		return;
 	}
