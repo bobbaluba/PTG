@@ -13,7 +13,9 @@ void main(void){
 	vec3 n = in_Normal.xyz;
 	vec3 v = vec3(0,0,1); //direction towards viewer
 	gl_Position = ProjectionMatrix * ModelViewMatrix * in_Position;
-	float k_d = 1;
+	float k_a = 0.2;
+	float k_d = 0.5;
+	float i_a = k_a;
 	float i_d = k_d * dot(n, v);
-	ex_Color = i_d * vec3(1,1,1);
+	ex_Color = (i_a + i_d) * vec3(1,1,1);
 }
