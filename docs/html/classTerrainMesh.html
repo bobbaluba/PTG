@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PTG: src/ptgview/BasicScene.hpp Source File</title>
+<title>PTG: TerrainMesh Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -39,8 +39,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
-      <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -61,7 +61,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
+      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -78,37 +81,45 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c1e35b635d86b42840646d7136675dff.html">ptgview</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="classTerrainMesh-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">BasicScene.hpp</div>  </div>
+<div class="title">TerrainMesh Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="BasicScene_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef BASICSCENE_HPP</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define BASICSCENE_HPP</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Scene_8hpp.html">Scene.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="classBasicScene.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classBasicScene.html">BasicScene</a>: <span class="keyword">public</span> <a class="code" href="classScene.html" title="abstract/interface class">Scene</a> {</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="classBasicScene.html">BasicScene</a>();</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classBasicScene.html">BasicScene</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> addDrawable(Drawable*);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> render();</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::vector&lt;Drawable*&gt; drawables;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* BASICSCENE_HPP */</span><span class="preprocessor"></span></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="dynheader">
+Inheritance diagram for TerrainMesh:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classTerrainMesh.png" usemap="#TerrainMesh_map" alt=""/>
+  <map id="TerrainMesh_map" name="TerrainMesh_map">
+<area href="classhelsing_1_1Drawable.html" alt="helsing::Drawable" shape="rect" coords="0,0,112,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>TerrainVertex</b></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:addb43bb187638bfc613975edddb973d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addb43bb187638bfc613975edddb973d4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TerrainMesh</b> (const <a class="el" href="classhelsing_1_1HeightMap.html">helsing::HeightMap</a> &amp;)</td></tr>
+<tr class="memitem:a3d39895c8701e3c99f603d429c7e5977"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d39895c8701e3c99f603d429c7e5977"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> (const <a class="el" href="classhelsing_1_1Mat4.html">helsing::Mat4</a> &amp;modelViewMatrix, const <a class="el" href="classhelsing_1_1Mat4.html">helsing::Mat4</a> &amp;projectionMatrix)</td></tr>
+</table>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>src/ptgview/<a class="el" href="TerrainMesh_8hpp_source.html">TerrainMesh.hpp</a></li>
+<li>src/ptgview/<a class="el" href="TerrainMesh_8cpp.html">TerrainMesh.cpp</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 31 2012 15:48:26 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 7 2012 14:51:41 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

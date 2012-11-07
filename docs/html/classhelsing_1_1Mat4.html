@@ -122,8 +122,8 @@ const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td clas
 const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rotate</b> (const <a class="el" href="classhelsing_1_1Vec4.html">Vec4</a> &amp;axis, <a class="el" href="classhelsing_1_1Angle.html">Angle</a> angle) const </td></tr>
 <tr class="memitem:aa16f356cdeb8e3f029fc1628878d4dc5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa16f356cdeb8e3f029fc1628878d4dc5"></a>
 const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>translate</b> (float dx, float dy, float dz) const </td></tr>
-<tr class="memitem:a0baa6c9fa5ae0332d2ba72394ebe001b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0baa6c9fa5ae0332d2ba72394ebe001b"></a>
-const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b> (float x, float y, float z)</td></tr>
+<tr class="memitem:a5203592b6a0b5cc1584a351271b507c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5203592b6a0b5cc1584a351271b507c0"></a>
+const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scale</b> (float x, float y, float z) const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -136,8 +136,8 @@ static const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><
 static const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>translation</b> (float dx, float dy, float dz)</td></tr>
 <tr class="memitem:af3e37bb5c087e03b8e9067cb8c05d5e3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3e37bb5c087e03b8e9067cb8c05d5e3"></a>
 static const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>scaling</b> (float dx, float dy, float dz)</td></tr>
-<tr class="memitem:a79b66cfe412903f130abf91c22d40b3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a79b66cfe412903f130abf91c22d40b3b"></a>
-static const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><b>perspective</b> (<a class="el" href="classhelsing_1_1Angle.html">Angle</a> fov, float width, float height, float near, float far)</td></tr>
+<tr class="memitem:a48b026fd3e580c8c7d422fe914d80850"><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhelsing_1_1Mat4.html#a48b026fd3e580c8c7d422fe914d80850">perspective</a> (<a class="el" href="classhelsing_1_1Angle.html">Angle</a> fov, float aspectRatio, float near, float far)</td></tr>
+<tr class="memdesc:a48b026fd3e580c8c7d422fe914d80850"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a perspective projection matrix  <a href="#a48b026fd3e580c8c7d422fe914d80850"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -152,6 +152,64 @@ union {</td></tr>
 <a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Matrix using homogeneous coordinates Designed to be easy to use with OpenGL. </p>
 </div><h2>Member Function Documentation</h2>
+<a class="anchor" id="a48b026fd3e580c8c7d422fe914d80850"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const <a class="el" href="classhelsing_1_1Mat4.html">Mat4</a> helsing::Mat4::perspective </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classhelsing_1_1Angle.html">Angle</a>&#160;</td>
+          <td class="paramname"><em>fov</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>aspectRatio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>far</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>creates a perspective projection matrix </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fov</td><td>field of view in the y direction </td></tr>
+    <tr><td class="paramname">aspectRatio</td><td>aspect ratio, this is typically width/height </td></tr>
+    <tr><td class="paramname">near</td><td>The near clipping plane, objects nearer than this will be clipped off. </td></tr>
+    <tr><td class="paramname">far</td><td>The far clippling plane, objects further away will be clipped off. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>perspective projection matrix </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a9d87579cf34ce25bf6bd0c0b9c5a0da8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +252,7 @@ union {</td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 31 2012 15:48:26 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 7 2012 14:51:41 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

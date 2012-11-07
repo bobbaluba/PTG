@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ptg_20index',['PTG Index',['../index.html',1,'']]]
+  ['ptg',['PTG',['../index.html',1,'']]]
 ];

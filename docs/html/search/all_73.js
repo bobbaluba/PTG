@@ -1,11 +1,6 @@
 var searchData=
 [
   ['scale',['scale',['../classhelsing_1_1MatrixStack.html#a5b6225abd1e9e3ce44ae5b4188565e6b',1,'helsing::MatrixStack']]],
-  ['scene',['Scene',['../classScene.html',1,'']]],
-  ['scene_2ecpp',['Scene.cpp',['../Scene_8cpp.html',1,'']]],
-  ['scene_2ehpp',['Scene.hpp',['../Scene_8hpp.html',1,'']]],
-  ['sceneapplication_2ecpp',['SceneApplication.cpp',['../SceneApplication_8cpp.html',1,'']]],
-  ['sceneapplication_2ehpp',['SceneApplication.hpp',['../SceneApplication_8hpp.html',1,'']]],
   ['seed',['seed',['../classptg_1_1Seedable.html#acc369d90a59660ffc390ff83107dcdf4',1,'ptg::Seedable']]],
   ['seedable',['Seedable',['../classptg_1_1Seedable.html',1,'ptg']]],
   ['seedable_2ecpp',['Seedable.cpp',['../Seedable_8cpp.html',1,'']]],

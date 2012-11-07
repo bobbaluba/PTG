@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PTG: src/ptgview/Scene.hpp Source File</title>
+<title>PTG: src/ptgview/TerrainMesh.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,31 +85,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Scene.hpp</div>  </div>
+<div class="title">TerrainMesh.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="Scene_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef SCENE_HPP</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define SCENE_HPP</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Drawable_8hpp.html">helsing/Drawable.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;SFML/Graphics.hpp&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="code" href="classScene.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classScene.html" title="abstract/interface class">Scene</a>: <span class="keyword">public</span> <a class="code" href="classhelsing_1_1Drawable.html">helsing::Drawable</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classScene.html" title="abstract/interface class">Scene</a>(){}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> hide(){}</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> show(){}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> render() = 0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> handleEvent(<span class="keyword">const</span> sf::Event&amp;){<span class="keywordflow">return</span> <span class="keyword">false</span>;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // SCENE_HPP</span></div>
-</div><!-- fragment --></div><!-- contents -->
+<div class="textblock"><code>#include &quot;TerrainMesh.hpp&quot;</code><br/>
+<code>#include &lt;GL/glew.h&gt;</code><br/>
+<code>#include &lt;GL/gl.h&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
+<code>#include &lt;<a class="el" href="TextFile_8hpp_source.html">helsing/TextFile.hpp</a>&gt;</code><br/>
+</div><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><dl class="section date"><dt>Date</dt><dd>2. nov. 2012 </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Johan Klokkhammer Helsing </dd></dl>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Oct 31 2012 15:48:26 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 7 2012 14:51:41 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
