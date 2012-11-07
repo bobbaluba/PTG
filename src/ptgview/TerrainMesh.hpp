@@ -4,8 +4,8 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef TERRAINMESH_H_
-#define TERRAINMESH_H_
+#ifndef TERRAINMESH_HPP
+#define TERRAINMESH_HPP
 
 #include <helsing/Drawable.hpp>
 
