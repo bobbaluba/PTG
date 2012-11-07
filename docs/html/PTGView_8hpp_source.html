@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>PTG: src/ptgview/LandscapeApplication.hpp Source File</title>
+<title>PTG: src/ptgview/PTGView.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,12 +85,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">LandscapeApplication.hpp</div>  </div>
+<div class="title">PTGView.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="LandscapeApplication_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef LANDSCAPEAPPLICATION_HPP</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define LANDSCAPEAPPLICATION_HPP</span></div>
+<a href="PTGView_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#ifndef PTGVIEW_HPP</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define PTGVIEW_HPP</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Renderer_8hpp.html">Renderer.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
@@ -104,10 +104,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">using namespace </span>ptg;</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classLandscapeApplication.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLandscapeApplication.html">LandscapeApplication</a>: <span class="keyword">public</span> <a class="code" href="classhelsing_1_1Application.html">helsing::Application</a> {</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="classPTGView.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="classPTGView.html">PTGView</a>: <span class="keyword">public</span> <a class="code" href="classhelsing_1_1Application.html">helsing::Application</a> {</div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classLandscapeApplication.html">LandscapeApplication</a>(<span class="keyword">const</span> <a class="code" href="classhelsing_1_1Application_1_1ApplicationSettings.html">ApplicationSettings</a>&amp; = <a class="code" href="classhelsing_1_1Application_1_1ApplicationSettings.html">ApplicationSettings</a>());</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classLandscapeApplication.html">LandscapeApplication</a>() {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="classPTGView.html">PTGView</a>(<span class="keyword">const</span> <a class="code" href="classhelsing_1_1Application_1_1ApplicationSettings.html">ApplicationSettings</a>&amp; = <a class="code" href="classhelsing_1_1Application_1_1ApplicationSettings.html">ApplicationSettings</a>());</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classPTGView.html">PTGView</a>() {</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                <span class="keyword">delete</span> renderer;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> onInit();</div>
@@ -141,11 +141,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        <a class="code" href="classptg_1_1FractionalBrownianMotion.html" title="Fractal noise generated using fractional brownian motion.">FractionalBrownianMotion</a> fractionalBrownianMotion;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* LANDSCAPEAPPLICATION_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#endif // PTGVIEW_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 14:51:41 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
