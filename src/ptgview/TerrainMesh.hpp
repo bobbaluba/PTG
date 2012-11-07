@@ -1,5 +1,5 @@
 /**
- * @file TerrainMesh.h
+ * @file TerrainMesh.hpp
  * @date 2. nov. 2012
  * @author Johan Klokkhammer Helsing
  */
@@ -11,8 +11,12 @@
 
 #include <helsing/Shader.hpp>
 #include <helsing/HeightMap.hpp>
-#include <helsing/math/Vec4.hpp> //TODO
+#include <helsing/math/Vec4.hpp>
 
+/** @brief A collection of vertices and normals used for drawing a terrain
+ *
+ * The class is initialized using a HeightMap
+ */
 class TerrainMesh: public helsing::Drawable {
 public:
 	explicit TerrainMesh(const helsing::HeightMap&);
