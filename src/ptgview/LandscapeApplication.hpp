@@ -7,7 +7,6 @@
 #ifndef LANDSCAPEAPPLICATION_HPP
 #define LANDSCAPEAPPLICATION_HPP
 
-#include "SceneApplication.hpp"
 #include "Renderer.hpp"
 
 #include <helsing/Application.hpp>

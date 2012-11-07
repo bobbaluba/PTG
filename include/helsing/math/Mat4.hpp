@@ -87,7 +87,7 @@ public:
 		const Mat4 translated = *this * translation(dx, dy, dz);
 		return translated;
 	}
-	const Mat4 scale(float x, float y, float z){
+	const Mat4 scale(float x, float y, float z) const{
 		const Mat4 scaled = *this * scaling(x,y,z);
 		return scaled;
 	}

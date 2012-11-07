@@ -7,6 +7,7 @@
 #include "Water.hpp"
 
 #include <SFML/OpenGL.hpp>
+#include <GL/glu.h>
 
 #include <cmath>
 #include <iostream>
@@ -22,7 +23,8 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 		height(height),
 		water(65),
 		waterLevel(0),
-		heightMap(NULL){
+		heightMap(NULL),
+		terrainMesh(NULL){
 	resize(width,height);
 	setGLStates();
 }
@@ -31,7 +33,8 @@ Renderer::~Renderer(){
 }
 
 void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
-	this->heightMap=heightMap;
+	this->heightMap = heightMap;
+	this->terrainMesh = new TerrainMesh(*heightMap); //TODO delete
 }
 
 void Renderer::setGLStates(){
@@ -73,28 +76,40 @@ void Renderer::draw(){
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
 	glMatrixMode(GL_MODELVIEW);
+
 	glPushMatrix();
+	modelView.pushMatrix();
 
 	//set up camera
-	glLoadIdentity();
-	helsing::Mat4 cameratransformation = camera.getMatrix();
+	helsing::Mat4 cameraTransformation = camera.getMatrix();
 	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray);
-	glLoadMatrixf(cameratransformation.cArray);
+	glLoadMatrixf(cameraTransformation.cArray);
+	modelView.loadMatrix(cameraTransformation);
 
 	if(heightMap!=NULL){
-		drawHeightMap(*heightMap);
+		//drawHeightMap(*heightMap);
+		terrainMesh->draw(modelView.getMatrix(), projection.getMatrix());
 	}
 
 	glPushMatrix();
+	modelView.pushMatrix();
+
 	glTranslatef(0,waterLevel,0);
-	water.draw();
-	glPopMatrix();
+	modelView.translate(0,waterLevel,0);
+
+	//water.draw();
 
 	glPopMatrix();
+	modelView.popMatrix();
+
+	glPopMatrix();
+	modelView.popMatrix();
+
 
 	GLenum error = glGetError();
-	if(error!=GL_NO_ERROR){
-		std::cerr << "There is an error!\n";
+	while(error!=GL_NO_ERROR){
+		std::cerr << "\nOpenGL error occured: " << gluErrorString(error) << "\n";
+		error = glGetError();
 	}
 }
 

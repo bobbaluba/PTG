@@ -2,15 +2,11 @@
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(ptgview_src
-	Actor.cpp
-	BasicScene.cpp
-	HeightMapActor.cpp
 	LandscapeApplication.cpp
 	main.cpp
 	Renderer.cpp
-	SceneApplication.cpp
-	Scene.cpp
 	Water.cpp
+	TerrainMesh.cpp
 )
 
 add_executable(ptgview 

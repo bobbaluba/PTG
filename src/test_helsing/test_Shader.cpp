@@ -50,7 +50,7 @@ void flatShader(){
 		if(ticks==3){
 			const std::string vertexShader = "#version 120\nvoid main() {gl_Position = gl_Vertex;}";
 			const std::string fragmentShader = "#version 120\nvoid main() {}";
-			helsing::Shader* shader = new helsing::Shader(vertexShader,fragmentShader);
+			helsing::Shader(vertexShader,fragmentShader);
 		}
 		if(ticks>10)app.stop();
 	};
