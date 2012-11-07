@@ -75,35 +75,25 @@ void Renderer::draw(){
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-	glMatrixMode(GL_MODELVIEW);
+	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray); //TODO remove
 
-	glPushMatrix();
 	modelView.pushMatrix();
 
 	//set up camera
 	helsing::Mat4 cameraTransformation = camera.getMatrix();
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray);
-	glLoadMatrixf(cameraTransformation.cArray);
 	modelView.loadMatrix(cameraTransformation);
 
+
 	if(heightMap!=NULL){
-		//drawHeightMap(*heightMap);
 		terrainMesh->draw(modelView.getMatrix(), projection.getMatrix());
 	}
 
-	glPushMatrix();
 	modelView.pushMatrix();
-
-	glTranslatef(0,waterLevel,0);
 	modelView.translate(0,waterLevel,0);
+	water.draw(modelView.getMatrix(), projection.getMatrix());
+	modelView.popMatrix(); //water
 
-	//water.draw();
-
-	glPopMatrix();
-	modelView.popMatrix();
-
-	glPopMatrix();
-	modelView.popMatrix();
+	modelView.popMatrix(); //camera
 
 
 	GLenum error = glGetError();
@@ -111,56 +101,4 @@ void Renderer::draw(){
 		std::cerr << "\nOpenGL error occured: " << gluErrorString(error) << "\n";
 		error = glGetError();
 	}
-}
-
-void Renderer::drawVector(const helsing::Vec4& position, const helsing::Vec4& vector){
-	glBegin(GL_LINES); //blæææ
-	glColor3f(1,1,1);
-	glVertex3fv(position.cArray);
-	glVertex3fv((position+vector).cArray);
-	glEnd();
-}
-
-void Renderer::drawHeightMap(const HeightMap& heightMap) {
-	float size = heightMap.getSize();
-	float midpoint = (size-1)/2;
-	glEnable(GL_LIGHTING);
-	glEnable(GL_NORMALIZE);
-	glPushMatrix();
-	glScalef(65/(size-1),65/(size-1),65/(size-1));
-	glTranslatef(-midpoint, 0, -midpoint);
-	//	glScalef(1.f/(size-1), 1, 1.f/(size-1));
-	for (uint32_t i = 0; i < size - 1; i++) {
-		glColor3f(0.2, 0.8, 0.3);
-		glBegin(GL_TRIANGLE_STRIP);
-		for (uint32_t j = 0; j < size - 1; j++) {
-			//gfx::drawVector(getPoint(i+1,j), getNormal(i+1,j));
-
-			glNormal3fv(heightMap.getNormal(i + 1, j).cArray);
-			//			glColor3f(getHeight(i+1, j)*2,.2,.2);
-			glVertex3f(i + 1, heightMap.getHeight(i + 1, j), j);
-
-			glNormal3fv(heightMap.getNormal(i, j).cArray);
-			//			glColor3f(getHeight(i,j)*2,.2,.2);
-			glVertex3f(i, heightMap.getHeight(i, j), j);
-
-			glNormal3fv(heightMap.getNormal(i + 1, j + 1).cArray);
-			//			glColor3f(getHeight(i+1, j+1)*2,.2,.2);
-			glVertex3f(i + 1, heightMap.getHeight(i + 1, j + 1), j + 1);
-
-			glNormal3fv(heightMap.getNormal(i, j + 1).cArray);
-			//			glColor3f(getHeight(i, j+1)*2,.2,.2);
-			glVertex3f(i, heightMap.getHeight(i, j + 1), j + 1);
-
-		}
-		glEnd();
-	}
-
-	//draw normals
-	//	for(uint32_t i = 0; i<size; i++){
-	//		for(uint32_t j=0; j<size; j++){
-	//			drawVector(getPoint(i,j), getNormal(i,j));
-	//		}
-	//	}
-	glPopMatrix();
 }
