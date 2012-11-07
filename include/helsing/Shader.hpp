@@ -15,9 +15,13 @@
 
 namespace helsing {
 
+/** @brief an OpenGL 3.0+ shader program
+ *
+ * Encapsulation of an OpenGL vertex shader object, frament shader object and a shader program object
+ */
 class Shader {
 public:
-	Shader(const std::string vertexShader, const std::string fragmenShader);
+	Shader(const std::string vertexShader, const std::string fragmentShader);
 	virtual ~Shader();
 	virtual unsigned int getProgramHandle(){return hShaderProgram;}
 	virtual GLint getPositionAttributeIndex(){return glGetAttribLocation(hShaderProgram,"in_Position");}
