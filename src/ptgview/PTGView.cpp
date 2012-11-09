@@ -18,10 +18,12 @@ PTGView::PTGView(const ApplicationSettings& settings) :
 		renderer(NULL),
 		flymode(false),
 		heightMapSize(9),
-		terrain(&diamondSquareTerrain),
+		terrain(NULL),
 		amplitude(0.6),
 		gain(0.5),
-		waterLevel(0)
+		waterLevel(0),
+		gaussianBlurTerrain(NULL),
+		blurEnabled(false)
 {
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
@@ -30,7 +32,7 @@ void PTGView::onInit(){
 	renderer = new Renderer(window->getSize().x, window->getSize().y);
 	renderer->getCamera().setPosition(Vec4(30,5,30));
 	renderer->getCamera().lookAt(Vec4::origin());
-	updateHeightMap();
+	setTerrain(&diamondSquareTerrain);
 }
 
 bool PTGView::handleEvent(const sf::Event& event) {
@@ -71,6 +73,9 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			break;
 		case sf::Keyboard::N:
 			decreaseGain();
+			break;
+		case sf::Keyboard::B:
+			toggleBlur();
 			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to diamond square terrain\n";
@@ -150,6 +155,7 @@ void PTGView::onRender(){
 }
 
 void PTGView::setTerrain(Terrain* terrain) {
+	gaussianBlurTerrain.setSource(terrain);
 	this->terrain = terrain;
 	updateHeightMap();
 }
@@ -218,7 +224,11 @@ void PTGView::updateHeightMap() {
 
 	std::cout << "Generating " << heightMapSize << "x" << heightMapSize << "heightMap..."; std::flush(std::cout);
 	HeightMap* heightMap = new HeightMap(heightMapSize);
-	*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
+	if(blurEnabled){
+		*heightMap = gaussianBlurTerrain.generateHeightMap(heightMapSize, heightMapSize);
+	} else {
+		*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
+	}
 	std::cout << "OK!\n";
 
 	if(renderer!=NULL){
@@ -230,5 +240,10 @@ void PTGView::reseedTerrain() {
 	unsigned int seed = rand();
 	std::cout << "Reseeding terrain with seed: " << seed << std::endl;
 	terrain->seed(seed);
+	updateHeightMap();
+}
+
+void PTGView::toggleBlur() {
+	blurEnabled = !blurEnabled;
 	updateHeightMap();
 }

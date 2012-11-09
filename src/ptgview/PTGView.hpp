@@ -16,6 +16,7 @@
 #include <ptg/Continuous2DSignalTerrain.hpp>
 #include <ptg/PerlinNoise.hpp>
 #include <ptg/FractionalBrownianMotion.hpp>
+#include <ptg/GaussianBlurTerrain.hpp>
 
 using namespace ptg;
 
@@ -49,6 +50,7 @@ private:
 	virtual void decreaseGain();
 	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
+	virtual void toggleBlur();
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;
@@ -61,6 +63,8 @@ private:
 	Continuous2DSignalTerrain continuous2DSignalTerrain;
 	PerlinNoise perlinNoise;
 	FractionalBrownianMotion fractionalBrownianMotion;
+	GaussianBlurTerrain gaussianBlurTerrain;
+	bool blurEnabled;
 };
 
 #endif // PTGVIEW_HPP
