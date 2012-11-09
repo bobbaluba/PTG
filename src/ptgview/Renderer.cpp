@@ -23,7 +23,6 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 		height(height),
 		water(65),
 		waterLevel(0),
-		heightMap(NULL),
 		terrainMesh(NULL){
 	resize(width,height);
 	setGLStates();
@@ -33,7 +32,6 @@ Renderer::~Renderer(){
 }
 
 void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
-	this->heightMap = heightMap;
 	this->terrainMesh = new TerrainMesh(*heightMap); //TODO delete
 }
 
@@ -81,7 +79,7 @@ void Renderer::draw(){
 	modelView.loadMatrix(cameraTransformation);
 
 
-	if(heightMap!=NULL){
+	if(terrainMesh!=NULL){
 		terrainMesh->draw(modelView.getMatrix(), projection.getMatrix());
 	}
 

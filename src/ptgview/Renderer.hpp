@@ -45,7 +45,6 @@ private:
 	helsing::MatrixStack modelView, projection;
 	Water water;
 	float waterLevel;
-	helsing::HeightMap* heightMap;
 	TerrainMesh* terrainMesh;
 };
 
