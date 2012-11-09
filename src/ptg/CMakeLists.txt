@@ -3,6 +3,7 @@ set(ptg_lib_src
 	Continuous2DSignalTerrain.cpp
 	DiamondSquareTerrain.cpp
 	FractionalBrownianMotion.cpp
+	GaussianBlurTerrain.cpp
 	MidpointDisplacementTerrain.cpp
 	PerlinNoise.cpp
 	QuadTree.cpp
