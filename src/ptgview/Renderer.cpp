@@ -49,9 +49,6 @@ void Renderer::setGLStates(){
 	glEnable (GL_BLEND);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//glColorMaterial ( GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE ) ;
-	//glEnable(GL_COLOR_MATERIAL);
-
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
@@ -67,7 +64,6 @@ void Renderer::resize(uint32_t width, uint32_t height){
 }
 
 void Renderer::draw(){
-
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
 	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray); //TODO remove
@@ -89,7 +85,6 @@ void Renderer::draw(){
 	modelView.popMatrix(); //water
 
 	modelView.popMatrix(); //camera
-
 
 	GLenum error = glGetError();
 	while(error!=GL_NO_ERROR){
