@@ -66,10 +66,6 @@ void Renderer::resize(uint32_t width, uint32_t height){
 	glViewport(0, 0, width, height);
 	const helsing::Angle fov = helsing::Angle::degrees(60);
 	projection.loadMatrix(helsing::Mat4::perspective(fov, aspectRatio,0.1f,1000.f));
-
-	//TODO remove
-	glMatrixMode(GL_PROJECTION);
-	glLoadMatrixf(projection.getMatrix().cArray);
 }
 
 void Renderer::draw(){
