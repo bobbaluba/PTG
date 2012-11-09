@@ -39,13 +39,14 @@ helsing::HeightMap GaussianBlurTerrain::generateHeightMap(
 
 	//pattern should probably be stored, and not created on every generation
 	//but the overhead is small compared to the creation of a heigthmap, so I don't care too much
-	const unsigned int patternSize = 5;
+	const unsigned int patternRadius = 2; // how far from the center should we go?
+	const unsigned int patternSize = 2*patternRadius + 1; //plus 1 to include the center
 	const float deviation = float(patternSize-1)/2 / 3; //according to wikipedia, pixel contribution is insignificant
 	                                           //when x>3*deviation, this means patternSize/2 < 3*deviation
 	float pattern[patternSize][patternSize];
 	for(unsigned int i = 0; i<patternSize; ++i){
 		for(unsigned int j=0; j<patternSize; ++j){
-			const float x = -float(patternSize-1)/2+i; //TODO floor!
+			const float x = -float(patternSize-1)/2+i;
 			const float y = -float(patternSize-1)/2+j;
 			pattern[i][j] = gaussian2D(x,y,deviation);
 		}
