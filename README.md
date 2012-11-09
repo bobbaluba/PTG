@@ -21,13 +21,13 @@ Terrain algorithms:
 * Midpoint Displacement
 * Diamond Square
 * Fractional Brownian Motion
+* Gaussian Blur (decorates other terrains)
 
 Noise functions:
 * Perlin Noise
 
 Additional algorithms in development:
 * Value noise
-* Erosion filter
 
 Building
 --------
