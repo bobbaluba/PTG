@@ -5,7 +5,6 @@
  */
 
 #include <ptg/MidpointDisplacementTerrain.hpp>
-#include <ptg/QuadTree.hpp>
 
 #include <cassert>
 

@@ -8,7 +8,6 @@
 #define MIDPOINTDISPLACEMENTTERRAIN_HPP
 
 #include <ptg/Terrain.hpp>
-#include <ptg/QuadTree.hpp>
 
 namespace ptg {
 
@@ -52,16 +51,6 @@ public:
 	}
 	virtual void setGain(float gain){this->gain=gain;}
 private:
-	/** recursively modifies the given heightmap by displacing midpoints
-	 * @param root root node of the quadTree we are filling out
-	 * @param heightMap The HeightMap to modify
-	 * @param gridPoints dimensions of the heightMap to fill out, has to be a power of two + 1
-	 * @param offsetX X offset on heightMap
-	 * @param offsetY Y offset on heightMap
-	 */
-	void displaceHeightMap(QuadTree root, helsing::HeightMap* heightMap,
-				uint32_t resolution, uint32_t offsetX, uint32_t offsetY,
-				float octaveAmplitude) const;
 	///create noise between -0.5 and 0.5
 	float whiteNoise() const;
 	float amplitude;

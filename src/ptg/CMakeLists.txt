@@ -7,7 +7,6 @@ set(ptg_lib_src
 	HelsingSquareTerrain.cpp
 	MidpointDisplacementTerrain.cpp
 	PerlinNoise.cpp
-	QuadTree.cpp
 	Seedable.cpp
 	Terrain.cpp
 	ValueNoise.cpp
