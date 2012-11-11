@@ -17,6 +17,7 @@
 #include <ptg/PerlinNoise.hpp>
 #include <ptg/FractionalBrownianMotion.hpp>
 #include <ptg/GaussianBlurTerrain.hpp>
+#include <ptg/HelsingSquareTerrain.hpp>
 
 using namespace ptg;
 
@@ -64,6 +65,7 @@ private:
 	PerlinNoise perlinNoise;
 	FractionalBrownianMotion fractionalBrownianMotion;
 	GaussianBlurTerrain gaussianBlurTerrain;
+	HelsingSquareTerrain helsingSquareTerrain;
 	bool blurEnabled;
 };
 
