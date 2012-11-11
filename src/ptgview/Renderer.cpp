@@ -36,20 +36,13 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 }
 
 void Renderer::setGLStates(){
-	GLfloat light1_ambient[]= { 0.5f, 0.5f, 0.5f, 1.0f };
-	GLfloat light1_diffuse[] = { 1, 1, 1, 1 };
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, light1_diffuse);
-	glLightfv(GL_LIGHT1, GL_AMBIENT, light1_ambient);
-
-	//enable lighting
-	glEnable(GL_LIGHTING);
-	glEnable(GL_LIGHT1);
-
+	//blending stuff
 	glEnable (GL_BLEND);
 	glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	glEnable(GL_DEPTH_TEST);
+
+	//culling
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 }
