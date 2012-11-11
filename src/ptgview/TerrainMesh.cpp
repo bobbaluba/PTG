@@ -18,9 +18,6 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 	shader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
 	width = heightMap.getSize();
 
-	std::cout << "Creating terrain mesh...";
-	std::cout.flush();
-
 	//create vertices
 	unsigned int size = heightMap.getSize();
 	std::vector<TerrainVertex> vertices;
@@ -87,8 +84,6 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0
 
 	//clean up
 	glBindVertexArray(0); // disable vertex array object
-
-	std::cout << "OK!\n";
 }
 
 TerrainMesh::~TerrainMesh() {

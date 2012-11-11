@@ -6,6 +6,8 @@
 #include "Renderer.hpp"
 #include "Water.hpp"
 
+#include <SFML/System/Clock.hpp>
+
 #include <SFML/OpenGL.hpp>
 #include <GL/glu.h>
 
@@ -30,7 +32,14 @@ Renderer::~Renderer(){
 }
 
 void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
-	this->terrainMesh = new TerrainMesh(*heightMap); //TODO delete
+	if(terrainMesh!=NULL){
+		delete terrainMesh;
+	}
+	std::cout << "Creating terrain mesh...";
+	std::cout.flush();
+	sf::Clock clock;
+	terrainMesh = new TerrainMesh(*heightMap);
+	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n";
 }
 
 void Renderer::setGLStates(){
