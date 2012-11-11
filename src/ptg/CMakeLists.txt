@@ -4,6 +4,7 @@ set(ptg_lib_src
 	DiamondSquareTerrain.cpp
 	FractionalBrownianMotion.cpp
 	GaussianBlurTerrain.cpp
+	HelsingSquareTerrain.cpp
 	MidpointDisplacementTerrain.cpp
 	PerlinNoise.cpp
 	QuadTree.cpp
