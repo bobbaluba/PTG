@@ -74,7 +74,6 @@ void Renderer::draw(){
 	helsing::Mat4 cameraTransformation = camera.getMatrix();
 	modelView.loadMatrix(cameraTransformation);
 
-
 	if(terrainMesh!=NULL){
 		terrainMesh->draw(modelView.getMatrix(), projection.getMatrix());
 	}
