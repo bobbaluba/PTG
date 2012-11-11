@@ -39,7 +39,7 @@ void PerlinNoise::init() {
 	std::shuffle(permutations.begin(), permutations.end(), randomEngine);
 
 	//set up the random gradients of unit length
-	std::uniform_real_distribution<float> distribution(0, helsing::pi());
+	std::uniform_real_distribution<float> distribution(0, 2*helsing::pi());
 	for(unsigned int i=0; i<SAMPLES; ++i){
 		//choose a random direction
 		float angle = distribution(randomEngine);
@@ -53,44 +53,30 @@ PerlinNoise::~PerlinNoise() {
 }
 
 float PerlinNoise::get(float x, float y) {
+	using helsing::Vec2;
 	//determine the grid points
 	int gridX=static_cast<int>(x);
 	int gridY=static_cast<int>(y);
 
-	helsing::Vec2 point(x,y);
+	const float dx = x-gridX;
+	const float dy = y-gridY;
+
+	const Vec2 gAA = gradients[hash(gridX,gridY)];
+	const Vec2 gAB = gradients[hash(gridX,gridY+1)];
+	const Vec2 gBA = gradients[hash(gridX+1,gridY)];
+	const Vec2 gBB = gradients[hash(gridX+1,gridY+1)];
+
+	const float left = helsing::smootherStep(1-dx);
+	const float right = helsing::smootherStep(dx);
+	const float top = helsing::smootherStep(dy);
+	const float bottom = helsing::smootherStep(1-dy);
 
 	float val = 0; // accumulator for the point value
-	val += gridPointContribution(gridX, gridY, point);
-	val += gridPointContribution(gridX, gridY + 1, point);
-	val += gridPointContribution(gridX + 1, gridY, point);
-	val += gridPointContribution(gridX + 1, gridY + 1, point);
-
+	val += left  * bottom * (gAA*Vec2(dx,dy));
+	val += left  * top    * (gAB*Vec2(dx,dy-1));
+	val += right * bottom * (gBA*Vec2(dx-1,dy));
+	val += right * top    * (gBB*Vec2(dx-1,dy-1));
 	return val;
-}
-
-unsigned int PerlinNoise::hash(int x, int y) {
-	//perlins original implementation used a performance optimization trick where
-	//he exploited byte overflow as an automatic modulus function. This requires samples=256
-	//another trick is to use a bit mask, although this has a less strict requirement, it still
-	//requires samples to be a power of two. I used modulo here for modifiability and readability purposes
-	return permutations[(y+permutations[x%SAMPLES])%SAMPLES];
-}
-
-float PerlinNoise::gridPointContribution(int x, int y, const helsing::Vec2& position) {
-	//get the gradient for the current gridpoint
-	const helsing::Vec2& gradient = gradients[hash(x,y)];
-
-	const helsing::Vec2 gridPoint(x,y);
-
-	//compute the contribution from the gridpoint
-	const float beforeDropoff = (position - gridPoint) * gradient; //dot product of gradient and offset from gridPoint
-
-	//compute the dropoff
-	const float dropoffX = helsing::smootherStep(1-fabs(position.x - gridPoint.x));
-	const float dropoffY = helsing::smootherStep(1-fabs(position.y - gridPoint.y));
-	const float dropoff = dropoffX*dropoffY;
-
-	return beforeDropoff*dropoff;
 }
 
 void PerlinNoise::onReSeed(unsigned int seed) {

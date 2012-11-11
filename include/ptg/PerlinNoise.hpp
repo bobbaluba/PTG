@@ -53,11 +53,17 @@ public:
 private:
 	/**
 	 * hash function
+	 * is inlined to improve performance
 	 *
 	 * @return a number between 0 and SAMPLES-1
 	 */
-	unsigned int hash(int x, int y);
-	float gridPointContribution(int x, int y, const helsing::Vec2& position);
+	unsigned int hash(int x, int y) {
+		//perlins original implementation used a performance optimization trick where
+		//he exploited byte overflow as an automatic modulus function. This requires samples=256
+		//another trick is to use a bit mask, although this has a less strict requirement, it still
+		//requires samples to be a power of two. I used modulo here for modifiability and readability purposes
+		return permutations[(y+permutations[x%SAMPLES])%SAMPLES];
+	}
 	void init(); //helper function, the same stuff should happen on instantiation and reseeding
 
 	static const unsigned int SAMPLES = 256;
