@@ -97,4 +97,14 @@ void Shader::use(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& proj
 	glUniformMatrix4fv(modelViewMatrixLocation, 1, GL_FALSE, modelViewMatrix.cArray); // Send our modelview matrix to the shader
 }
 
+void Shader::setUniform(const std::string uniform, float value) {
+	GLuint hUniform = glGetUniformLocation(hShaderProgram, uniform.c_str());
+	if(hUniform>=0){
+		glUniform1f(hUniform, value);
+	} else {
+		std::cerr << "Cannot set uniform: Uniform not active\n";
+		exit(EXIT_FAILURE);
+	}
+}
+
 } /* namespace helsing */
