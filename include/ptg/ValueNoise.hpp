@@ -37,6 +37,11 @@ public:
 	virtual void onReSeed(unsigned int seed);
 private:
 	void init(); //helper function, the same stuff should happen on construction and reseeding
+	float getSample(unsigned int x, unsigned int y){
+		x%=SAMPLES;
+		y%=SAMPLES;
+		return samples[x+y*SAMPLES];
+	}
 	static const unsigned int SAMPLES = 256; //The width of the sample array
 	std::array<float, SAMPLES*SAMPLES> samples; //holds indexes from 0 to SAMPLES in random order
 };

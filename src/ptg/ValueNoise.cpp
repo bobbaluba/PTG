@@ -35,8 +35,8 @@ float ValueNoise::get(float x, float y) {
 	int gridX=static_cast<int>(x);
 	int gridY=static_cast<int>(y);
 
-	const float dx = x - gridX,
-				dy = y - gridY;
+	const float dx = x - static_cast<int>(x),
+				dy = y - static_cast<int>(y);
 
 	using helsing::smootherStep;
 	const float left   = smootherStep(1-dx), // contribution from points on the left
@@ -45,10 +45,10 @@ float ValueNoise::get(float x, float y) {
 				top    = smootherStep(dy);
 
 	float val = 0; // accumulator for the point value
-	val+= left  * bottom * samples[gridX   + (gridY)   * SAMPLES]; //bl
-	val+= right * bottom * samples[gridX+1 + (gridY)   * SAMPLES]; //br
-	val+= right * top    * samples[gridX+1 + (gridY+1) * SAMPLES]; //tr
-	val+= left  * top    * samples[gridX   + (gridY+1) * SAMPLES]; //tl
+	val+= left  * bottom * getSample(gridX  , gridY); //bl
+	val+= right * bottom * getSample(gridX+1, gridY); //br
+	val+= right * top    * getSample(gridX+1, gridY+1); //tr
+	val+= left  * top    * getSample(gridX  , gridY+1); //tl
 
 	return val;
 }
