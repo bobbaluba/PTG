@@ -68,15 +68,19 @@ The viewer accepts the following command line options:
 * Left Mouse button: Toggle viewing mode (flying or centered)
 * Space/Return/Right Mouse button: Reseed the terrains
 * R/F: Move up/down
-* U/J: Raise/Lower water
+* T/G: Raise/Lower water
 * O/P: Adjust terrain detail
 * K/L: Adjust amplitude of terrain (just a scaling factor)
 * N/M: Adjust gain. For fractal algorithms, this is the factor the amplitude is multiplied with each iteration.
+* U/I: Adjust number of octaves for fractional brownian motion signal
 * 1-4: Algorithm seletion
-    * 1: Diamond-Square
-    * 2: Midpoint Displacement
-    * 3: Pure perlin noise
-    * 4: Fractional Brownian motion using perlin noise as input signal
+    * 1: Midpoint Displacement
+    * 2: Diamond-Square
+    * 3: Helsing-square (my own modified version of diamond square)
+    * 4: Pure perlin noise
+    * 5: Fractional Brownian motion using perlin noise as input signal
+    * 4: Pure value noise
+    * 5: Fractional Brownian motion using value noise as input signal
 
 Documentation
 -------------

@@ -150,10 +150,10 @@ void PTGView::onRender(){
 
 	//Water levels
 	const float waterSpeed=0.1f; //todo scale with time
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::U)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T)) {
 		raiseWater(waterSpeed);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::J)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
 		raiseWater(-waterSpeed);
 	}
 
@@ -277,7 +277,11 @@ void PTGView::increaseOctaves() {
 }
 
 void PTGView::decreaseOctaves() {
-	unsigned int newValue = fractionalBrownianMotion.getOctaves() - 1;
+	unsigned int oldValue = fractionalBrownianMotion.getOctaves();
+	if(oldValue == 0){
+		return;
+	}
+	unsigned int newValue = oldValue - 1;
 	std::cout << "Setting number of octaves to: " << newValue << "\n";
 	fractionalBrownianMotion.setOctaves(newValue);
 	updateHeightMap();
