@@ -246,13 +246,14 @@ void PTGView::updateHeightMap() {
 	}
 
 	std::cout << "Generating " << heightMapSize << "x" << heightMapSize << "heightMap..."; std::flush(std::cout);
+	sf::Clock clock;
 	HeightMap* heightMap = new HeightMap(heightMapSize);
 	if(blurEnabled){
 		*heightMap = gaussianBlurTerrain.generateHeightMap(heightMapSize, heightMapSize);
 	} else {
 		*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
 	}
-	std::cout << "OK!\n";
+	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() << "ms\n";
 
 	if(renderer!=NULL){
 		renderer->setHeightMap(heightMap);
