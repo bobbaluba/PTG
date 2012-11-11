@@ -62,8 +62,8 @@ private:
 	void displaceHeightMap(QuadTree root, helsing::HeightMap* heightMap,
 				uint32_t resolution, uint32_t offsetX, uint32_t offsetY,
 				float octaveAmplitude) const;
-	///calculates a random displacement based on the size of the current grid
-	float displacement(float gridSize) const;
+	///create noise between -0.5 and 0.5
+	float whiteNoise() const;
 	float amplitude;
 	float gain;
 };

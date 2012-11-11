@@ -22,47 +22,39 @@ MidpointDisplacementTerrain::~MidpointDisplacementTerrain() {
 }
 
 helsing::HeightMap MidpointDisplacementTerrain::generateHeightMap(unsigned int gridPoints, float resolution) {
+	assert(helsing::isPowerOfTwo(gridPoints-1));
 	helsing::HeightMap heightMap(gridPoints);
-	displaceHeightMap(QuadTree(getSeed()), &heightMap, gridPoints, 0,0,amplitude*gridPoints);
+
+	//seed random generator
+	srand(getSeed());
+	float octaveAmplitude=amplitude*resolution;
+	for(unsigned int sideLength = gridPoints-1; sideLength>=2; sideLength/=2){
+		unsigned int half = sideLength/2;
+		//displace midpoints
+		unsigned int currentGridSize=gridPoints/sideLength;
+		for(unsigned int i=0; i<currentGridSize; i++){
+			for(unsigned int j=0; j<currentGridSize; j++){
+				float bl = heightMap.getHeight( i      * sideLength, j       * sideLength); //bottom left
+				float br = heightMap.getHeight((i + 1) * sideLength, j       * sideLength); //bottom right
+				float tl = heightMap.getHeight( i      * sideLength, (j + 1) * sideLength); //top left
+				float tr = heightMap.getHeight((i + 1) * sideLength, (j + 1) * sideLength); //top right
+				float average = (bl + br + tl + tr) / 4;
+				heightMap.setHeight(i*sideLength+half, j*sideLength+half, average+whiteNoise()*octaveAmplitude);//*sqrt(2));
+
+				heightMap.setHeight(i*sideLength+half, j*sideLength,      (bl+br)/2); //bottom
+				heightMap.setHeight(i*sideLength     , j*sideLength+half, (tl+bl)/2); //left
+				if(j==currentGridSize-1)heightMap.setHeight(i*sideLength+half, (j+1)*sideLength,  (tl+tr)/2); //top
+				if(i==currentGridSize-1)heightMap.setHeight((i+1)*sideLength , j*sideLength+half, (tr+br)/2); //right
+			}
+		}
+		octaveAmplitude*=gain;
+	}
+
 	return heightMap;
 }
 
-void MidpointDisplacementTerrain::displaceHeightMap(QuadTree root,
-		helsing::HeightMap* heightMap, uint32_t gridPoints, uint32_t offsetX,
-		uint32_t offsetY, float octaveAmplitude) const {
-	uint32_t half = gridPoints/2;
-	float bl = heightMap->getHeight(offsetX, offsetY);
-	float br = heightMap->getHeight(offsetX+gridPoints-1, offsetY);
-	float tl = heightMap->getHeight(offsetX, offsetY+gridPoints-1);
-	float tr = heightMap->getHeight(offsetX+gridPoints-1, offsetY+gridPoints-1);
-
-	/// set the midpoints along the edges
-	heightMap->setHeight(offsetX+half, offsetY, (bl+br)/2.f);
-	heightMap->setHeight(offsetX, offsetY+half, (bl+tl)/2.f);
-	heightMap->setHeight(offsetX+gridPoints-1, offsetY+half, (tr+br)/2.f);
-	heightMap->setHeight(offsetX+half, offsetY+gridPoints-1, (tr+tl)/2.f);
-
-	//find the average of the four corners
-	float average = (bl+br+tl+tr)/4.0;
-
-
-	//displace the midpoint
-	srand(root.getSeed());
-	float newHeight = average + displacement(octaveAmplitude);
-	heightMap->setHeight(offsetX+half,offsetY+half, newHeight);
-
-	//make recursive calls if appropriate
-	if(gridPoints>3){
-		const float nextAmplitude = octaveAmplitude*gain;
-		displaceHeightMap(root.getSubTree(QuadTree::bottomLeft), heightMap, half+1, offsetX, offsetY, nextAmplitude);
-		displaceHeightMap(root.getSubTree(QuadTree::bottomRight), heightMap, half+1, offsetX+half, offsetY, nextAmplitude);
-		displaceHeightMap(root.getSubTree(QuadTree::topLeft), heightMap, half+1, offsetX, offsetY+half, nextAmplitude);
-		displaceHeightMap(root.getSubTree(QuadTree::topRight), heightMap, half+1, offsetX+half, offsetY+half, nextAmplitude);
-	}
-}
-
-float MidpointDisplacementTerrain::displacement(float octaveAmplitude) const{
-	return (rand()/float(RAND_MAX)-0.5)*octaveAmplitude; //*resolution/flatness;
+float MidpointDisplacementTerrain::whiteNoise() const{
+	return (rand()/float(RAND_MAX)-0.5);
 }
 
 } /* namespace ptg */
