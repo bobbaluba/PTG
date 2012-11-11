@@ -6,9 +6,6 @@
 
 #include "PTGView.hpp"
 
-#include <ptg/MidpointDisplacementTerrain.hpp>
-#include <ptg/DiamondSquareTerrain.hpp>
-
 #include <iostream>
 
 using namespace helsing;
@@ -32,7 +29,7 @@ void PTGView::onInit(){
 	renderer = new Renderer(window->getSize().x, window->getSize().y);
 	renderer->getCamera().setPosition(Vec4(30,5,30));
 	renderer->getCamera().lookAt(Vec4::origin());
-	setTerrain(&diamondSquareTerrain);
+	setTerrain(&midpointDisplacementTerrain);
 }
 
 bool PTGView::handleEvent(const sf::Event& event) {
@@ -78,26 +75,38 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			toggleBlur();
 			break;
 		case sf::Keyboard::Num1:
-			std::cout << "Switching to diamond square terrain\n";
-			setTerrain(&diamondSquareTerrain);
-			break;
-		case sf::Keyboard::Num2:
 			std::cout << "Switching to midpoint displacement terrain\n";
 			setTerrain(&midpointDisplacementTerrain);
 			break;
+		case sf::Keyboard::Num2:
+			std::cout << "Switching to diamond square terrain\n";
+			setTerrain(&diamondSquareTerrain);
+			break;
 		case sf::Keyboard::Num3:
+			std::cout << "Switching to helsing square terrain\n";
+			setTerrain(&helsingSquareTerrain);
+			break;
+		case sf::Keyboard::Num4:
 			std::cout << "Switching to perlin noise terrain\n";
 			continuous2DSignalTerrain.setSignal(&perlinNoise);
 			setTerrain(&continuous2DSignalTerrain);
 			break;
-		case sf::Keyboard::Num4:
-			std::cout << "Switching to fractional brownian noise terrain\n";
+		case sf::Keyboard::Num5:
+			std::cout << "Switching to fractional brownian perlin noise terrain\n";
+			fractionalBrownianMotion.setBaseNoise(&perlinNoise);
 			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
 			setTerrain(&continuous2DSignalTerrain);
 			break;
-		case sf::Keyboard::Num5:
-			std::cout << "Switching to helsing square terrain\n";
-			setTerrain(&helsingSquareTerrain);
+		case sf::Keyboard::Num6:
+			std::cout << "Switching to value noise terrain\n";
+			continuous2DSignalTerrain.setSignal(&valueNoise);
+			setTerrain(&continuous2DSignalTerrain);
+			break;
+		case sf::Keyboard::Num7:
+			std::cout << "Switching to fractional brownian value noise terrain\n";
+			fractionalBrownianMotion.setBaseNoise(&valueNoise);
+			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
+			setTerrain(&continuous2DSignalTerrain);
 			break;
 		default:
 			return false;
@@ -253,5 +262,6 @@ void PTGView::reseedTerrain() {
 
 void PTGView::toggleBlur() {
 	blurEnabled = !blurEnabled;
+	std::cout << "Toggling blur: " << blurEnabled << "\n";
 	updateHeightMap();
 }

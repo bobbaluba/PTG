@@ -8,7 +8,6 @@
 #define FRACTIONALBROWNIANMOTION_HPP
 
 #include <ptg/Continuous2DSignal.hpp>
-#include <ptg/PerlinNoise.hpp>
 
 namespace ptg {
 
@@ -50,6 +49,11 @@ public:
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);
 
+	/** @brief Sets the base noise function for the algorithm
+	 * suitable choices are ValueNoise or Perlin Noise
+	 */
+	virtual void setBaseNoise(Continuous2DSignal* signal){baseNoise=signal;}
+
 	/** @brief Set the "depth" of the fractal noise.
 	 * Sets how many "layers" of noise we are going to add together.
 	 * Typical values lie between 3 and 9.
@@ -62,7 +66,7 @@ public:
 	virtual void setGain(float gain){this->gain=gain;}
 	virtual float getGain(){return gain;}
 private:
-	PerlinNoise baseNoise;
+	Continuous2DSignal* baseNoise;
 	unsigned int octaves;
 	float gain;
 };
