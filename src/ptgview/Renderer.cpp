@@ -16,8 +16,6 @@
 using namespace helsing;
 using namespace std;
 
-const Vec4 light_position = { 2.0, 1.0, 0.0, 0.0 };
-
 Renderer::Renderer(uint32_t width, uint32_t height) :
 		width(width),
 		height(height),
@@ -58,8 +56,6 @@ void Renderer::resize(uint32_t width, uint32_t height){
 
 void Renderer::draw(){
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-
-	glLightfv(GL_LIGHT1, GL_POSITION, light_position.cArray); //TODO remove
 
 	modelView.pushMatrix();
 
