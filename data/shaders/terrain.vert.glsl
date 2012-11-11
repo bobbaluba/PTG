@@ -14,7 +14,7 @@ void main(void){
 	vec3 s = normalize(vec3(1,1,1)); //direction towards light source
 	gl_Position = ProjectionMatrix * ModelViewMatrix * in_Position;
 	float k_a = 0.2;
-	float k_d = 0.5;
+	float k_d = 0.7;
 	float i_a = k_a;
 	float i_d = k_d * max(0, dot(n, s));
 	ex_Color = (i_a + i_d) * vec3(1,1,1);
