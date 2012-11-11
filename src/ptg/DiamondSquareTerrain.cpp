@@ -45,8 +45,8 @@ helsing::HeightMap DiamondSquareTerrain::generateHeightMap(
 
 				heightMap.setHeight(i*sideLength+half, j*sideLength,      (bl+br)/2+whiteNoise()*octaveAmplitude); //bottom
 				heightMap.setHeight(i*sideLength     , j*sideLength+half, (tl+bl)/2+whiteNoise()*octaveAmplitude); //left
-				if(j==sideLength)heightMap.setHeight(i*sideLength+half, (j+1)*sideLength,  (tl+tr)/2+whiteNoise()*octaveAmplitude); //top
-				if(i==sideLength)heightMap.setHeight((i+1)*sideLength , j*sideLength+half, (tr+br)/2+whiteNoise()*octaveAmplitude); //right
+				if(j==currentGridSize-1)heightMap.setHeight(i*sideLength+half, (j+1)*sideLength,  (tl+tr)/2+whiteNoise()*octaveAmplitude); //top
+				if(i==currentGridSize-1)heightMap.setHeight((i+1)*sideLength , j*sideLength+half, (tr+br)/2+whiteNoise()*octaveAmplitude); //right
 			}
 		}
 		octaveAmplitude*=gain;

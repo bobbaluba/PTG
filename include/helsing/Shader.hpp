@@ -28,6 +28,7 @@ public:
 	virtual GLint getColorAttributeIndex(){return glGetAttribLocation(hShaderProgram,"in_Color");}
 	virtual GLint getNormalAttributeIndex(){return glGetAttribLocation(hShaderProgram,"in_Normal");}
 	virtual void use(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix);
+	virtual void setUniform(const std::string, float);
 private:
 	GLuint hVertexShader;
 	GLuint hFragmentShader;

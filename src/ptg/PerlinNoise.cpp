@@ -2,6 +2,12 @@
  * @file PerlinNoise.cpp
  * @date 22. okt. 2012
  * @author Johan Klokkhammer Helsing
+ *
+ * Implementation is partly inspired by this tutorial:
+ * http://solarianprogrammer.com/2012/07/18/perlin-noise-cpp-11/
+ *
+ * And, of course, Ken Perlin's own presentation:
+ * http://www.noisemachine.com/talk1/
  */
 
 #include <ptg/PerlinNoise.hpp>
@@ -33,9 +39,9 @@ void PerlinNoise::init() {
 	std::shuffle(permutations.begin(), permutations.end(), randomEngine);
 
 	//set up the random gradients of unit length
+	std::uniform_real_distribution<float> distribution(0, helsing::pi());
 	for(unsigned int i=0; i<SAMPLES; ++i){
 		//choose a random direction
-		std::uniform_real_distribution<float> distribution(0, helsing::pi());
 		float angle = distribution(randomEngine);
 
 		//calculate x and y components of the unit vector

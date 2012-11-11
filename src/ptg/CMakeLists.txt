@@ -10,6 +10,7 @@ set(ptg_lib_src
 	QuadTree.cpp
 	Seedable.cpp
 	Terrain.cpp
+	ValueNoise.cpp
 )
 
 add_library(ptg SHARED ${ptg_lib_src})
