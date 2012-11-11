@@ -36,7 +36,7 @@ public:
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);
 private:
-	void init(); //helper function, the same stuff should happen on instantiation and reseeding
+	void init(); //helper function, the same stuff should happen on construction and reseeding
 	static const unsigned int SAMPLES = 256; //The width of the sample array
 	std::array<float, SAMPLES*SAMPLES> samples; //holds indexes from 0 to SAMPLES in random order
 };
