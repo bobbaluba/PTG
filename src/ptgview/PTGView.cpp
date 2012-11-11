@@ -74,6 +74,12 @@ bool PTGView::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::B:
 			toggleBlur();
 			break;
+		case sf::Keyboard::U:
+			decreaseOctaves();
+			break;
+		case sf::Keyboard::I:
+			increaseOctaves();
+			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to midpoint displacement terrain\n";
 			setTerrain(&midpointDisplacementTerrain);
@@ -257,6 +263,22 @@ void PTGView::reseedTerrain() {
 	unsigned int seed = rand();
 	std::cout << "Reseeding terrain with seed: " << seed << std::endl;
 	terrain->seed(seed);
+	updateHeightMap();
+}
+
+void PTGView::increaseOctaves() {
+	unsigned int newValue = fractionalBrownianMotion.getOctaves() + 1;
+	if(newValue>=0){
+		std::cout << "Setting number of octaves to: " << newValue << "\n";
+		fractionalBrownianMotion.setOctaves(newValue);
+		updateHeightMap();
+	}
+}
+
+void PTGView::decreaseOctaves() {
+	unsigned int newValue = fractionalBrownianMotion.getOctaves() - 1;
+	std::cout << "Setting number of octaves to: " << newValue << "\n";
+	fractionalBrownianMotion.setOctaves(newValue);
 	updateHeightMap();
 }
 

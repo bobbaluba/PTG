@@ -50,6 +50,8 @@ private:
 	virtual void decreaseAmplitude();
 	virtual void increaseGain();
 	virtual void decreaseGain();
+	virtual void increaseOctaves();
+	virtual void decreaseOctaves();
 	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
 	virtual void toggleBlur();
