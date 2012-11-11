@@ -95,6 +95,10 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
 			setTerrain(&continuous2DSignalTerrain);
 			break;
+		case sf::Keyboard::Num5:
+			std::cout << "Switching to helsing square terrain\n";
+			setTerrain(&helsingSquareTerrain);
+			break;
 		default:
 			return false;
 		}
@@ -182,6 +186,7 @@ void PTGView::increaseAmplitude() {
 	midpointDisplacementTerrain.setAmplitude(amplitude);
 	diamondSquareTerrain.setAmplitude(amplitude);
 	continuous2DSignalTerrain.setAmplitude(amplitude);
+	helsingSquareTerrain.setAmplitude(amplitude);
 	updateHeightMap();
 }
 
@@ -191,6 +196,7 @@ void PTGView::decreaseAmplitude() {
 	midpointDisplacementTerrain.setAmplitude(amplitude);
 	diamondSquareTerrain.setAmplitude(amplitude);
 	continuous2DSignalTerrain.setAmplitude(amplitude);
+	helsingSquareTerrain.setAmplitude(amplitude);
 	updateHeightMap();
 }
 
@@ -200,6 +206,7 @@ void PTGView::increaseGain() {
 	diamondSquareTerrain.setGain(gain);
 	midpointDisplacementTerrain.setGain(gain);
 	fractionalBrownianMotion.setGain(gain);
+	helsingSquareTerrain.setGain(gain);
 	updateHeightMap();
 }
 
@@ -209,6 +216,7 @@ void PTGView::decreaseGain() {
 	diamondSquareTerrain.setGain(gain);
 	midpointDisplacementTerrain.setGain(gain);
 	fractionalBrownianMotion.setGain(gain);
+	helsingSquareTerrain.setGain(gain);
 	updateHeightMap();
 }
 
