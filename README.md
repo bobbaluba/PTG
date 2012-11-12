@@ -20,13 +20,17 @@ The following (major) algorithms are implemented:
 Terrain algorithms:
 * Midpoint Displacement
 * Diamond Square
+* Modified Diamond Square (diamond square without axis aligned ridges)
 * Fractional Brownian Motion
-* Gaussian Blur (decorates other terrains)
+* Hybrid multifractal
+* Ridged multifractal
+
+Heightmap post-filters:
+* Thermal erosion (using a cellular automata)
+* Gaussian Blur
 
 Noise functions:
 * Perlin Noise
-
-Additional algorithms in development:
 * Value noise
 
 Building
@@ -70,17 +74,24 @@ The viewer accepts the following command line options:
 * R/F: Move up/down
 * T/G: Raise/Lower water
 * O/P: Adjust terrain detail
+* B: Toggle gaussian blur filter
+* E: Toggle thermal erosion filter
 * K/L: Adjust amplitude of terrain (just a scaling factor)
 * N/M: Adjust gain. For fractal algorithms, this is the factor the amplitude is multiplied with each iteration.
-* U/I: Adjust number of octaves for fractional brownian motion signal
-* 1-4: Algorithm seletion
+* U/I: Adjust number of octaves for multifractal signals
+* Z/X: Adjust offset for hybrid multifractal
+* C/V: Adjust lacunarity for multifractal signals
+* comma/period: Adjust H value (multifractal spectral value)
+* 1-9: Algorithm seletion
     * 1: Midpoint Displacement
     * 2: Diamond-Square
     * 3: Helsing-square (my own modified version of diamond square)
     * 4: Pure perlin noise
     * 5: Fractional Brownian motion using perlin noise as input signal
-    * 4: Pure value noise
-    * 5: Fractional Brownian motion using value noise as input signal
+    * 6: Pure value noise
+    * 7: Fractional Brownian motion using value noise as input signal
+    * 8: Hybrid Multifractal using perlin noise as input signal
+    * 9: Ridged Multifractal using perlin noise as input signal
 
 Documentation
 -------------
