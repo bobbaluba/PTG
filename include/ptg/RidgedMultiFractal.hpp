@@ -4,7 +4,7 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef HYBRIDMULTIFRACTAL_HPP
+#ifndef RIDGEDMULTIFRACTAL_HPP
 #define RIDGEDMULTIFRACTAL_HPP
 
 #include <ptg/Continuous2DSignal.hpp>
@@ -43,9 +43,13 @@ public:
 	virtual void setLacunarity(float lacunarity){this->lacunarity=lacunarity; initExponents();}
 	virtual float getLacunarity() const {return lacunarity;}
 
-	/** @brief sets the offset. This value is added to the noise before multiplications
+	/** @brief sets the offset.
 	 *
-	 * Assuming the noise value varies from -1 to 1, 0.7 will probably be a decent value
+	 * this offset is different from that of hybrid multi fractal
+	 * noise is subtracted from this noise before squaring, so having
+	 * a value close to 1 is important.
+	 *
+	 * 1 will probably be a decent value
 	 */
 	virtual void setOffset(float offset){this->offset=offset;}
 	virtual float getOffset() const {return offset;}
@@ -58,6 +62,9 @@ public:
 	 */
 	virtual void setH(float H){this->H = H; initExponents();}
 	virtual float getH() const {return H;}
+
+	virtual void setThreshold(float threshold){this->threshold=threshold;}
+	virtual float getThreshold() const {return threshold;}
 private:
 	void initExponents();
 	Continuous2DSignal* baseNoise;
@@ -65,6 +72,7 @@ private:
 	float lacunarity;
 	float offset;
 	float H;
+	float threshold;
 	std::vector<float> exponents;
 };
 

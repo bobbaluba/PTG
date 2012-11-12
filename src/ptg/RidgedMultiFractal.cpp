@@ -20,7 +20,8 @@ RidgedMultiFractal::RidgedMultiFractal(unsigned int seed):
 	octaves(7),
 	lacunarity(2),
 	offset(1.0),
-	H(0.25){
+	H(0.25),
+	threshold(0.9){
 	initExponents();
 }
 
@@ -31,7 +32,6 @@ RidgedMultiFractal::~RidgedMultiFractal() {
 float RidgedMultiFractal::get(float x, float y) {
 	//copied from hybrid multi fractal
 	float frequency=1;
-	float threshold=1; //TODO what is good value?
 
 	//compute first octave
 	float signal = baseNoise->get(x*frequency, y*frequency);

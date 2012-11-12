@@ -20,6 +20,7 @@
 #include <ptg/HelsingSquareTerrain.hpp>
 #include <ptg/ValueNoise.hpp>
 #include <ptg/HybridMultiFractal.hpp>
+#include <ptg/RidgedMultiFractal.hpp>
 
 using namespace ptg;
 
@@ -79,6 +80,7 @@ private:
 	HelsingSquareTerrain helsingSquareTerrain;
 	ValueNoise valueNoise;
 	HybridMultiFractal hybridMultiFractal;
+	RidgedMultiFractal ridgedMultiFractal;
 	bool blurEnabled;
 };
 
