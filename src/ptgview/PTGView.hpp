@@ -55,6 +55,10 @@ private:
 	virtual void decreaseOctaves();
 	virtual void increaseLacunarity();
 	virtual void decreaseLacunarity();
+	virtual void increaseOffset();
+	virtual void decreaseOffset();
+	virtual void increaseH();
+	virtual void decreaseH();
 	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
 	virtual void toggleBlur();

@@ -16,6 +16,7 @@ HybridFractal::HybridFractal(unsigned int seed):
 	baseNoise(NULL),
 	octaves(7),
 	lacunarity(2),
+	offset(0.7),
 	H(0.25){
 	initExponents();
 }
@@ -25,21 +26,19 @@ HybridFractal::~HybridFractal() {
 }
 
 float HybridFractal::get(float x, float y) {
-	float amplitude=1;
 	float frequency=1;
-	const float offset = 0.7;
-	float result= (baseNoise->get(x*frequency, y*frequency)*20 + offset) * exponents[0];
-	frequency = lacunarity;
-	float weight = result;
+	float value= (baseNoise->get(x*frequency, y*frequency)*2 + offset) * exponents[0];
+ 	frequency = lacunarity;
+	float weight = value;
 	for(unsigned int i = 1; i < octaves; i++){
 		if(weight>1)weight=1; //prevent divergence
-		float signal = (baseNoise->get(x*frequency,y*frequency)*20 + offset) * exponents[i];
-		result += weight * signal;
-		weight *= signal; // update the monotonically decreasing weight
+		float signal = (baseNoise->get(x*frequency,y*frequency)*2 + offset) * exponents[i];
+		value += weight * signal;
+		weight *=  signal; // update the monotonically decreasing weight
 
 		frequency *= lacunarity;
 	}
-	return result*amplitude-offset/2.0;
+	return (value-offset)/4.0;
 }
 
 void ptg::HybridFractal::onReSeed(unsigned int seed) {
@@ -49,11 +48,9 @@ void ptg::HybridFractal::onReSeed(unsigned int seed) {
 void HybridFractal::initExponents() {
 	exponents.clear();
 	exponents.reserve(octaves);
-	float frequency = 1.0;
-	for(unsigned int i=1; i<octaves; i++){
+	for(unsigned int i=0; i<octaves; i++){
 		// compute spectral weight for each frequency */
-		exponents.push_back(pow( frequency, -H*i ));
-		frequency *= lacunarity;
+		exponents.push_back(pow( lacunarity, -H*i ));
 	}
 }
 

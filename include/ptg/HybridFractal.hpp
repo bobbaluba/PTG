@@ -75,11 +75,28 @@ public:
 	 */
 	virtual void setLacunarity(float lacunarity){this->lacunarity=lacunarity; initExponents();}
 	virtual float getLacunarity() const {return lacunarity;}
+
+	/** @brief sets the offset. This value is added to the noise before multiplications
+	 *
+	 * Assuming the noise value varies from -1 to 1, 0.7 will probably be a decent value
+	 */
+	virtual void setOffset(float offset){this->offset=offset;}
+	virtual float getOffset() const {return offset;}
+
+	/** @brief sets the H value
+	 *
+	 * This value controls how the amplitude changes from octave to octave.
+	 * A high value means the amplitude will decrease faster
+	 * 0.25 will probably be a decent value
+	 */
+	virtual void setH(float H){this->H = H; initExponents();}
+	virtual float getH() const {return H;}
 private:
 	void initExponents();
 	Continuous2DSignal* baseNoise;
 	unsigned int octaves;
 	float lacunarity;
+	float offset;
 	float H;
 	std::vector<float> exponents;
 };
