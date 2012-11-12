@@ -93,6 +93,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>Midpoint Displacement</li>
 <li>Diamond Square</li>
 <li>Fractional Brownian Motion</li>
+<li>Gaussian Blur (decorates other terrains)</li>
 </ul>
 <p>Noise functions:</p>
 <ul>
@@ -101,7 +102,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <p>Additional algorithms in development:</p>
 <ul>
 <li>Value noise</li>
-<li>Erosion filter</li>
 </ul>
 <h1>Building</h1>
 <p>The library depends on the helsing utility library, which is developed alongside this project. The helsing library currently depends on OpenGL 2.0, this is going to be fixed.</p>
@@ -124,17 +124,21 @@ make
 <li>A/D: Move left/right</li>
 <li>W/S: Move forward/backward</li>
 <li>Left Mouse button: Toggle viewing mode (flying or centered)</li>
-<li>Right Mouse button: Reseed the terrains</li>
+<li>Space/Return/Right Mouse button: Reseed the terrains</li>
 <li>R/F: Move up/down</li>
-<li>U/J: Raise/Lower water</li>
+<li>T/G: Raise/Lower water</li>
 <li>O/P: Adjust terrain detail</li>
 <li>K/L: Adjust amplitude of terrain (just a scaling factor)</li>
 <li>N/M: Adjust gain. For fractal algorithms, this is the factor the amplitude is multiplied with each iteration.</li>
+<li>U/I: Adjust number of octaves for fractional brownian motion signal</li>
 <li>1-4: Algorithm seletion<ul>
-<li>1: Diamond-Square</li>
-<li>2: Midpoint Displacement</li>
-<li>3: Pure perlin noise</li>
-<li>4: Fractional Brownian motion using perlin noise as input signal</li>
+<li>1: Midpoint Displacement</li>
+<li>2: Diamond-Square</li>
+<li>3: Helsing-square (my own modified version of diamond square)</li>
+<li>4: Pure perlin noise</li>
+<li>5: Fractional Brownian motion using perlin noise as input signal</li>
+<li>4: Pure value noise</li>
+<li>5: Fractional Brownian motion using value noise as input signal</li>
 </ul>
 </li>
 </ul>
@@ -162,7 +166,7 @@ doxygen
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 12 2012 13:33:01 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

@@ -94,11 +94,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">helsing::Shader Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>an OpenGL 3.0+ shader program  
+ <a href="classhelsing_1_1Shader.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Shader_8hpp_source.html">Shader.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a76a39d7153daff52bc1f0f4b22b1de47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76a39d7153daff52bc1f0f4b22b1de47"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Shader</b> (const std::string vertexShader, const std::string fragmenShader)</td></tr>
+<tr class="memitem:a8efa2adccb6e45d8535f783a8708d954"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8efa2adccb6e45d8535f783a8708d954"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Shader</b> (const std::string vertexShader, const std::string fragmentShader)</td></tr>
 <tr class="memitem:af0c3783cf8f6a14fd948a622d7a0a30f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0c3783cf8f6a14fd948a622d7a0a30f"></a>
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getProgramHandle</b> ()</td></tr>
 <tr class="memitem:ac1dfd31c31fcb5242c7339a18e983a75"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac1dfd31c31fcb5242c7339a18e983a75"></a>
@@ -109,15 +114,20 @@ virtual GLint&#160;</td><td class="memItemRight" valign="bottom"><b>getColorAttr
 virtual GLint&#160;</td><td class="memItemRight" valign="bottom"><b>getNormalAttributeIndex</b> ()</td></tr>
 <tr class="memitem:a6e92f45f6477cc8fae6a0e1fe02017a6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6e92f45f6477cc8fae6a0e1fe02017a6"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>use</b> (const <a class="el" href="classhelsing_1_1Mat4.html">helsing::Mat4</a> &amp;modelViewMatrix, const <a class="el" href="classhelsing_1_1Mat4.html">helsing::Mat4</a> &amp;projectionMatrix)</td></tr>
+<tr class="memitem:a909cc737ad8d4f5d30912ffd4909b764"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a909cc737ad8d4f5d30912ffd4909b764"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setUniform</b> (const std::string, float)</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>an OpenGL 3.0+ shader program </p>
+<p>Encapsulation of an OpenGL vertex shader object, frament shader object and a shader program object </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>include/helsing/<a class="el" href="Shader_8hpp_source.html">Shader.hpp</a></li>
 <li>src/helsing/<a class="el" href="Shader_8cpp.html">Shader.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 12 2012 13:33:01 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

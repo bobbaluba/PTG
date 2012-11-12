@@ -91,37 +91,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Renderer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Encapsulates drawing related parts of the <a class="el" href="classPTGView.html" title="An Application for generating and viewing terrains using the PTG library.">PTGView</a> application.  
+ <a href="classRenderer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Renderer_8hpp_source.html">Renderer.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a417d4f9e5956342ceccea8dbed374dc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a417d4f9e5956342ceccea8dbed374dc8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (uint32_t, uint32_t)</td></tr>
+<tr class="memitem:a9eb476bcd8be6ef8878c1d85d63dd1ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9eb476bcd8be6ef8878c1d85d63dd1ea"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b> (uint32_t width, uint32_t height)</td></tr>
 <tr class="memitem:a9a0a5f207e3d9f60c6372a9c79b25df9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a0a5f207e3d9f60c6372a9c79b25df9"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>draw</b> ()</td></tr>
 <tr class="memitem:a69757707708960a24b0132ee20a66076"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69757707708960a24b0132ee20a66076"></a>
-<a class="el" href="classhelsing_1_1Camera.html">helsing::Camera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getCamera</b> ()</td></tr>
+<a class="el" href="classhelsing_1_1Camera.html">helsing::Camera</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a69757707708960a24b0132ee20a66076">getCamera</a> ()</td></tr>
+<tr class="memdesc:a69757707708960a24b0132ee20a66076"><td class="mdescLeft">&#160;</td><td class="mdescRight">get handle for the Camera <br/></td></tr>
 <tr class="memitem:a6a31413956ce403e4502c1dfe17f38f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a31413956ce403e4502c1dfe17f38f9"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>resize</b> (uint32_t width, uint32_t height)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#a6a31413956ce403e4502c1dfe17f38f9">resize</a> (uint32_t width, uint32_t height)</td></tr>
+<tr class="memdesc:a6a31413956ce403e4502c1dfe17f38f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">corrects aspect ratio when the viewport has changed <br/></td></tr>
 <tr class="memitem:af29af77f23db0c6bfce69fc858ad4f2a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af29af77f23db0c6bfce69fc858ad4f2a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setHeightMap</b> (<a class="el" href="classhelsing_1_1HeightMap.html">helsing::HeightMap</a> *heightMap)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#af29af77f23db0c6bfce69fc858ad4f2a">setHeightMap</a> (<a class="el" href="classhelsing_1_1HeightMap.html">helsing::HeightMap</a> *heightMap)</td></tr>
+<tr class="memdesc:af29af77f23db0c6bfce69fc858ad4f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">select a new heightMap for drawing <br/></td></tr>
 <tr class="memitem:af1458606e24c0945d8aa3e85c38c4b24"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af1458606e24c0945d8aa3e85c38c4b24"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setWaterLevel</b> (float level)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRenderer.html#af1458606e24c0945d8aa3e85c38c4b24">setWaterLevel</a> (float level)</td></tr>
+<tr class="memdesc:af1458606e24c0945d8aa3e85c38c4b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the y value of the water <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa97abcb75e6e9078b866e763e5a1c8fc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa97abcb75e6e9078b866e763e5a1c8fc"></a>
+<tr class="memitem:a4349dc34836cc2fa24d47c2116060ef6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4349dc34836cc2fa24d47c2116060ef6"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>drawVector</b> (const <a class="el" href="classhelsing_1_1Vec4.html">helsing::Vec4</a> &amp;position, const <a class="el" href="classhelsing_1_1Vec4.html">helsing::Vec4</a> &amp;vector)</td></tr>
-<tr class="memitem:a64f53a892ac6df0dfd7d1b9aa1eaaa81"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64f53a892ac6df0dfd7d1b9aa1eaaa81"></a>
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>drawHeightMap</b> (const <a class="el" href="classhelsing_1_1HeightMap.html">helsing::HeightMap</a> &amp;)</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Encapsulates drawing related parts of the <a class="el" href="classPTGView.html" title="An Application for generating and viewing terrains using the PTG library.">PTGView</a> application. </p>
+<p>Should be regarded as the View part of the MVC pattern </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/ptgview/<a class="el" href="Renderer_8hpp_source.html">Renderer.hpp</a></li>
 <li>src/ptgview/<a class="el" href="Renderer_8cpp.html">Renderer.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 12 2012 13:33:01 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

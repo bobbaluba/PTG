@@ -140,13 +140,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>generateHeightMap()
 : <a class="el" href="classptg_1_1Continuous2DSignalTerrain.html#afd9bc5f9c85e6e7e9db819d04be649a2">ptg::Continuous2DSignalTerrain</a>
 , <a class="el" href="classptg_1_1DiamondSquareTerrain.html#aa3e7e50500d5cd6fae0f0765a1fd26f7">ptg::DiamondSquareTerrain</a>
-, <a class="el" href="classptg_1_1Terrain.html#aca200c7c0047752bff42812a2127e175">ptg::Terrain</a>
+, <a class="el" href="classptg_1_1HelsingSquareTerrain.html#a2683ca601168f4c49322612117951669">ptg::HelsingSquareTerrain</a>
 , <a class="el" href="classptg_1_1MidpointDisplacementTerrain.html#a41f3496761f08184970d79dd29688dda">ptg::MidpointDisplacementTerrain</a>
+, <a class="el" href="classptg_1_1GaussianBlurTerrain.html#a94bf04f07c0e1a987a79f9adf06d4c3d">ptg::GaussianBlurTerrain</a>
+, <a class="el" href="classptg_1_1Terrain.html#aca200c7c0047752bff42812a2127e175">ptg::Terrain</a>
 </li>
 <li>get()
-: <a class="el" href="classptg_1_1Continuous2DSignal.html#a759c604688ae68f3a448f099d7597558">ptg::Continuous2DSignal</a>
-, <a class="el" href="classptg_1_1FractionalBrownianMotion.html#ae6445950daa9566f20b8d87b3a49e9d4">ptg::FractionalBrownianMotion</a>
+: <a class="el" href="classptg_1_1FractionalBrownianMotion.html#ae6445950daa9566f20b8d87b3a49e9d4">ptg::FractionalBrownianMotion</a>
+, <a class="el" href="classptg_1_1HybridFractal.html#a15a02aa2442ceef086452e1337472e32">ptg::HybridFractal</a>
 , <a class="el" href="classptg_1_1PerlinNoise.html#a97b690cf5372b4bdd9f128297139e561">ptg::PerlinNoise</a>
+, <a class="el" href="classptg_1_1ValueNoise.html#ada5b8fdcc14e29fb001b82e23a6e9957">ptg::ValueNoise</a>
+, <a class="el" href="classptg_1_1Continuous2DSignal.html#a759c604688ae68f3a448f099d7597558">ptg::Continuous2DSignal</a>
+</li>
+<li>getCamera()
+: <a class="el" href="classRenderer.html#a69757707708960a24b0132ee20a66076">Renderer</a>
 </li>
 <li>getHeight()
 : <a class="el" href="classhelsing_1_1HeightMap.html#aef219dc07fc54e67a8b1663b5380318b">helsing::HeightMap</a>
@@ -172,6 +179,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
 <li>HeightMap()
 : <a class="el" href="classhelsing_1_1HeightMap.html#aafa1dd98bac49eb5046f91b42a85a938">helsing::HeightMap</a>
+</li>
+<li>HelsingSquareTerrain()
+: <a class="el" href="classptg_1_1HelsingSquareTerrain.html#a30c4932ac7c2fd779e0bc9b12fc87ea5">ptg::HelsingSquareTerrain</a>
 </li>
 </ul>
 
@@ -204,14 +214,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>onReSeed()
 : <a class="el" href="classptg_1_1Continuous2DSignalTerrain.html#a78cde7cfc42d493144c128bda5b30146">ptg::Continuous2DSignalTerrain</a>
 , <a class="el" href="classptg_1_1FractionalBrownianMotion.html#a08e7a82877615f036ea1cdcf284f9808">ptg::FractionalBrownianMotion</a>
-, <a class="el" href="classptg_1_1Seedable.html#a35b879651db6436d97cffed274fc7b12">ptg::Seedable</a>
 , <a class="el" href="classptg_1_1PerlinNoise.html#a668c20e4c2adbba4accc6445df45c47f">ptg::PerlinNoise</a>
+, <a class="el" href="classptg_1_1Seedable.html#a35b879651db6436d97cffed274fc7b12">ptg::Seedable</a>
+, <a class="el" href="classptg_1_1HybridFractal.html#a904fe2a3b0c9c567e25e39d87d5faa0d">ptg::HybridFractal</a>
+, <a class="el" href="classptg_1_1ValueNoise.html#a0d6da211321b6965131a78f6271d4fc8">ptg::ValueNoise</a>
 </li>
 <li>operator*()
 : <a class="el" href="classhelsing_1_1Vec2.html#a1cac252fd9ed121f7ec5d27977034267">helsing::Vec2</a>
 </li>
 <li>operator-()
-: <a class="el" href="classhelsing_1_1Vec2.html#abd7f56e52c67e658b76c94ce8e540d2d">helsing::Vec2</a>
+: <a class="el" href="classhelsing_1_1Vec2.html#a1f189c86ed40450f1ce0faa14e3387e5">helsing::Vec2</a>
 </li>
 <li>origin()
 : <a class="el" href="classhelsing_1_1Vec4.html#aa2580910196190212c4e1187b5b4c3a5">helsing::Vec4</a>
@@ -236,6 +248,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>radians()
 : <a class="el" href="classhelsing_1_1Angle.html#a5c08821c29a9c9ea97afc91155cfb216">helsing::Angle</a>
 </li>
+<li>resize()
+: <a class="el" href="classRenderer.html#a6a31413956ce403e4502c1dfe17f38f9">Renderer</a>
+</li>
 <li>rotate()
 : <a class="el" href="classhelsing_1_1MatrixStack.html#a576143a4329b870ddab7bf78cef2a9c8">helsing::MatrixStack</a>
 </li>
@@ -254,19 +269,35 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>setAmplitude()
 : <a class="el" href="classptg_1_1DiamondSquareTerrain.html#a89e2a2e2745f2c65abe00557875caea9">ptg::DiamondSquareTerrain</a>
+, <a class="el" href="classptg_1_1HelsingSquareTerrain.html#a054d66eae40fcaab5f09c03f5be622da">ptg::HelsingSquareTerrain</a>
 , <a class="el" href="classptg_1_1Continuous2DSignalTerrain.html#aa5495bb90652560cc57c896dc4c69021">ptg::Continuous2DSignalTerrain</a>
+</li>
+<li>setBaseNoise()
+: <a class="el" href="classptg_1_1FractionalBrownianMotion.html#ac6ed7a2e4b7e4256e7e63742895357cf">ptg::FractionalBrownianMotion</a>
+, <a class="el" href="classptg_1_1HybridFractal.html#a882e2b831eee52306290f99e31bbae76">ptg::HybridFractal</a>
 </li>
 <li>setHeight()
 : <a class="el" href="classhelsing_1_1HeightMap.html#ade8d9c03a4d22687316f53fa3b972ba4">helsing::HeightMap</a>
 </li>
+<li>setHeightMap()
+: <a class="el" href="classRenderer.html#af29af77f23db0c6bfce69fc858ad4f2a">Renderer</a>
+</li>
+<li>setLacunarity()
+: <a class="el" href="classptg_1_1HybridFractal.html#a48d21c70e04baa9405c9440a8930453e">ptg::HybridFractal</a>
+, <a class="el" href="classptg_1_1FractionalBrownianMotion.html#aaaead4af73a6939af8d35f8b28fa7703">ptg::FractionalBrownianMotion</a>
+</li>
 <li>setOctaves()
-: <a class="el" href="classptg_1_1FractionalBrownianMotion.html#a53c82c3b5e6cf5b93b3ddd633c601179">ptg::FractionalBrownianMotion</a>
+: <a class="el" href="classptg_1_1HybridFractal.html#a7bbed2dcc3f03939eb3c14a8dba6ff9c">ptg::HybridFractal</a>
+, <a class="el" href="classptg_1_1FractionalBrownianMotion.html#a53c82c3b5e6cf5b93b3ddd633c601179">ptg::FractionalBrownianMotion</a>
 </li>
 <li>setSignal()
 : <a class="el" href="classptg_1_1Continuous2DSignalTerrain.html#a449d94057222d7e9cd65449401439ac3">ptg::Continuous2DSignalTerrain</a>
 </li>
 <li>setTerrain()
 : <a class="el" href="classPTGView.html#aac8209c62481cd299c89ea1b23de2b17">PTGView</a>
+</li>
+<li>setWaterLevel()
+: <a class="el" href="classRenderer.html#af1458606e24c0945d8aa3e85c38c4b24">Renderer</a>
 </li>
 <li>subtract()
 : <a class="el" href="classhelsing_1_1Vec2.html#a3e249c4a1b5ed9245846be99a91a1769">helsing::Vec2</a>
@@ -292,7 +323,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 12 2012 13:33:01 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

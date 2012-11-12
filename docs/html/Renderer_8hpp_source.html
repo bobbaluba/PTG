@@ -93,43 +93,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define RENDERER_HPP</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Water_8hpp.html">Water.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;TerrainMesh.hpp&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="TerrainMesh_8hpp.html">TerrainMesh.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="HeightMap_8hpp.html">helsing/HeightMap.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Camera_8hpp.html">helsing/Camera.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="MatrixStack_8hpp.html">helsing/MatrixStack.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Movable_8hpp.html">helsing/Movable.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="classRenderer.html">   17</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRenderer.html">Renderer</a>{</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="classRenderer.html">Renderer</a>(uint32_t, uint32_t);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classRenderer.html">Renderer</a>();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="classhelsing_1_1Camera.html">helsing::Camera</a>&amp; getCamera(){<span class="keywordflow">return</span> camera;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> resize(uint32_t width, uint32_t height);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setHeightMap(<a class="code" href="classhelsing_1_1HeightMap.html" title="A HeightMap is a two dimensional grid of float values.">helsing::HeightMap</a>* heightMap);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> setWaterLevel(<span class="keywordtype">float</span> level){waterLevel=level;}</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="classRenderer.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="classRenderer.html" title="Encapsulates drawing related parts of the PTGView application.">Renderer</a>{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="classRenderer.html" title="Encapsulates drawing related parts of the PTGView application.">Renderer</a>(uint32_t width, uint32_t height);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="keyword">virtual</span> ~<a class="code" href="classRenderer.html" title="Encapsulates drawing related parts of the PTGView application.">Renderer</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> draw();</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="comment">//Drawing functions</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> drawVector(<span class="keyword">const</span> <a class="code" href="classhelsing_1_1Vec4.html" title="3D vector using homogeneous coordinatesDesigned to be easy to use with OpenGL">helsing::Vec4</a>&amp; position, <span class="keyword">const</span> <a class="code" href="classhelsing_1_1Vec4.html" title="3D vector using homogeneous coordinatesDesigned to be easy to use with OpenGL">helsing::Vec4</a>&amp; vector);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> drawHeightMap(<span class="keyword">const</span> <a class="code" href="classhelsing_1_1HeightMap.html" title="A HeightMap is a two dimensional grid of float values.">helsing::HeightMap</a>&amp;);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keywordtype">void</span> setGLStates();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        uint32_t width, height;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classhelsing_1_1Camera.html">helsing::Camera</a> camera;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <a class="code" href="classhelsing_1_1MatrixStack.html" title="A matrix stack for keeping track of current transformations.">helsing::MatrixStack</a> modelView, projection;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <a class="code" href="classWater.html">Water</a> water;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordtype">float</span> waterLevel;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <a class="code" href="classhelsing_1_1HeightMap.html" title="A HeightMap is a two dimensional grid of float values.">helsing::HeightMap</a>* heightMap;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <a class="code" href="classTerrainMesh.html">TerrainMesh</a>* terrainMesh;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* RENDERER_HPP */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="classRenderer.html#a69757707708960a24b0132ee20a66076">   28</a></span>&#160;        <a class="code" href="classhelsing_1_1Camera.html">helsing::Camera</a>&amp; <a class="code" href="classRenderer.html#a69757707708960a24b0132ee20a66076" title="get handle for the Camera">getCamera</a>(){<span class="keywordflow">return</span> camera;}</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#a6a31413956ce403e4502c1dfe17f38f9" title="corrects aspect ratio when the viewport has changed">resize</a>(uint32_t width, uint32_t height);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#af29af77f23db0c6bfce69fc858ad4f2a" title="select a new heightMap for drawing">setHeightMap</a>(<a class="code" href="classhelsing_1_1HeightMap.html" title="A HeightMap is a two dimensional grid of float values.">helsing::HeightMap</a>* heightMap);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="classRenderer.html#af1458606e24c0945d8aa3e85c38c4b24">   37</a></span>&#160;        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classRenderer.html#af1458606e24c0945d8aa3e85c38c4b24" title="sets the y value of the water">setWaterLevel</a>(<span class="keywordtype">float</span> level){waterLevel=level;}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="comment">//Drawing functions</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> drawVector(<span class="keyword">const</span> <a class="code" href="classhelsing_1_1Vec4.html" title="3D vector using homogeneous coordinatesDesigned to be easy to use with OpenGL">helsing::Vec4</a>&amp; position, <span class="keyword">const</span> <a class="code" href="classhelsing_1_1Vec4.html" title="3D vector using homogeneous coordinatesDesigned to be easy to use with OpenGL">helsing::Vec4</a>&amp; vector);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordtype">void</span> setGLStates();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        uint32_t width, height;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        <a class="code" href="classhelsing_1_1Camera.html">helsing::Camera</a> camera;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classhelsing_1_1MatrixStack.html" title="A matrix stack for keeping track of current transformations.">helsing::MatrixStack</a> modelView, projection;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        <a class="code" href="classWater.html">Water</a> water;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="keywordtype">float</span> waterLevel;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <a class="code" href="classTerrainMesh.html" title="A collection of vertices and normals used for drawing a terrain.">TerrainMesh</a>* terrainMesh;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* RENDERER_HPP */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 12 2012 13:33:01 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>

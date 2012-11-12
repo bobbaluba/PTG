@@ -117,6 +117,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae6445950daa9566f20b8d87b3a49e9d4"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classptg_1_1FractionalBrownianMotion.html#ae6445950daa9566f20b8d87b3a49e9d4">get</a> (float x, float y)</td></tr>
 <tr class="memitem:a08e7a82877615f036ea1cdcf284f9808"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classptg_1_1FractionalBrownianMotion.html#a08e7a82877615f036ea1cdcf284f9808">onReSeed</a> (unsigned int <a class="el" href="classptg_1_1Seedable.html#acc369d90a59660ffc390ff83107dcdf4">seed</a>)</td></tr>
 <tr class="memdesc:a08e7a82877615f036ea1cdcf284f9808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Template function that reseedable subclasses should implement.  <a href="#a08e7a82877615f036ea1cdcf284f9808"></a><br/></td></tr>
+<tr class="memitem:ac6ed7a2e4b7e4256e7e63742895357cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6ed7a2e4b7e4256e7e63742895357cf"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classptg_1_1FractionalBrownianMotion.html#ac6ed7a2e4b7e4256e7e63742895357cf">setBaseNoise</a> (<a class="el" href="classptg_1_1Continuous2DSignal.html">Continuous2DSignal</a> *signal)</td></tr>
+<tr class="memdesc:ac6ed7a2e4b7e4256e7e63742895357cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the base noise function for the algorithm suitable choices are <a class="el" href="classptg_1_1ValueNoise.html" title="Two dimensional value noise.">ValueNoise</a> or Perlin Noise. <br/></td></tr>
 <tr class="memitem:a53c82c3b5e6cf5b93b3ddd633c601179"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a53c82c3b5e6cf5b93b3ddd633c601179"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classptg_1_1FractionalBrownianMotion.html#a53c82c3b5e6cf5b93b3ddd633c601179">setOctaves</a> (unsigned int octaves)</td></tr>
 <tr class="memdesc:a53c82c3b5e6cf5b93b3ddd633c601179"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the "depth" of the fractal noise. Sets how many "layers" of noise we are going to add together. Typical values lie between 3 and 9. <br/></td></tr>
@@ -124,8 +127,13 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getOctaves</b> () const </td></tr>
 <tr class="memitem:adf60d94f3365e1ad3ed3becefe192bfc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf60d94f3365e1ad3ed3becefe192bfc"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>setGain</b> (float gain)</td></tr>
-<tr class="memitem:a3f6d8acac446a444297a774ff0ef0823"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f6d8acac446a444297a774ff0ef0823"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>getGain</b> ()</td></tr>
+<tr class="memitem:a77974cc2cf4fc879b0fd256bf6b6866f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77974cc2cf4fc879b0fd256bf6b6866f"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>getGain</b> () const </td></tr>
+<tr class="memitem:aaaead4af73a6939af8d35f8b28fa7703"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaead4af73a6939af8d35f8b28fa7703"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classptg_1_1FractionalBrownianMotion.html#aaaead4af73a6939af8d35f8b28fa7703">setLacunarity</a> (float lacunarity)</td></tr>
+<tr class="memdesc:aaaead4af73a6939af8d35f8b28fa7703"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets the lacunarity this is the relation between the frequency of succesive layers in fbm-like algorithms <br/></td></tr>
+<tr class="memitem:a3a8c0cda8d9dc5cb11c181d9a3221b05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a8c0cda8d9dc5cb11c181d9a3221b05"></a>
+virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>getLacunarity</b> () const </td></tr>
 <tr class="inherit_header pub_methods_classptg_1_1Continuous2DSignal"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classptg_1_1Continuous2DSignal')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classptg_1_1Continuous2DSignal.html">ptg::Continuous2DSignal</a></td></tr>
 <tr class="memitem:a8dfaedb0ed09cdc96e33641938089821 inherit pub_methods_classptg_1_1Continuous2DSignal"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8dfaedb0ed09cdc96e33641938089821"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Continuous2DSignal</b> (unsigned int <a class="el" href="classptg_1_1Seedable.html#acc369d90a59660ffc390ff83107dcdf4">seed</a>=0)</td></tr>
@@ -236,7 +244,7 @@ virtual unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Nov 7 2012 15:13:38 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Nov 12 2012 13:33:01 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
