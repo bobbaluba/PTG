@@ -19,6 +19,7 @@
 #include <ptg/GaussianBlurTerrain.hpp>
 #include <ptg/HelsingSquareTerrain.hpp>
 #include <ptg/ValueNoise.hpp>
+#include <ptg/HybridFractal.hpp>
 
 using namespace ptg;
 
@@ -73,6 +74,7 @@ private:
 	GaussianBlurTerrain gaussianBlurTerrain;
 	HelsingSquareTerrain helsingSquareTerrain;
 	ValueNoise valueNoise;
+	HybridFractal hybridFractal;
 	bool blurEnabled;
 };
 

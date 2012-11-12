@@ -5,6 +5,7 @@ set(ptg_lib_src
 	FractionalBrownianMotion.cpp
 	GaussianBlurTerrain.cpp
 	HelsingSquareTerrain.cpp
+	HybridFractal.cpp
 	MidpointDisplacementTerrain.cpp
 	PerlinNoise.cpp
 	Seedable.cpp

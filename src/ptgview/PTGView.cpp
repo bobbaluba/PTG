@@ -121,6 +121,12 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
 			setTerrain(&continuous2DSignalTerrain);
 			break;
+		case sf::Keyboard::Num8:
+			std::cout << "Switching to hybrid fractional brownian perlin noise terrain\n";
+			hybridFractal.setBaseNoise(&perlinNoise);
+			continuous2DSignalTerrain.setSignal(&hybridFractal);
+			setTerrain(&continuous2DSignalTerrain);
+			break;
 		default:
 			return false;
 		}
