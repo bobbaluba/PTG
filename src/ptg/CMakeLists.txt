@@ -8,6 +8,7 @@ set(ptg_lib_src
 	HybridMultiFractal.cpp
 	MidpointDisplacementTerrain.cpp
 	PerlinNoise.cpp
+	RidgedMultiFractal.cpp
 	Seedable.cpp
 	Terrain.cpp
 	ValueNoise.cpp
