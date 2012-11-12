@@ -15,7 +15,7 @@ using helsing::HeightMap;
 void erodePoint(const unsigned int x, const unsigned int y, const float T, const HeightMap& source, HeightMap& destination){
 	const unsigned int size = source.getSize();
 	//for now, just skip erosion on edges
-	if(x == 0 || y == 0 || x == size - 1 || y == size){
+	if(x == 0 || y == 0 || x == size - 1 || y == size - 1){
 		return;
 	}
 
@@ -38,6 +38,7 @@ void erodePoint(const unsigned int x, const unsigned int y, const float T, const
 			dTotal += d[i];
 		}
 	}
+	if(dTotal == 0)return;
 
 	float dMax = d[0]; //greatest of the di's
 	for(int i = 1; i < neighbours; ++i){
@@ -91,15 +92,14 @@ helsing::HeightMap ThermalErosionTerrain::generateHeightMap(
 		return helsing::HeightMap(gridPoints);
 	}
 	helsing::HeightMap sourceHeightMap = source->generateHeightMap(gridPoints, gridSpacing);
-	helsing::HeightMap heightMap(gridPoints);
 
 	const float T = 1.0 / gridPoints;
 
 	for(unsigned int i = 0; i < steps; ++i){
-		doErosionStep(T, heightMap);
+		doErosionStep(T, sourceHeightMap);
 	}
 
-	return heightMap;
+	return sourceHeightMap;
 }
 
 void ThermalErosionTerrain::setSource(Terrain* newSource) {

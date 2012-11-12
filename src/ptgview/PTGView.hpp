@@ -21,6 +21,7 @@
 #include <ptg/ValueNoise.hpp>
 #include <ptg/HybridMultiFractal.hpp>
 #include <ptg/RidgedMultiFractal.hpp>
+#include <ptg/ThermalErosionTerrain.hpp>
 
 using namespace ptg;
 
@@ -63,6 +64,7 @@ private:
 	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
 	virtual void toggleBlur();
+	virtual void toggleErosion();
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;
@@ -81,7 +83,9 @@ private:
 	ValueNoise valueNoise;
 	HybridMultiFractal hybridMultiFractal;
 	RidgedMultiFractal ridgedMultiFractal;
+	ThermalErosionTerrain thermalErosionTerrain;
 	bool blurEnabled;
+	bool erosionEnabled;
 };
 
 #endif // PTGVIEW_HPP

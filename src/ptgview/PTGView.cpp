@@ -21,7 +21,9 @@ PTGView::PTGView(const ApplicationSettings& settings) :
 		lacunarity(2),
 		waterLevel(0),
 		gaussianBlurTerrain(NULL),
-		blurEnabled(false)
+		thermalErosionTerrain(NULL),
+		blurEnabled(false),
+		erosionEnabled(false)
 {
 	continuous2DSignalTerrain.setSignal(&perlinNoise);
 }
@@ -74,6 +76,9 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			break;
 		case sf::Keyboard::B:
 			toggleBlur();
+			break;
+		case sf::Keyboard::E:
+			toggleErosion();
 			break;
 		case sf::Keyboard::U:
 			decreaseOctaves();
@@ -205,6 +210,7 @@ void PTGView::onRender(){
 }
 
 void PTGView::setTerrain(Terrain* terrain) {
+	thermalErosionTerrain.setSource(terrain);
 	gaussianBlurTerrain.setSource(terrain);
 	this->terrain = terrain;
 	updateHeightMap();
@@ -279,7 +285,9 @@ void PTGView::updateHeightMap() {
 	std::cout << "Generating " << heightMapSize << "x" << heightMapSize << "heightMap..."; std::flush(std::cout);
 	sf::Clock clock;
 	HeightMap* heightMap = new HeightMap(heightMapSize);
-	if(blurEnabled){
+	if(erosionEnabled){
+		*heightMap = thermalErosionTerrain.generateHeightMap(heightMapSize, heightMapSize);
+	}else if(blurEnabled){
 		*heightMap = gaussianBlurTerrain.generateHeightMap(heightMapSize, heightMapSize);
 	} else {
 		*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
@@ -371,5 +379,11 @@ void PTGView::decreaseH() {
 void PTGView::toggleBlur() {
 	blurEnabled = !blurEnabled;
 	std::cout << "Toggling blur: " << blurEnabled << "\n";
+	updateHeightMap();
+}
+
+void PTGView::toggleErosion() {
+	erosionEnabled = !erosionEnabled;
+	std::cout << "Toggling erosion: " << erosionEnabled << "\n";
 	updateHeightMap();
 }
