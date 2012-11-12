@@ -26,6 +26,7 @@ public:
 	virtual void setSource(Terrain*);
 private:
 	Terrain* source;
+	unsigned int steps;
 };
 
 } // namespace ptg
