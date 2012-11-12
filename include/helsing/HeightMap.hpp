@@ -41,7 +41,10 @@ public:
 	virtual float getHeight(uint32_t x, uint32_t y) const {return heights[x+y*size];}
 
 	/// Sets the height at the given grid coordinate
-	virtual void setHeight(uint32_t x, uint32_t y, float h){heights[x+y*size]=h;}
+	virtual void setHeight(uint32_t x, uint32_t y, float h){heights[x+y*size] = h;}
+
+	// changes the height at the given grid coordinate according to h (height += h)
+	virtual void addToHeight(uint32_t x, uint32_t y, float h){heights[x+y*size] += h;}
 
 	/// Sets all the heights to zero
 	virtual void flatten();

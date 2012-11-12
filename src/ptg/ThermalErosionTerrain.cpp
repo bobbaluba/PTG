@@ -47,29 +47,37 @@ void erodePoint(const unsigned int x, const unsigned int y, const float T, const
 		}
 	}
 
-	const float c = 0.5; //greater values than 0.5 will probably cause oscillations
+	const float c = 0.2; //greater values than 0.5 will probably cause oscillations
 
-	float newHeights[neighbours];
+	float deltas[neighbours];
 	for(int i = 0; i < neighbours; ++i){
 		//note. if source != dest, we need to to do something because the cell may already be changed!!
 		//the new heights
-		newHeights[i] = h[i] + c * (dMax-T) * d[i] / dTotal;
+		deltas[i] = c * (dMax-T) * d[i] / dTotal;
 	}
 
-	destination.setHeight(x-1, y, newHeights[0]);
-	destination.setHeight(x+1, y, newHeights[1]);
-	destination.setHeight(x, y-1, newHeights[2]);
-	destination.setHeight(x, y+1, newHeights[3]);
+	destination.addToHeight(x-1, y, deltas[0]);
+	destination.addToHeight(x+1, y, deltas[1]);
+	destination.addToHeight(x, y-1, deltas[2]);
+	destination.addToHeight(x, y+1, deltas[3]);
 
-	destination.setHeight(x, y, height - c * (dMax-T));
+	destination.addToHeight(x, y, - c * (dMax-T));
 }
 
-//runs the entire heightmap throug a single iteration
+//runs the entire heightmap through a single iteration
 void doErosionStep(const float T, HeightMap& heightMap){
 	const unsigned int size = heightMap.getSize();
+	HeightMap deltaHeights(size); //accumulates changes for this step
 	for(unsigned int x = 0; x < size; ++x){
-		for(unsigned int y = 0; y < size; y++){
-			erodePoint(x, y, T, heightMap, heightMap); //apply erosion directly on the heightMap
+		for(unsigned int y = 0; y < size; ++y){
+			erodePoint(x, y, T, heightMap, deltaHeights); //do automata step for the given point
+		}
+	}
+
+	//update the heightmap with the accumulated deltas
+	for(unsigned int x = 0; x < size; ++x){
+		for(unsigned int y = 0; y < size; ++y){
+			heightMap.addToHeight(x,y, deltaHeights.getHeight(x,y));
 		}
 	}
 }
@@ -80,7 +88,7 @@ namespace ptg {
 
 ThermalErosionTerrain::ThermalErosionTerrain(Terrain* source):
 	source(source),
-	steps(8){
+	steps(50){
 }
 
 ThermalErosionTerrain::~ThermalErosionTerrain() {
