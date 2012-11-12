@@ -312,6 +312,7 @@ void PTGView::increaseOctaves() {
 		std::cout << "Setting number of octaves to: " << newValue << "\n";
 		fractionalBrownianMotion.setOctaves(newValue);
 		hybridMultiFractal.setOctaves(newValue);
+		ridgedMultiFractal.setOctaves(newValue);
 		updateHeightMap();
 	}
 }
@@ -325,6 +326,7 @@ void PTGView::decreaseOctaves() {
 	std::cout << "Setting number of octaves to: " << newValue << "\n";
 	fractionalBrownianMotion.setOctaves(newValue);
 	hybridMultiFractal.setOctaves(newValue);
+	ridgedMultiFractal.setOctaves(newValue);
 	updateHeightMap();
 }
 
@@ -333,6 +335,7 @@ void PTGView::increaseLacunarity() {
 	std::cout << "Setting lacunarity to: " << lacunarity << std::endl;
 	fractionalBrownianMotion.setLacunarity(lacunarity);
 	hybridMultiFractal.setLacunarity(lacunarity);
+	ridgedMultiFractal.setLacunarity(lacunarity);
 	updateHeightMap();
 }
 
@@ -341,6 +344,7 @@ void PTGView::decreaseLacunarity() {
 	std::cout << "Setting lacunarity to: " << lacunarity << std::endl;
 	fractionalBrownianMotion.setLacunarity(lacunarity);
 	hybridMultiFractal.setLacunarity(lacunarity);
+	ridgedMultiFractal.setLacunarity(lacunarity);
 	updateHeightMap();
 }
 
@@ -365,6 +369,7 @@ void PTGView::increaseH() {
 	const float newValue = oldValue * 1.1;
 	std::cout << "Setting H to: " << newValue << std::endl;
 	hybridMultiFractal.setH(newValue);
+	ridgedMultiFractal.setH(newValue);
 	updateHeightMap();
 }
 
@@ -373,6 +378,7 @@ void PTGView::decreaseH() {
 	const float newValue = oldValue / 1.1;
 	std::cout << "Setting H to: " << newValue << std::endl;
 	hybridMultiFractal.setH(newValue);
+	ridgedMultiFractal.setH(newValue);
 	updateHeightMap();
 }
 
