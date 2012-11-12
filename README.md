@@ -3,7 +3,7 @@ PTG                                    {#mainpage}
 
 Procedural Terrain Generator
 
-![screenshot](http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png)
+![screenshot of diamond square algorithm](http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png)
 
 A library and an application for generating and viewing two dimensional heightmaps.
 It's intention is to provide modular and useful abstractions for terrain generation.
@@ -23,11 +23,13 @@ Terrain algorithms:
 * Modified Diamond Square (diamond square without axis aligned ridges)
 * Fractional Brownian Motion
 * Hybrid multifractal
+  ![screenshot of hybrid multi fractal](http://bobbaluba.github.com/PTG/screenshots/hybridmultifractal.png)
 * Ridged multifractal
 
 Heightmap post-filters:
-* Thermal erosion (using a cellular automata)
 * Gaussian Blur
+* Thermal erosion (using a cellular automata)
+  ![screenshot of thermal erosion](http://bobbaluba.github.com/PTG/screenshots/hybridmultifractaleroded.png)
 
 Noise functions:
 * Perlin Noise
@@ -59,11 +61,11 @@ A viewer, ptgview, is provided for viewing generated terrains.
 
 The viewer accepts the following command line options:
 
--h, --help
-    View help and available command line arguments.
-
--f, --fullscreen
-    Run the application in fullscreen using the current resolution of the desktop.
+    -h, --help
+        View help and available command line arguments.
+    
+    -f, --fullscreen
+        Run the application in fullscreen using the current resolution of the desktop.
 
 **Navigating the viewer:**
 
@@ -112,23 +114,26 @@ Or similar, the documentation will appear in PTG/docs/html/
 
 License
 -------
-PTG - Copyright (c) 2012 Johan Klokkhammer Helsing - johanhelsing@gmail.com
 
-This software is provided 'as-is', without any express or implied
-warranty. In no event will the authors be held liable for any damages
-arising from the use of this software.
+The code is available under the zlib license:
+    
+    PTG - Copyright (c) 2012 Johan Klokkhammer Helsing - johanhelsing@gmail.com
+    
+    This software is provided 'as-is', without any express or implied
+    warranty. In no event will the authors be held liable for any damages
+    arising from the use of this software.
+    
+    Permission is granted to anyone to use this software for any purpose,
+    including commercial applications, and to alter it and redistribute it
+    freely, subject to the following restrictions:
+    
+       1. The origin of this software must not be misrepresented; you must not
+       claim that you wrote the original software. If you use this software
+       in a product, an acknowledgment in the product documentation would be
+       appreciated but is not required.
 
-Permission is granted to anyone to use this software for any purpose,
-including commercial applications, and to alter it and redistribute it
-freely, subject to the following restrictions:
-
-   1. The origin of this software must not be misrepresented; you must not
-   claim that you wrote the original software. If you use this software
-   in a product, an acknowledgment in the product documentation would be
-   appreciated but is not required.
-
-   2. Altered source versions must be plainly marked as such, and must not be
-   misrepresented as being the original software.
-
-   3. This notice may not be removed or altered from any source
-   distribution.
+       2. Altered source versions must be plainly marked as such, and must not be
+       misrepresented as being the original software.
+    
+       3. This notice may not be removed or altered from any source
+       distribution.
