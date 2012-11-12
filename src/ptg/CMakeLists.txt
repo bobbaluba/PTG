@@ -11,6 +11,7 @@ set(ptg_lib_src
 	RidgedMultiFractal.cpp
 	Seedable.cpp
 	Terrain.cpp
+	ThermalErosionTerrain.cpp
 	ValueNoise.cpp
 )
 
