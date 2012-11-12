@@ -21,9 +21,10 @@ The following (major) algorithms are implemented:
 
 **Fractal noise algorithms:**
 * Fractional brownian motion
-* Hybrid multifractal
-  ![screenshot of hybrid multi fractal](http://bobbaluba.github.com/PTG/screenshots/hybridmultifractal.png)
 * Ridged multifractal
+  ![screenshot of ridged multifractal](http://bobbaluba.github.com/PTG/screenshots/ridgedmultifractal.png)
+* Hybrid multifractal
+  ![screenshot of hybrid multifractal](http://bobbaluba.github.com/PTG/screenshots/hybridmultifractal.png)
 
 **Heightmap post-filters:**
 * Gaussian blur
