@@ -39,7 +39,7 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	std::cout.flush();
 	sf::Clock clock;
 	terrainMesh = new TerrainMesh(*heightMap);
-	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n";
+	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n\n";
 }
 
 void Renderer::setGLStates(){
