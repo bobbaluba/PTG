@@ -3,12 +3,8 @@ PTG                                    {#mainpage}
 
 Procedural Terrain Generator
 
-![screenshot of diamond square algorithm](http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png)
-
 A library and an application for generating and viewing two dimensional heightmaps.
-It's intention is to provide modular and useful abstractions for terrain generation.
-
-The project is at an early stage. Builds and interfaces will break all the time.
+It's intention is to provide modular and useful abstractions for terrain heightmap generation.
 
 The project was initiated as an assignment for an algorithms course at UNSW
 
@@ -17,22 +13,25 @@ Algorithms
 
 The following (major) algorithms are implemented:
 
-Terrain algorithms:
-* Midpoint Displacement
-* Diamond Square
-* Modified Diamond Square (diamond square without axis aligned ridges)
-* Fractional Brownian Motion
+**Recursive displacement algorithms:**
+* Midpoint displacement
+* Diamond square
+* Modified diamond square (diamond square without the axis aligned ridges)
+  ![screenshot of modified diamond square terrain](http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png)
+
+**Fractal noise algorithms:**
+* Fractional brownian motion
 * Hybrid multifractal
   ![screenshot of hybrid multi fractal](http://bobbaluba.github.com/PTG/screenshots/hybridmultifractal.png)
 * Ridged multifractal
 
-Heightmap post-filters:
-* Gaussian Blur
-* Thermal erosion (using a cellular automata)
+**Heightmap post-filters:**
+* Gaussian blur
+* Thermal erosion (uses a cellular automata)
   ![screenshot of thermal erosion](http://bobbaluba.github.com/PTG/screenshots/hybridmultifractaleroded.png)
 
-Noise functions:
-* Perlin Noise
+**Pure 2D noise functions:**
+* Perlin noise
 * Value noise
 
 Building
