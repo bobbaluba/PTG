@@ -1,4 +1,2 @@
 #!/bin/bash
-cd build
-make && ptgview/ptgview
-cd ..
+make -C build && build/ptgview/ptgview
