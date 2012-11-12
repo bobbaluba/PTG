@@ -64,11 +64,18 @@ public:
 	virtual unsigned int getOctaves() const {return octaves;}
 
 	virtual void setGain(float gain){this->gain=gain;}
-	virtual float getGain(){return gain;}
+	virtual float getGain() const {return gain;}
+
+	/** @brief sets the lacunarity
+	 * this is the relation between the frequency of succesive layers in fbm-like algorithms
+	 */
+	virtual void setLacunarity(float lacunarity){this->lacunarity=lacunarity;}
+	virtual float getLacunarity() const {return lacunarity;}
 private:
 	Continuous2DSignal* baseNoise;
 	unsigned int octaves;
 	float gain;
+	float lacunarity;
 };
 
 } // namespace ptg

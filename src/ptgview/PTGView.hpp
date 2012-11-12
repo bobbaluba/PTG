@@ -52,6 +52,8 @@ private:
 	virtual void decreaseGain();
 	virtual void increaseOctaves();
 	virtual void decreaseOctaves();
+	virtual void increaseLacunarity();
+	virtual void decreaseLacunarity();
 	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
 	virtual void toggleBlur();
@@ -61,6 +63,7 @@ private:
 	Terrain* terrain;
 	float amplitude;
 	float gain;
+	float lacunarity;
 	float waterLevel;
 	MidpointDisplacementTerrain midpointDisplacementTerrain;
 	DiamondSquareTerrain diamondSquareTerrain;

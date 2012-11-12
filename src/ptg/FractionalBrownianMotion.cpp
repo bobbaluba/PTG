@@ -14,7 +14,8 @@ FractionalBrownianMotion::FractionalBrownianMotion(unsigned int seed):
 	Continuous2DSignal(seed),
 	baseNoise(NULL),
 	octaves(7),
-	gain(0.5){
+	gain(0.5),
+	lacunarity(2){
 }
 
 FractionalBrownianMotion::~FractionalBrownianMotion() {
@@ -27,7 +28,7 @@ float FractionalBrownianMotion::get(float x, float y) {
 	for(unsigned int i = 0; i < octaves; i++){
 		fbmSum += baseNoise->get(x*frequency,y*frequency)*amplitude;
 		amplitude *= gain;
-		frequency *= 2;
+		frequency *= lacunarity;
 	}
 	return fbmSum;
 }

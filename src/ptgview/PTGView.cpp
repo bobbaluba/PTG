@@ -18,6 +18,7 @@ PTGView::PTGView(const ApplicationSettings& settings) :
 		terrain(NULL),
 		amplitude(0.6),
 		gain(0.5),
+		lacunarity(2),
 		waterLevel(0),
 		gaussianBlurTerrain(NULL),
 		blurEnabled(false)
@@ -79,6 +80,12 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			break;
 		case sf::Keyboard::I:
 			increaseOctaves();
+			break;
+		case sf::Keyboard::C:
+			decreaseLacunarity();
+			break;
+		case sf::Keyboard::V:
+			increaseLacunarity();
 			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to midpoint displacement terrain\n";
@@ -284,6 +291,18 @@ void PTGView::decreaseOctaves() {
 	unsigned int newValue = oldValue - 1;
 	std::cout << "Setting number of octaves to: " << newValue << "\n";
 	fractionalBrownianMotion.setOctaves(newValue);
+	updateHeightMap();
+}
+
+void PTGView::increaseLacunarity() {
+	lacunarity*=1.1;
+	fractionalBrownianMotion.setLacunarity(lacunarity);
+	updateHeightMap();
+}
+
+void PTGView::decreaseLacunarity() {
+	lacunarity/=1.1;
+	fractionalBrownianMotion.setLacunarity(lacunarity);
 	updateHeightMap();
 }
 
