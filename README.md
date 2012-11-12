@@ -11,6 +11,8 @@ The project was initiated as an assignment for an algorithms course at UNSW
 Algorithms
 ----------
 
+A description/analysis of each algorithm can be found in it's header file in include/ptg/<algorithm>.hpp
+
 The following (major) algorithms are implemented:
 
 **Recursive displacement algorithms:**
