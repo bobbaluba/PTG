@@ -7,5 +7,7 @@ var searchData=
   ['test_5fapplication_2ecpp',['test_Application.cpp',['../test__Application_8cpp.html',1,'']]],
   ['test_5fhmath_2ecpp',['test_hmath.cpp',['../test__hmath_8cpp.html',1,'']]],
   ['textfile_2ecpp',['TextFile.cpp',['../TextFile_8cpp.html',1,'']]],
-  ['textfile_2ehpp',['TextFile.hpp',['../TextFile_8hpp.html',1,'']]]
+  ['textfile_2ehpp',['TextFile.hpp',['../TextFile_8hpp.html',1,'']]],
+  ['thermalerosionterrain_2ecpp',['ThermalErosionTerrain.cpp',['../ThermalErosionTerrain_8cpp.html',1,'']]],
+  ['thermalerosionterrain_2ehpp',['ThermalErosionTerrain.hpp',['../ThermalErosionTerrain_8hpp.html',1,'']]]
 ];

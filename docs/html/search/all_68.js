@@ -10,8 +10,8 @@ var searchData=
   ['helsingsquareterrain_2ehpp',['HelsingSquareTerrain.hpp',['../HelsingSquareTerrain_8hpp.html',1,'']]],
   ['hmath_2ehpp',['hmath.hpp',['../hmath_8hpp.html',1,'']]],
   ['hmath_5fmisc_2ehpp',['hmath_misc.hpp',['../hmath__misc_8hpp.html',1,'']]],
-  ['hybridfractal',['HybridFractal',['../classptg_1_1HybridFractal.html',1,'ptg']]],
-  ['hybridfractal_2ecpp',['HybridFractal.cpp',['../HybridFractal_8cpp.html',1,'']]],
-  ['hybridfractal_2ehpp',['HybridFractal.hpp',['../HybridFractal_8hpp.html',1,'']]],
+  ['hybridmultifractal',['HybridMultiFractal',['../classptg_1_1HybridMultiFractal.html',1,'ptg']]],
+  ['hybridmultifractal_2ecpp',['HybridMultiFractal.cpp',['../HybridMultiFractal_8cpp.html',1,'']]],
+  ['hybridmultifractal_2ehpp',['HybridMultiFractal.hpp',['../HybridMultiFractal_8hpp.html',1,'']]],
   ['helsing_20math_20module',['Helsing Math module',['../group__math.html',1,'']]]
 ];
