@@ -135,8 +135,8 @@ bool PTGView::handleEvent(const sf::Event& event) {
 			break;
 		case sf::Keyboard::Num8:
 			std::cout << "Switching to hybrid fractional brownian perlin noise terrain\n";
-			hybridFractal.setBaseNoise(&perlinNoise);
-			continuous2DSignalTerrain.setSignal(&hybridFractal);
+			hybridMultiFractal.setBaseNoise(&perlinNoise);
+			continuous2DSignalTerrain.setSignal(&hybridMultiFractal);
 			setTerrain(&continuous2DSignalTerrain);
 			break;
 		default:
@@ -297,7 +297,7 @@ void PTGView::increaseOctaves() {
 	if(newValue>=0){
 		std::cout << "Setting number of octaves to: " << newValue << "\n";
 		fractionalBrownianMotion.setOctaves(newValue);
-		hybridFractal.setOctaves(newValue);
+		hybridMultiFractal.setOctaves(newValue);
 		updateHeightMap();
 	}
 }
@@ -310,7 +310,7 @@ void PTGView::decreaseOctaves() {
 	unsigned int newValue = oldValue - 1;
 	std::cout << "Setting number of octaves to: " << newValue << "\n";
 	fractionalBrownianMotion.setOctaves(newValue);
-	hybridFractal.setOctaves(newValue);
+	hybridMultiFractal.setOctaves(newValue);
 	updateHeightMap();
 }
 
@@ -318,7 +318,7 @@ void PTGView::increaseLacunarity() {
 	lacunarity*=1.1;
 	std::cout << "Setting lacunarity to: " << lacunarity << std::endl;
 	fractionalBrownianMotion.setLacunarity(lacunarity);
-	hybridFractal.setLacunarity(lacunarity);
+	hybridMultiFractal.setLacunarity(lacunarity);
 	updateHeightMap();
 }
 
@@ -326,39 +326,39 @@ void PTGView::decreaseLacunarity() {
 	lacunarity/=1.1;
 	std::cout << "Setting lacunarity to: " << lacunarity << std::endl;
 	fractionalBrownianMotion.setLacunarity(lacunarity);
-	hybridFractal.setLacunarity(lacunarity);
+	hybridMultiFractal.setLacunarity(lacunarity);
 	updateHeightMap();
 }
 
 void PTGView::increaseOffset() {
-	const float oldValue = hybridFractal.getOffset();
+	const float oldValue = hybridMultiFractal.getOffset();
 	const float newValue = oldValue + 0.05;
 	std::cout << "Setting offset to: " << newValue << std::endl;
-	hybridFractal.setOffset(newValue);
+	hybridMultiFractal.setOffset(newValue);
 	updateHeightMap();
 }
 
 void PTGView::decreaseOffset() {
-	const float oldValue = hybridFractal.getOffset();
+	const float oldValue = hybridMultiFractal.getOffset();
 	const float newValue = oldValue - 0.05;
 	std::cout << "Setting offset to: " << newValue << std::endl;
-	hybridFractal.setOffset(newValue);
+	hybridMultiFractal.setOffset(newValue);
 	updateHeightMap();
 }
 
 void PTGView::increaseH() {
-	const float oldValue = hybridFractal.getH();
+	const float oldValue = hybridMultiFractal.getH();
 	const float newValue = oldValue * 1.1;
 	std::cout << "Setting H to: " << newValue << std::endl;
-	hybridFractal.setH(newValue);
+	hybridMultiFractal.setH(newValue);
 	updateHeightMap();
 }
 
 void PTGView::decreaseH() {
-	const float oldValue = hybridFractal.getH();
+	const float oldValue = hybridMultiFractal.getH();
 	const float newValue = oldValue / 1.1;
 	std::cout << "Setting H to: " << newValue << std::endl;
-	hybridFractal.setH(newValue);
+	hybridMultiFractal.setH(newValue);
 	updateHeightMap();
 }
 

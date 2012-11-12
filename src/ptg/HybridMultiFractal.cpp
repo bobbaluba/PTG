@@ -1,17 +1,20 @@
 /**
- * @file HybridFractal.cpp
+ * @file HybridMultiFractal.cpp
  * @date 12. nov. 2012
  * @author Johan Klokkhammer Helsing
+ *
+ * inspired by:
+ * http://www.kenmusgrave.com/Old_Stuff/folders/texturingandmodeling/CODE/MUSGRAVE/CLOUD/fractal.c
  */
 
-#include <ptg/HybridFractal.hpp>
+#include <ptg/HybridMultiFractal.hpp>
 
 #include <cstdlib>
 #include <cmath>
 
 namespace ptg {
 
-HybridFractal::HybridFractal(unsigned int seed):
+HybridMultiFractal::HybridMultiFractal(unsigned int seed):
 	Continuous2DSignal(seed),
 	baseNoise(NULL),
 	octaves(7),
@@ -21,11 +24,11 @@ HybridFractal::HybridFractal(unsigned int seed):
 	initExponents();
 }
 
-HybridFractal::~HybridFractal() {
+HybridMultiFractal::~HybridMultiFractal() {
 	initExponents();
 }
 
-float HybridFractal::get(float x, float y) {
+float HybridMultiFractal::get(float x, float y) {
 	float frequency=1;
 	float value= (baseNoise->get(x*frequency, y*frequency)*2 + offset) * exponents[0];
  	frequency = lacunarity;
@@ -41,11 +44,11 @@ float HybridFractal::get(float x, float y) {
 	return (value-offset)/4.0;
 }
 
-void ptg::HybridFractal::onReSeed(unsigned int seed) {
+void ptg::HybridMultiFractal::onReSeed(unsigned int seed) {
 	baseNoise->seed(seed);
 }
 
-void HybridFractal::initExponents() {
+void HybridMultiFractal::initExponents() {
 	exponents.clear();
 	exponents.reserve(octaves);
 	for(unsigned int i=0; i<octaves; i++){

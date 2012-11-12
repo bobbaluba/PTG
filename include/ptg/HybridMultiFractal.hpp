@@ -1,11 +1,11 @@
 /**
- * @file HybridFractal.hpp
+ * @file HybridMultiFractal.hpp
  * @date 12. nov. 2012
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef HYBRIDFRACTAL_HPP
-#define HYBRIDFRACTAL_HPP
+#ifndef HYBRIDMULTIFRACTAL_HPP
+#define HYBRIDMULTIFRACTAL_HPP
 
 #include <ptg/Continuous2DSignal.hpp>
 
@@ -49,10 +49,10 @@ namespace ptg {
  *    as diamond square doesn't repeat itself, even on the smallest layers.
  *  * Reduce specular/diffuse lighting and rely more on textures to show the tiniest bumps in the terrain.
  */
-class HybridFractal: public ptg::Continuous2DSignal {
+class HybridMultiFractal: public ptg::Continuous2DSignal {
 public:
-	HybridFractal(unsigned int seed=0);
-	virtual ~HybridFractal();
+	HybridMultiFractal(unsigned int seed=0);
+	virtual ~HybridMultiFractal();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);
 
@@ -102,4 +102,4 @@ private:
 };
 
 } // namespace ptg
-#endif // HYBRIDFRACTAL_HPP
+#endif // HYBRIDMULTIFRACTAL_HPP
