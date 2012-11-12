@@ -80,31 +80,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Procedural Terrain Generator</p>
-<div class="image">
-<img src="http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png"  alt="screenshot"/>
-</div>
-<p>A library and an application for generating and viewing two dimensional heightmaps. It's intention is to provide modular and useful abstractions for terrain generation.</p>
-<p>The project is at an early stage. Builds and interfaces will break all the time.</p>
+<p>A library and an application for generating and viewing two dimensional heightmaps. It's intention is to provide modular and useful abstractions for terrain heightmap generation.</p>
 <p>The project was initiated as an assignment for an algorithms course at UNSW</p>
 <h1>Algorithms</h1>
 <p>The following (major) algorithms are implemented:</p>
-<p>Terrain algorithms:</p>
+<p><b>Recursive displacement algorithms:</b></p>
 <ul>
-<li>Midpoint Displacement</li>
-<li>Diamond Square</li>
-<li>Modified Diamond Square (diamond square without axis aligned ridges)</li>
-<li>Fractional Brownian Motion</li>
-<li>Hybrid multifractal</li>
-<li>Ridged multifractal</li>
+<li>Midpoint displacement</li>
+<li>Diamond square</li>
+<li>Modified diamond square (diamond square without the axis aligned ridges) <div class="image">
+<img src="http://bobbaluba.github.com/PTG/screenshots/diamondsquare.png"  alt="screenshot of modified diamond square terrain"/>
+</div>
+</li>
 </ul>
-<p>Heightmap post-filters:</p>
+<p><b>Fractal noise algorithms:</b></p>
 <ul>
-<li>Thermal erosion (using a cellular automata)</li>
-<li>Gaussian Blur</li>
+<li>Fractional brownian motion</li>
+<li>Ridged multifractal <div class="image">
+<img src="http://bobbaluba.github.com/PTG/screenshots/ridgedmultifractal.png"  alt="screenshot of ridged multifractal"/>
+</div>
+</li>
+<li>Hybrid multifractal <div class="image">
+<img src="http://bobbaluba.github.com/PTG/screenshots/hybridmultifractal.png"  alt="screenshot of hybrid multifractal"/>
+</div>
+</li>
 </ul>
-<p>Noise functions:</p>
+<p><b>Heightmap post-filters:</b></p>
 <ul>
-<li>Perlin Noise</li>
+<li>Gaussian blur</li>
+<li>Thermal erosion (uses a cellular automata) <div class="image">
+<img src="http://bobbaluba.github.com/PTG/screenshots/hybridmultifractaleroded.png"  alt="screenshot of thermal erosion"/>
+</div>
+</li>
+</ul>
+<p><b>Pure 2D noise functions:</b></p>
+<ul>
+<li>Perlin noise</li>
 <li>Value noise</li>
 </ul>
 <h1>Building</h1>
@@ -120,10 +131,13 @@ cmake ..
 make
 </pre><h1>The viewer</h1>
 <p>A viewer, ptgview, is provided for viewing generated terrains.</p>
-<p>The viewer accepts the following command line options:</p>
-<p>-h, &ndash;help View help and available command line arguments.</p>
-<p>-f, &ndash;fullscreen Run the application in fullscreen using the current resolution of the desktop.</p>
-<p><b>Navigating the viewer:</b></p>
+<p>The viewer accepts the following command line options: </p>
+<pre class="fragment">-h, --help
+    View help and available command line arguments.
+
+-f, --fullscreen
+    Run the application in fullscreen using the current resolution of the desktop.
+</pre><p><b>Navigating the viewer:</b></p>
 <ul>
 <li>A/D: Move left/right</li>
 <li>W/S: Move forward/backward</li>
@@ -162,22 +176,30 @@ sudo apt-get install doxygen
 doxygen
 </pre><p>Or similar, the documentation will appear in PTG/docs/html/</p>
 <h1>License</h1>
-<p>PTG - Copyright (c) 2012 Johan Klokkhammer Helsing - <a href="#" onclick="location.href='mai'+'lto:'+'joh'+'an'+'hel'+'si'+'ng@'+'gm'+'ail'+'.c'+'om'; return false;">johan<span style="display: none;">.nosp@m.</span>hels<span style="display: none;">.nosp@m.</span>ing@g<span style="display: none;">.nosp@m.</span>mail<span style="display: none;">.nosp@m.</span>.com</a></p>
-<p>This software is provided 'as-is', without any express or implied warranty. In no event will the authors be held liable for any damages arising from the use of this software.</p>
-<p>Permission is granted to anyone to use this software for any purpose, including commercial applications, and to alter it and redistribute it freely, subject to the following restrictions:</p>
-<ol type="1">
-<li>The origin of this software must not be misrepresented; you must not claim that you wrote the original software. If you use this software in a product, an acknowledgment in the product documentation would be appreciated but is not required.</li>
-</ol>
-<ol type="1">
-<li>Altered source versions must be plainly marked as such, and must not be misrepresented as being the original software.</li>
-</ol>
-<ol type="1">
-<li>This notice may not be removed or altered from any source distribution. </li>
-</ol>
-</div></div><!-- contents -->
+<p>The code is available under the zlib license: </p>
+<pre class="fragment">PTG - Copyright (c) 2012 Johan Klokkhammer Helsing - johanhelsing@gmail.com
+
+This software is provided 'as-is', without any express or implied
+warranty. In no event will the authors be held liable for any damages
+arising from the use of this software.
+
+Permission is granted to anyone to use this software for any purpose,
+including commercial applications, and to alter it and redistribute it
+freely, subject to the following restrictions:
+
+   1. The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software
+   in a product, an acknowledgment in the product documentation would be
+   appreciated but is not required.
+
+   2. Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+
+   3. This notice may not be removed or altered from any source
+   distribution.</pre> </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 13 2012 00:56:56 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue Nov 13 2012 01:47:17 for PTG by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.2
 </small></address>
