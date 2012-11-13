@@ -89,7 +89,7 @@ namespace ptg {
 ThermalErosionTerrain::ThermalErosionTerrain(Terrain* source):
 	source(source),
 	iterations(50),
-	slope(1.0){
+	slope(0.7){
 }
 
 ThermalErosionTerrain::~ThermalErosionTerrain() {
@@ -102,7 +102,7 @@ helsing::HeightMap ThermalErosionTerrain::generateHeightMap(
 	}
 	helsing::HeightMap sourceHeightMap = source->generateHeightMap(gridPoints, gridSpacing);
 
-	const float T = slope * 1.0 / gridPoints;
+	const float T = slope;
 
 	for(unsigned int i = 0; i < iterations; ++i){
 		doErosionStep(T, sourceHeightMap);

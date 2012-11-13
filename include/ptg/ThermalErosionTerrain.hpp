@@ -39,7 +39,10 @@ public:
 	virtual void setIterations(unsigned int iterations){this->iterations = iterations;}
 	virtual unsigned int getIterations() const {return iterations;}
 
-	/// @brief sets how steep the terrain must be before heights will begin to transfer downwards
+	/** @brief sets the slope threshold value
+	 *
+	 * sets how steep the terrain must be before heights will begin to transfer downwards
+	 */
 	virtual void setSlope(float slope){this->slope=slope;}
 	virtual float getSlope() const {return slope;}
 private:
