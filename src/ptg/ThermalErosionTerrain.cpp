@@ -32,7 +32,7 @@ void erodePoint(const unsigned int x, const unsigned int y, const float T, const
 
 	float d[neighbours];
 	float dTotal = 0; //sum of all di greater than T
-	for(int i=0; i<neighbours; ++i){
+	for(int i = 0; i < neighbours; ++i){
 		d[i] = height - h[i];
 		if(d[i] > T){
 			dTotal += d[i];
@@ -53,7 +53,7 @@ void erodePoint(const unsigned int x, const unsigned int y, const float T, const
 	for(int i = 0; i < neighbours; ++i){
 		//note. if source != dest, we need to to do something because the cell may already be changed!!
 		//the new heights
-		deltas[i] = c * (dMax-T) * d[i] / dTotal;
+		deltas[i] = c * (dMax - T) * d[i] / dTotal;
 	}
 
 	destination.addToHeight(x-1, y, deltas[0]);
@@ -61,7 +61,7 @@ void erodePoint(const unsigned int x, const unsigned int y, const float T, const
 	destination.addToHeight(x, y-1, deltas[2]);
 	destination.addToHeight(x, y+1, deltas[3]);
 
-	destination.addToHeight(x, y, - c * (dMax-T));
+	destination.addToHeight(x, y, - c * (dMax - T));
 }
 
 //runs the entire heightmap through a single iteration
@@ -88,7 +88,8 @@ namespace ptg {
 
 ThermalErosionTerrain::ThermalErosionTerrain(Terrain* source):
 	source(source),
-	steps(50){
+	iterations(50),
+	slope(1.0){
 }
 
 ThermalErosionTerrain::~ThermalErosionTerrain() {
@@ -101,9 +102,9 @@ helsing::HeightMap ThermalErosionTerrain::generateHeightMap(
 	}
 	helsing::HeightMap sourceHeightMap = source->generateHeightMap(gridPoints, gridSpacing);
 
-	const float T = 1.0 / gridPoints;
+	const float T = slope * 1.0 / gridPoints;
 
-	for(unsigned int i = 0; i < steps; ++i){
+	for(unsigned int i = 0; i < iterations; ++i){
 		doErosionStep(T, sourceHeightMap);
 	}
 
