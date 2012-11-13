@@ -104,6 +104,18 @@ bool PTGView::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::Period:
 			increaseH();
 			break;
+		case sf::Keyboard::F1:
+			decreaseIterations();
+			break;
+		case sf::Keyboard::F2:
+			increaseIterations();
+			break;
+		case sf::Keyboard::F3:
+			decreaseSlope();
+			break;
+		case sf::Keyboard::F4:
+			increaseSlope();
+			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to midpoint displacement terrain\n";
 			setTerrain(&midpointDisplacementTerrain);
@@ -385,6 +397,44 @@ void PTGView::decreaseH() {
 void PTGView::toggleBlur() {
 	blurEnabled = !blurEnabled;
 	std::cout << "Toggling blur: " << blurEnabled << "\n";
+	updateHeightMap();
+}
+
+void PTGView::increaseIterations() {
+	const unsigned int oldValue = thermalErosionTerrain.getIterations();
+	unsigned int newValue = static_cast<int>(oldValue * 1.1);
+	if(oldValue == newValue){
+		++newValue;
+	}
+	std::cout << "Setting number of iterations to: " << newValue << std::endl;
+	thermalErosionTerrain.setIterations(newValue);
+	updateHeightMap();
+}
+
+void PTGView::decreaseIterations() {
+	const unsigned int oldValue = thermalErosionTerrain.getIterations();
+	unsigned int newValue = static_cast<int>(oldValue / 1.1);
+	if(oldValue == newValue){
+		--newValue;
+	}
+	std::cout << "Setting number of iterations to: " << newValue << std::endl;
+	thermalErosionTerrain.setIterations(newValue);
+	updateHeightMap();
+}
+
+void PTGView::increaseSlope() {
+	const float oldValue = thermalErosionTerrain.getSlope();
+	float newValue = oldValue * 1.1;
+	std::cout << "Setting slope to: " << newValue << std::endl;
+	thermalErosionTerrain.setSlope(newValue);
+	updateHeightMap();
+}
+
+void PTGView::decreaseSlope() {
+	const float oldValue = thermalErosionTerrain.getSlope();
+	float newValue = oldValue / 1.1;
+	std::cout << "Setting slope to: " << newValue << std::endl;
+	thermalErosionTerrain.setSlope(newValue);
 	updateHeightMap();
 }
 

@@ -57,10 +57,14 @@ private:
 	virtual void decreaseOctaves();
 	virtual void increaseLacunarity();
 	virtual void decreaseLacunarity();
-	virtual void increaseOffset();
+	virtual void increaseOffset(); //for hybrid multifractal
 	virtual void decreaseOffset();
-	virtual void increaseH();
+	virtual void increaseH(); //for multifractals
 	virtual void decreaseH();
+	virtual void increaseIterations(); //for thermal erosion
+	virtual void decreaseIterations();
+	virtual void increaseSlope(); //for thermal erosion
+	virtual void decreaseSlope();
 	virtual void raiseWater(float amount);
 	virtual void updateHeightMap();
 	virtual void toggleBlur();
