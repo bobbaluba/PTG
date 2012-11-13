@@ -20,6 +20,11 @@ namespace ptg {
  * It is good idea to use a heightmap that is close to what you want as source to avoid unnecessary many
  * iterations.
  *
+ * Complexity
+ * ----------
+ *
+ *     THETA(WIDTH^2*iterations)
+ *
  */
 class ThermalErosionTerrain: public Terrain {
 public:
