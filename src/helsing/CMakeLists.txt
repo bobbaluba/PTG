@@ -6,4 +6,4 @@ set(helsing_lib_src
 	TextFile.cpp
 )
 
-add_library(helsing SHARED ${helsing_lib_src})
+add_library(helsing ${helsing_lib_src})

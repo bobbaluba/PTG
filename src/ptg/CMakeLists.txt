@@ -15,4 +15,4 @@ set(ptg_lib_src
 	ValueNoise.cpp
 )
 
-add_library(ptg SHARED ${ptg_lib_src})
+add_library(ptg ${ptg_lib_src})
