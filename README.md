@@ -40,9 +40,6 @@ The following (major) algorithms are implemented:
 Building
 --------
 
-The library depends on the helsing utility library, which is developed alongside this project.
-The helsing library currently depends on OpenGL 2.0, this is going to be fixed.
-
 The viewer depends on OpenGL and SFML 2.
 
 Much of the code uses c++11 functionality. The code should compile with g++ 4.7+
@@ -59,7 +56,8 @@ To build project on *nix, run the following:
 The viewer
 ----------------
 
-A viewer, ptgview, is provided for viewing generated terrains.
+A viewer, ptgview, is provided for viewing generated terrains. 
+It is meant as an example on how to use the library, as well as a way to get familiar with the different algorithms and their parameters.
 
 The viewer accepts the following command line options:
 
@@ -85,7 +83,9 @@ The viewer accepts the following command line options:
 * U/I: Adjust number of octaves for multifractal signals
 * Z/X: Adjust offset for hybrid multifractal
 * C/V: Adjust lacunarity for multifractal signals
-* comma/period: Adjust H value (multifractal spectral value)
+* Comma/Period: Adjust H value (multifractal spectral value)
+* F1/F2: Adjust thermal erosion iterations
+* F3/F4: Adjust thermal erosion slope threshold
 * 1-9: Algorithm seletion
     * 1: Midpoint Displacement
     * 2: Diamond-Square
