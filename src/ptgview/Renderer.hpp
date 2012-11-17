@@ -25,7 +25,7 @@ public:
 	virtual void draw();
 
 	/// @brief get handle for the Camera
-	helsing::Camera& getCamera(){return camera;}
+	helsing::Camera& getCamera(){return movingCamera;}
 
 	/// @brief corrects aspect ratio when the viewport has changed
 	virtual void resize(uint32_t width, uint32_t height);
@@ -47,7 +47,9 @@ public:
 private:
 	void setGLStates();
 	uint32_t width, height;
-	helsing::Camera camera;
+	helsing::Camera movingCamera;
+	helsing::Camera topDownCamera;
+	helsing::Camera* activeCamera;
 	helsing::MatrixStack modelViewStack;
 	helsing::Mat4 perspectiveProjection;
 	helsing::Mat4 orthogonalProjection;

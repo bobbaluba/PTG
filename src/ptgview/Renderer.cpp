@@ -23,7 +23,8 @@ using namespace std;
 Renderer::Renderer(uint32_t width, uint32_t height) :
 		width(width),
 		height(height),
-		orthogonalProjection(Mat4::orthogonal(-32,32,-32,32,-1024,1024)),
+		activeCamera(&movingCamera),
+		orthogonalProjection(Mat4::orthogonal(-32,32,-32,32,-1024,1024)), //TODO remove magic numbers
 		projection(&perspectiveProjection),
 		water(65),
 		waterLevel(0),
@@ -33,6 +34,9 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 		{
 	resize(width,height);
 	setGLStates();
+
+	topDownCamera.setPosition(Vec4(0,65,0)); //TODO get rid of magic numbers
+	topDownCamera.lookAt(Vec4::origin(), Vec4::vector(0,0,1));
 
 	//initialize terrain shader
 	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
@@ -63,6 +67,7 @@ void Renderer::setPerspectiveMode(bool enabled) {
 
 void Renderer::setTopDownView(bool enabled) {
 	topDownView = enabled;
+	activeCamera = topDownView ? &topDownCamera : &movingCamera;
 }
 
 void Renderer::setGLStates(){
@@ -91,16 +96,9 @@ void Renderer::draw(){
 
 	modelViewStack.pushMatrix();
 
-	if(!topDownView){
-		//set up camera
-		helsing::Mat4 cameraTransformation = camera.getMatrix();
-		modelViewStack.loadMatrix(cameraTransformation);
-	} else {
-		//TODO create a new camera object?
-		modelViewStack.loadIdentity();
-		modelViewStack.rotate(Vec4::vector(1,0,0), Angle::degrees(90));
-		modelViewStack.translate(0,-64,0); //TODO get rid of magic numbers
-	}
+	//set up camera
+	const Mat4 cameraTransformation = activeCamera->getMatrix();
+	modelViewStack.loadMatrix(cameraTransformation);
 
 	if(terrainMesh != NULL){
 		terrainMesh->draw(modelViewStack.getMatrix(), *projection);
