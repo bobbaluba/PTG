@@ -165,7 +165,7 @@ public:
 	 * @param fov field of view in the y direction
 	 * @param aspectRatio aspect ratio, this is typically width/height
 	 * @param near The near clipping plane, objects nearer than this will be clipped off.
-	 * @param far The far clippling plane, objects further away will be clipped off.
+	 * @param far The far clipping plane, objects further away will be clipped off.
 	 * @return perspective projection matrix
 	 */
 	static const Mat4 perspective(Angle fov, float aspectRatio, float near, float far){
@@ -178,6 +178,23 @@ public:
 		m[2] = 0;      m[6] = 0;      m[10] = (far+near)/(near-far); m[14] = 2*near*far/(near-far);
 		m[3] = 0;      m[7] = 0;      m[11] = -1;                    m[15] = 0;
 
+		return Mat4(m);
+	}
+
+	/** @brief creates an orthogonal projection matrix
+	 * @param left Left clipping plane
+	 * @param right Right clipping plane
+	 * @param bottom Bottom clipping plane
+	 * @param top Top clipping plane
+	 * @param near Near clipping plane
+	 * @param far Far clipping plane
+	 */
+	static const Mat4 orthogonal(float left, float right, float bottom, float top, float near, float far){
+		float m[16];
+		m[0] = 2/(right-left); m[4] = 0;              m[8]  = 0;             m[12] = -(right+left)/(right-left);
+		m[1] = 0;              m[5] = 2/(top-bottom); m[9]  = 0;             m[13] = -(top+bottom)/(top-bottom);
+		m[2] = 0;              m[6] = 0;              m[10] = -2/(far-near); m[14] = -(far+near)/(far-near);
+		m[3] = 0;              m[7] = 0;              m[11] = 0;             m[15] = 1;
 		return Mat4(m);
 	}
 private:
