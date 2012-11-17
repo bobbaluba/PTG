@@ -46,6 +46,7 @@ private:
 	Water water;
 	float waterLevel;
 	TerrainMesh* terrainMesh;
+	helsing::Shader* terrainShader;
 };
 
 #endif /* RENDERER_HPP */

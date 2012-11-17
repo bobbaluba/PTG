@@ -25,12 +25,19 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 		height(height),
 		water(65),
 		waterLevel(0),
-		terrainMesh(NULL){
+		terrainMesh(NULL),
+		terrainShader(NULL){
 	resize(width,height);
 	setGLStates();
+
+	//initialize terrain shader
+	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
+	helsing::TextFile fragmentFile("data/shaders/terrain.frag.glsl");
+	terrainShader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
 }
 
 Renderer::~Renderer(){
+	delete terrainShader;
 }
 
 void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
@@ -40,10 +47,7 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	std::cout << "Creating terrain mesh...";
 	std::cout.flush();
 	sf::Clock clock;
-	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
-	helsing::TextFile fragmentFile("data/shaders/terrain.frag.glsl");
-	helsing::Shader* shader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
-	terrainMesh = new TerrainMesh(*heightMap, shader);
+	terrainMesh = new TerrainMesh(*heightMap, terrainShader);
 	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n\n";
 }
 
