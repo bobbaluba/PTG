@@ -70,6 +70,7 @@ private:
 	virtual void toggleBlur();
 	virtual void toggleErosion();
 	virtual void togglePerspective(); //switch between orthogonal and perspective projection
+	virtual void toggleTopTownView();
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;

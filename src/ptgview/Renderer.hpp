@@ -40,6 +40,10 @@ public:
 	/// @param enabled true means perspective, false means orthogonal
 	virtual void setPerspectiveMode(bool enabled);
 	virtual bool getPerspectiveMode() const {return perspectiveMode;}
+
+	/// @brief sets whether the view should be locked centred aboce the terrain
+	virtual void setTopDownView(bool enabled);
+	virtual bool getTopDownView() const {return topDownView;}
 private:
 	void setGLStates();
 	uint32_t width, height;
@@ -53,6 +57,7 @@ private:
 	TerrainMesh* terrainMesh;
 	helsing::Shader* terrainShader;
 	bool perspectiveMode;
+	bool topDownView;
 };
 
 #endif // RENDERER_HPP

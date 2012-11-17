@@ -57,9 +57,12 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 
 void Renderer::setPerspectiveMode(bool enabled) {
 	perspectiveMode = enabled;
-
 	//update pointer
 	projection = perspectiveMode ? &perspectiveProjection : &orthogonalProjection;
+}
+
+void Renderer::setTopDownView(bool enabled) {
+	topDownView = enabled;
 }
 
 void Renderer::setGLStates(){
@@ -88,18 +91,23 @@ void Renderer::draw(){
 
 	modelViewStack.pushMatrix();
 
-	//set up camera
-	helsing::Mat4 cameraTransformation = camera.getMatrix();
-	modelViewStack.loadMatrix(cameraTransformation);
-	//modelView.loadMatrix(Mat4::identity().rotate(Vec4(1,0,0), Angle::degrees(90)));
-	//projection = Mat4::orthogonal(-32,32,-32,32,-1024,1024);
+	if(!topDownView){
+		//set up camera
+		helsing::Mat4 cameraTransformation = camera.getMatrix();
+		modelViewStack.loadMatrix(cameraTransformation);
+	} else {
+		//TODO create a new camera object?
+		modelViewStack.loadIdentity();
+		modelViewStack.rotate(Vec4::vector(1,0,0), Angle::degrees(90));
+		modelViewStack.translate(0,-64,0); //TODO get rid of magic numbers
+	}
 
-	if(terrainMesh!=NULL){
+	if(terrainMesh != NULL){
 		terrainMesh->draw(modelViewStack.getMatrix(), *projection);
 	}
 
 	modelViewStack.pushMatrix();
-	modelViewStack.translate(0,waterLevel,0);
+	modelViewStack.translate(0, waterLevel, 0);
 	water.draw(modelViewStack.getMatrix(), *projection);
 	modelViewStack.popMatrix(); //water
 

@@ -101,6 +101,9 @@ bool PTGView::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::Q:
 			togglePerspective();
 			break;
+		case sf::Keyboard::Tab:
+			toggleTopTownView();
+			break;
 		case sf::Keyboard::Comma:
 			decreaseH();
 			break;
@@ -450,4 +453,11 @@ void PTGView::toggleErosion() {
 void PTGView::togglePerspective() {
 	std::cout << "Toggling perspective\n";
 	renderer->setPerspectiveMode(!renderer->getPerspectiveMode());
+}
+
+void PTGView::toggleTopTownView() {
+	bool newValue = !renderer->getTopDownView();
+	std::cout << "Toggling top down view\n";
+	renderer->setTopDownView(newValue);
+	renderer->setPerspectiveMode(!newValue);
 }
