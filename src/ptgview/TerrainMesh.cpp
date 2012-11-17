@@ -12,10 +12,10 @@
 #include <vector>
 #include <helsing/TextFile.hpp>
 
-TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap):numberOfVertices(0) {
-	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
-	helsing::TextFile fragmentFile("data/shaders/terrain.frag.glsl");
-	shader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
+TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap, helsing::Shader* shader):
+		numberOfVertices(0),
+		shader(shader)
+{
 	width = heightMap.getSize();
 
 	//create vertices
@@ -93,8 +93,6 @@ TerrainMesh::~TerrainMesh() {
 
 	glBindVertexArray(0);
 	glDeleteVertexArrays(1, &vaoId);
-
-	delete shader;
 }
 
 void TerrainMesh::draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix) {

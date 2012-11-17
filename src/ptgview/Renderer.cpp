@@ -6,6 +6,8 @@
 #include "Renderer.hpp"
 #include "Water.hpp"
 
+#include <helsing/TextFile.hpp>
+
 #include <SFML/System/Clock.hpp>
 
 #include <SFML/OpenGL.hpp>
@@ -38,7 +40,10 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	std::cout << "Creating terrain mesh...";
 	std::cout.flush();
 	sf::Clock clock;
-	terrainMesh = new TerrainMesh(*heightMap);
+	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
+	helsing::TextFile fragmentFile("data/shaders/terrain.frag.glsl");
+	helsing::Shader* shader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
+	terrainMesh = new TerrainMesh(*heightMap, shader);
 	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n\n";
 }
 
