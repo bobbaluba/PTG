@@ -69,6 +69,7 @@ private:
 	virtual void updateHeightMap();
 	virtual void toggleBlur();
 	virtual void toggleErosion();
+	virtual void togglePerspective(); //switch between orthogonal and perspective projection
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;

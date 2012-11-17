@@ -34,19 +34,25 @@ public:
 	virtual void setHeightMap(helsing::HeightMap* heightMap);
 
 	/// @brief sets the y value of the water
-	virtual void setWaterLevel(float level){waterLevel=level;}
+	virtual void setWaterLevel(float level){waterLevel = level;}
 
-	//Drawing functions
-	static void drawVector(const helsing::Vec4& position, const helsing::Vec4& vector);
+	/// @brief sets whether perspective or orthogonal projection should be used
+	/// @param enabled true means perspective, false means orthogonal
+	virtual void setPerspectiveMode(bool enabled);
+	virtual bool getPerspectiveMode() const {return perspectiveMode;}
 private:
 	void setGLStates();
 	uint32_t width, height;
 	helsing::Camera camera;
-	helsing::MatrixStack modelView, projection;
+	helsing::MatrixStack modelViewStack;
+	helsing::Mat4 perspectiveProjection;
+	helsing::Mat4 orthogonalProjection;
+	helsing::Mat4* projection;
 	Water water;
 	float waterLevel;
 	TerrainMesh* terrainMesh;
 	helsing::Shader* terrainShader;
+	bool perspectiveMode;
 };
 
-#endif /* RENDERER_HPP */
+#endif // RENDERER_HPP

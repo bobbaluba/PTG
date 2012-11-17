@@ -23,10 +23,14 @@ using namespace std;
 Renderer::Renderer(uint32_t width, uint32_t height) :
 		width(width),
 		height(height),
+		orthogonalProjection(Mat4::orthogonal(-32,32,-32,32,-1024,1024)),
+		projection(&perspectiveProjection),
 		water(65),
 		waterLevel(0),
 		terrainMesh(NULL),
-		terrainShader(NULL){
+		terrainShader(NULL),
+		perspectiveMode(true)
+		{
 	resize(width,height);
 	setGLStates();
 
@@ -51,6 +55,13 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n\n";
 }
 
+void Renderer::setPerspectiveMode(bool enabled) {
+	perspectiveMode = enabled;
+
+	//update pointer
+	projection = perspectiveMode ? &perspectiveProjection : &orthogonalProjection;
+}
+
 void Renderer::setGLStates(){
 	//blending stuff
 	glEnable (GL_BLEND);
@@ -58,7 +69,7 @@ void Renderer::setGLStates(){
 
 	glEnable(GL_DEPTH_TEST);
 
-	//culling
+	//back face culling
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 }
@@ -69,28 +80,30 @@ void Renderer::resize(uint32_t width, uint32_t height){
 	float aspectRatio = float(width)/float(height);
 	glViewport(0, 0, width, height);
 	const helsing::Angle fov = helsing::Angle::degrees(60);
-	projection.loadMatrix(helsing::Mat4::perspective(fov, aspectRatio,0.1f,1000.f));
+	perspectiveProjection = helsing::Mat4::perspective(fov, aspectRatio,0.1f,1000.f);
 }
 
 void Renderer::draw(){
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
-	modelView.pushMatrix();
+	modelViewStack.pushMatrix();
 
 	//set up camera
 	helsing::Mat4 cameraTransformation = camera.getMatrix();
-	modelView.loadMatrix(cameraTransformation);
+	modelViewStack.loadMatrix(cameraTransformation);
+	//modelView.loadMatrix(Mat4::identity().rotate(Vec4(1,0,0), Angle::degrees(90)));
+	//projection = Mat4::orthogonal(-32,32,-32,32,-1024,1024);
 
 	if(terrainMesh!=NULL){
-		terrainMesh->draw(modelView.getMatrix(), projection.getMatrix());
+		terrainMesh->draw(modelViewStack.getMatrix(), *projection);
 	}
 
-	modelView.pushMatrix();
-	modelView.translate(0,waterLevel,0);
-	water.draw(modelView.getMatrix(), projection.getMatrix());
-	modelView.popMatrix(); //water
+	modelViewStack.pushMatrix();
+	modelViewStack.translate(0,waterLevel,0);
+	water.draw(modelViewStack.getMatrix(), *projection);
+	modelViewStack.popMatrix(); //water
 
-	modelView.popMatrix(); //camera
+	modelViewStack.popMatrix(); //camera
 
 	GLenum error = glGetError();
 	while(error!=GL_NO_ERROR){

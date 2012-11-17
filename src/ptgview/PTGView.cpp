@@ -98,6 +98,9 @@ bool PTGView::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::V:
 			increaseLacunarity();
 			break;
+		case sf::Keyboard::Q:
+			togglePerspective();
+			break;
 		case sf::Keyboard::Comma:
 			decreaseH();
 			break;
@@ -442,4 +445,9 @@ void PTGView::toggleErosion() {
 	erosionEnabled = !erosionEnabled;
 	std::cout << "Toggling erosion: " << erosionEnabled << "\n";
 	updateHeightMap();
+}
+
+void PTGView::togglePerspective() {
+	std::cout << "Toggling perspective\n";
+	renderer->setPerspectiveMode(!renderer->getPerspectiveMode());
 }
