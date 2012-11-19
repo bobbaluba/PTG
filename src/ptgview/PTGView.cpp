@@ -124,6 +124,9 @@ bool PTGView::handleEvent(const sf::Event& event) {
 		case sf::Keyboard::F4:
 			increaseSlope();
 			break;
+		case sf::Keyboard::F5:
+			cycleShaders();
+			break;
 		case sf::Keyboard::Num1:
 			std::cout << "Switching to midpoint displacement terrain\n";
 			setTerrain(&midpointDisplacementTerrain);
@@ -462,4 +465,15 @@ void PTGView::toggleTopTownView() {
 	std::cout << "Toggling top down view\n";
 	renderer->setTopDownView(newValue);
 	renderer->setPerspectiveMode(!newValue);
+}
+
+void PTGView::cycleShaders() {
+	if(currentShader == Renderer::PHONG){
+		std::cout << "Using goraud shading\n";
+		currentShader = Renderer::GORAUD;
+	} else {
+		std::cout << "Using phong shading\n";
+		currentShader = Renderer::PHONG;
+	}
+	renderer->setShaderType(currentShader);
 }

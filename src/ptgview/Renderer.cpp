@@ -29,7 +29,9 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 		water(65),
 		waterLevel(0),
 		terrainMesh(NULL),
-		terrainShader(NULL),
+		terrainGoraudShader(NULL),
+		terrainPhongShader(NULL),
+		currentTerrainShader(&terrainPhongShader),
 		perspectiveMode(true)
 		{
 	resize(width,height);
@@ -38,14 +40,18 @@ Renderer::Renderer(uint32_t width, uint32_t height) :
 	topDownCamera.setPosition(Vec4(0,65,0)); //TODO get rid of magic numbers
 	topDownCamera.lookAt(Vec4::origin(), Vec4::vector(0,0,1));
 
-	//initialize terrain shader
-	helsing::TextFile vertexFile("data/shaders/terrain.vert.glsl");
-	helsing::TextFile fragmentFile("data/shaders/terrain.frag.glsl");
-	terrainShader = new helsing::Shader(vertexFile.str(), fragmentFile.str());
+	//initialize terrain shaders
+	helsing::TextFile goraudVertexFile("data/shaders/terrain.goraud.vert.glsl");
+	helsing::TextFile goraudFragmentFile("data/shaders/terrain.goraud.frag.glsl");
+	terrainGoraudShader = new helsing::Shader(goraudVertexFile.str(), goraudFragmentFile.str());
+	helsing::TextFile phongVertexFile("data/shaders/terrain.phong.vert.glsl");
+	helsing::TextFile phongFragmentFile("data/shaders/terrain.phong.frag.glsl");
+	terrainPhongShader = new helsing::Shader(phongVertexFile.str(), phongFragmentFile.str());
 }
 
 Renderer::~Renderer(){
-	delete terrainShader;
+	delete terrainGoraudShader;
+	delete terrainPhongShader;
 }
 
 void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
@@ -55,7 +61,7 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	std::cout << "Creating terrain mesh...";
 	std::cout.flush();
 	helsing::Clock clock;
-	terrainMesh = new TerrainMesh(*heightMap, terrainShader);
+	terrainMesh = new TerrainMesh(*heightMap, *currentTerrainShader);
 	std::cout << "OK! " << clock.getAsMilliseconds() <<"ms\n\n";
 }
 
@@ -68,6 +74,17 @@ void Renderer::setPerspectiveMode(bool enabled) {
 void Renderer::setTopDownView(bool enabled) {
 	topDownView = enabled;
 	activeCamera = topDownView ? &topDownCamera : &movingCamera;
+}
+
+void Renderer::setShaderType(ShaderType shaderType) {
+	if(shaderType == PHONG){
+		currentTerrainShader = &terrainPhongShader;
+	} else if (shaderType == GORAUD){
+		currentTerrainShader = &terrainGoraudShader;
+	} else {
+		cout << "Unknown shader type\n";
+	}
+	terrainMesh->setShader(*currentTerrainShader);
 }
 
 void Renderer::setGLStates(){

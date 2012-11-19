@@ -44,6 +44,12 @@ public:
 	/// @brief sets whether the view should be locked centred aboce the terrain
 	virtual void setTopDownView(bool enabled);
 	virtual bool getTopDownView() const {return topDownView;}
+
+	enum ShaderType{
+		PHONG, GORAUD
+	};
+
+	virtual void setShaderType(ShaderType);
 private:
 	void setGLStates();
 	uint32_t width, height;
@@ -57,7 +63,9 @@ private:
 	Water water;
 	float waterLevel;
 	TerrainMesh* terrainMesh;
-	helsing::Shader* terrainShader;
+	helsing::Shader* terrainGoraudShader;
+	helsing::Shader* terrainPhongShader;
+	helsing::Shader** currentTerrainShader;
 	bool perspectiveMode;
 	bool topDownView;
 };

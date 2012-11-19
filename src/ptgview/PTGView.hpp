@@ -71,6 +71,7 @@ private:
 	virtual void toggleErosion();
 	virtual void togglePerspective(); //switch between orthogonal and perspective projection
 	virtual void toggleTopTownView();
+	virtual void cycleShaders(); //cycle between different shaders
 	Renderer* renderer;
 	bool flymode;
 	unsigned int heightMapSize;
@@ -92,6 +93,7 @@ private:
 	ThermalErosionTerrain thermalErosionTerrain;
 	bool blurEnabled;
 	bool erosionEnabled;
+	Renderer::ShaderType currentShader;
 };
 
 #endif // PTGVIEW_HPP

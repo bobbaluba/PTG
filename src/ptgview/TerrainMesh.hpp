@@ -21,6 +21,7 @@ class TerrainMesh: public helsing::Drawable {
 public:
 	explicit TerrainMesh(const helsing::HeightMap&, helsing::Shader*);
 	virtual ~TerrainMesh();
+	virtual void setShader(helsing::Shader* shader){this->shader = shader;}
 	virtual void draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4& projectionMatrix);
 private:
 	struct TerrainVertex{
