@@ -6,6 +6,8 @@
 
 #include "PTGView.hpp"
 
+#include <helsing/Clock.hpp>
+
 #include <iostream>
 
 using namespace helsing;
@@ -301,7 +303,7 @@ void PTGView::updateHeightMap() {
 	}
 
 	std::cout << "Generating " << heightMapSize << "x" << heightMapSize << "heightMap..."; std::flush(std::cout);
-	sf::Clock clock;
+	helsing::Clock clock;
 	HeightMap* heightMap = new HeightMap(heightMapSize);
 	if(erosionEnabled){
 		*heightMap = thermalErosionTerrain.generateHeightMap(heightMapSize, heightMapSize);
@@ -310,7 +312,7 @@ void PTGView::updateHeightMap() {
 	} else {
 		*heightMap = terrain->generateHeightMap(heightMapSize, heightMapSize);
 	}
-	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() << "ms\n";
+	std::cout << "OK! " << clock.getAsMilliseconds() << "ms\n";
 
 	if(renderer!=NULL){
 		renderer->setHeightMap(heightMap);

@@ -8,7 +8,7 @@
 
 #include <helsing/TextFile.hpp>
 
-#include <SFML/System/Clock.hpp>
+#include <helsing/Clock.hpp>
 
 #include <SFML/OpenGL.hpp>
 #include <GL/glu.h>
@@ -54,9 +54,9 @@ void Renderer::setHeightMap(helsing::HeightMap* heightMap) {
 	}
 	std::cout << "Creating terrain mesh...";
 	std::cout.flush();
-	sf::Clock clock;
+	helsing::Clock clock;
 	terrainMesh = new TerrainMesh(*heightMap, terrainShader);
-	std::cout << "OK! " << clock.getElapsedTime().asMilliseconds() <<"ms\n\n";
+	std::cout << "OK! " << clock.getAsMilliseconds() <<"ms\n\n";
 }
 
 void Renderer::setPerspectiveMode(bool enabled) {
