@@ -4,8 +4,8 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#ifndef HFILE_HPP
-#define HFILE_HPP
+#ifndef TEXTFILE_HPP
+#define TEXTFILE_HPP
 
 #include <string>
 
@@ -27,4 +27,4 @@ private:
 
 
 } // namespace helsing
-#endif // HFILE_HPP
+#endif // TEXTFILE_HPP
