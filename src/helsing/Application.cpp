@@ -5,8 +5,6 @@
  */
 #include <helsing/Application.hpp>
 
-#include <GL/glew.h>
-
 #include <cstdlib>
 #include <cassert>
 #include <iostream>
@@ -37,7 +35,7 @@ void Application::start(){
 	}
 	if (GLEW_OK != glewInit())
 	{
-	    // GLEW failed!
+		std::cout << "Failed to initialize glew!\n";
 	    exit(1);
 	}
 	if (!GLEW_VERSION_2_1){  // check that the machine supports the 2.1 API.

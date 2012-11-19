@@ -12,6 +12,14 @@
 #include <vector>
 #include <helsing/TextFile.hpp>
 
+namespace {
+
+inline unsigned int getIndex(unsigned int i, unsigned int j, unsigned int width){
+	return i+j*width;
+}
+
+}
+
 TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap, helsing::Shader* shader):
 		numberOfVertices(0),
 		shader(shader)
@@ -22,21 +30,12 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap, helsing::Shader* s
 	unsigned int size = heightMap.getSize();
 	std::vector<TerrainVertex> vertices;
 	vertices.reserve(size*size);
-	for(unsigned int i=0; i<size-1; i++){
-		for(unsigned int j=0; j<size-1; j++){
-			//top triangle
-			vertices.push_back(getVertex(i  ,j  ,heightMap));
-			vertices.push_back(getVertex(i+1,j+1,heightMap));
-			vertices.push_back(getVertex(i+1,j   ,heightMap));
-
-			//bottom triangle
-			vertices.push_back(getVertex(i  ,j  ,heightMap));
-			vertices.push_back(getVertex(i  ,j+1,heightMap));
-			vertices.push_back(getVertex(i+1,j+1,heightMap));
+	for(unsigned int i=0; i<size; i++){
+		for(unsigned int j=0; j<size; j++){
+			vertices.push_back(getVertex(i,j,heightMap));
 		}
 	}
 
-	numberOfVertices = vertices.size();
 
 	//Create and bind vertex array object
 	glGenVertexArrays(1, &vaoId);
@@ -82,6 +81,41 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap, helsing::Shader* s
 	);
 	glEnableVertexAttribArray(normalAttributeIndex);
 
+	//set up index array
+	//TODO could this be shared across instances?
+	std::vector<GLuint> indices; //TODO is this really 32-bit integers as it should be?
+//	for(unsigned int i=0; i<size-1; i++){
+//		for(unsigned int j=0; j<size-1; j++){
+//			//top triangle
+//			indices.push_back(getIndex(i,   j+1, width));
+//			indices.push_back(getIndex(i,   j,   width));
+//			indices.push_back(getIndex(i+1, j+1,   width));
+//			//bottom triangle
+//			indices.push_back(getIndex(i+1, j, width));
+//		}
+//		//TODO break the current triangle strip with primitive restart index
+//	}
+	//temporary index generation while stitching triangle strips doesn't work
+	for(unsigned int row = 0; row < width - 1; row++){
+		if((row % 2) == 0){ // even rows
+			for(int col=0; col < width; col++){
+				indices.push_back(col + (row+1) * width);
+				indices.push_back(col + row * width);
+			}
+		} else { // odd rows
+			for ( int col=width-1; col>0; col-- ) {
+				indices.push_back(col - 1 + row * width);
+				indices.push_back(col + (row+1) * width);
+			}
+		}
+	}
+
+	glGenBuffers(1, &iboId);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iboId);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLint)*indices.size(), &indices[0], GL_STATIC_DRAW);
+
+	numberOfVertices = indices.size();
+
 	//clean up
 	glBindVertexArray(0); // disable vertex array object
 }
@@ -90,6 +124,7 @@ TerrainMesh::~TerrainMesh() {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glDeleteBuffers(1, &vboId);
+	glDeleteBuffers(1, &iboId);
 
 	glBindVertexArray(0);
 	glDeleteVertexArrays(1, &vaoId);
@@ -105,10 +140,11 @@ void TerrainMesh::draw(const helsing::Mat4& modelViewMatrix, const helsing::Mat4
 
 	shader->use(mv, projectionMatrix);
 	glBindVertexArray(vaoId);
-	glDrawArrays(
-			GL_TRIANGLES,    //which primitive to draw
-			0,
-			numberOfVertices //number of times the vertex shader will run
+	glDrawElements(
+			GL_TRIANGLE_STRIP,
+			numberOfVertices,
+			GL_UNSIGNED_INT,
+			0 //Specifies a pointer to the location where the indices are stored.
 	);
 	glBindVertexArray(0); //disable vertex array object
 }

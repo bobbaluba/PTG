@@ -7,6 +7,8 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+#include <GL/glew.h>
+#include <SFML/OpenGL.hpp>
 #include <SFML/Graphics.hpp>
 
 namespace helsing {

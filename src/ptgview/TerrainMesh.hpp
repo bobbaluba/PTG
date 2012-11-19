@@ -30,6 +30,7 @@ private:
 	static TerrainVertex getVertex(int x, int z, const helsing::HeightMap&);
 	unsigned int vaoId;
 	unsigned int vboId;
+	unsigned int iboId;
 	unsigned int numberOfVertices;
 	unsigned int width;
 	helsing::Shader* shader;
