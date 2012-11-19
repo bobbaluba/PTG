@@ -20,7 +20,7 @@ class Clock {
 public:
 	Clock():started(clock()){}
 	void restart(){started = clock();}
-	unsigned int getAsMilliseconds(){return (clock()-started)/CLOCKS_PER_SEC*1000;}
+	unsigned int getAsMilliseconds(){return (clock()-started)*1000/CLOCKS_PER_SEC;}
 private:
 	unsigned int started;
 };
