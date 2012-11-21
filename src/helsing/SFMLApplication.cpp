@@ -379,6 +379,9 @@ void SFMLApplication::start(){
 					onKeyPressed(hkey);
 				}
 				break;
+			case sf::Event::MouseButtonPressed:
+				onMousePressed(event.mouseButton.button == sf::Mouse::Left);
+				break;
 			case sf::Event::Resized:
 				onResize(event.size.width, event.size.height);
 				break;
