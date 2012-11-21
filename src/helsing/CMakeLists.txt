@@ -3,6 +3,7 @@ set(helsing_lib_src
 	HeightMap.cpp
 	MatrixStack.cpp
 	Shader.cpp
+	SFMLApplication.cpp
 	TextFile.cpp
 )
 

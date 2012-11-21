@@ -4,16 +4,16 @@
  * @author Johan Klokkhammer Helsing
  */
 
-#include <helsing/Application.hpp>
+#include <helsing/SFMLApplication.hpp>
 
 #include <iostream>
 #include <cassert>
 
 namespace {
 
-class TestApplication : public helsing::Application {
+class TestApplication : public helsing::SFMLApplication {
 public:
-	TestApplication(void(*test)(TestApplication&, uint32_t ticks)):Application(),test(test), ticks(0){}
+	TestApplication(void(*test)(TestApplication&, uint32_t ticks)):SFMLApplication(),test(test), ticks(0){}
 	virtual void onRender(){
 		ticks++;
 		test(*this, ticks);

@@ -9,7 +9,7 @@
 
 #include "Renderer.hpp"
 
-#include <helsing/Application.hpp>
+#include <helsing/SFMLApplication.hpp>
 
 #include <ptg/DiamondSquareTerrain.hpp>
 #include <ptg/MidpointDisplacementTerrain.hpp>
@@ -28,7 +28,7 @@ using namespace ptg;
 /** @brief An Application for generating and viewing terrains using the PTG library
  *
  */
-class PTGView: public helsing::Application {
+class PTGView: public helsing::SFMLApplication {
 public:
 	PTGView(const ApplicationSettings& = ApplicationSettings());
 	virtual ~PTGView() {
@@ -36,10 +36,9 @@ public:
 	}
 	virtual void onInit();
 	virtual void onRender();
-	virtual void onResize(uint32_t width, uint32_t height) {
-		renderer->resize(width, height);
-	}
-	virtual bool handleEvent(const sf::Event&);
+	virtual void onResize(uint32_t width, uint32_t height) {renderer->resize(width, height);}
+	virtual void onKeyPressed(helsing::Keyboard::Key);
+	virtual void onMousePressed(bool left);
 	/** Set the current terrain the application is displaying
 	 * Does not take ownership of the terrain
 	 */

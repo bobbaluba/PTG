@@ -13,7 +13,7 @@
 using namespace helsing;
 
 PTGView::PTGView(const ApplicationSettings& settings) :
-		Application(settings),
+		SFMLApplication(settings),
 		renderer(NULL),
 		flymode(false),
 		heightMapSize(9),
@@ -37,150 +37,141 @@ void PTGView::onInit(){
 	setTerrain(&midpointDisplacementTerrain);
 }
 
-bool PTGView::handleEvent(const sf::Event& event) {
-	switch (event.type) {
-	case sf::Event::MouseButtonPressed:
-		switch (event.mouseButton.button) {
-		case sf::Mouse::Left:
-			flymode = !flymode;
-			window->setMouseCursorVisible(!flymode);
-			return true;
-		case sf::Mouse::Right:
-			reseedTerrain();
-			return true;
-		default:
-			return false;
-		} // end mouse button switch
+void PTGView::onKeyPressed(helsing::Keyboard::Key key) {
+	switch(key){
+	case helsing::Keyboard::ESCAPE:
+		stop();
 		break;
-	case sf::Event::KeyPressed:
-		switch(event.key.code){
-		case sf::Keyboard::Return:
-		case sf::Keyboard::Space:
-			reseedTerrain();
-			break;
-		case sf::Keyboard::P:
-			increaseDetail();
-			return true;
-		case sf::Keyboard::O:
-			decreaseDetail();
-			return true;
-		case sf::Keyboard::L:
-			increaseAmplitude();
-			break;
-		case sf::Keyboard::K:
-			decreaseAmplitude();
-			break;
-		case sf::Keyboard::M:
-			increaseGain();
-			break;
-		case sf::Keyboard::N:
-			decreaseGain();
-			break;
-		case sf::Keyboard::B:
-			toggleBlur();
-			break;
-		case sf::Keyboard::E:
-			toggleErosion();
-			break;
-		case sf::Keyboard::U:
-			decreaseOctaves();
-			break;
-		case sf::Keyboard::I:
-			increaseOctaves();
-			break;
-		case sf::Keyboard::Z:
-			decreaseOffset();
-			break;
-		case sf::Keyboard::X:
-			increaseOffset();
-			break;
-		case sf::Keyboard::C:
-			decreaseLacunarity();
-			break;
-		case sf::Keyboard::V:
-			increaseLacunarity();
-			break;
-		case sf::Keyboard::Q:
-			togglePerspective();
-			break;
-		case sf::Keyboard::Tab:
-			toggleTopTownView();
-			break;
-		case sf::Keyboard::Comma:
-			decreaseH();
-			break;
-		case sf::Keyboard::Period:
-			increaseH();
-			break;
-		case sf::Keyboard::F1:
-			decreaseIterations();
-			break;
-		case sf::Keyboard::F2:
-			increaseIterations();
-			break;
-		case sf::Keyboard::F3:
-			decreaseSlope();
-			break;
-		case sf::Keyboard::F4:
-			increaseSlope();
-			break;
-		case sf::Keyboard::F5:
-			cycleShaders();
-			break;
-		case sf::Keyboard::Num1:
-			std::cout << "Switching to midpoint displacement terrain\n";
-			setTerrain(&midpointDisplacementTerrain);
-			break;
-		case sf::Keyboard::Num2:
-			std::cout << "Switching to diamond square terrain\n";
-			setTerrain(&diamondSquareTerrain);
-			break;
-		case sf::Keyboard::Num3:
-			std::cout << "Switching to helsing square terrain\n";
-			setTerrain(&helsingSquareTerrain);
-			break;
-		case sf::Keyboard::Num4:
-			std::cout << "Switching to perlin noise terrain\n";
-			continuous2DSignalTerrain.setSignal(&perlinNoise);
-			setTerrain(&continuous2DSignalTerrain);
-			break;
-		case sf::Keyboard::Num5:
-			std::cout << "Switching to fractional brownian perlin noise terrain\n";
-			fractionalBrownianMotion.setBaseNoise(&perlinNoise);
-			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
-			setTerrain(&continuous2DSignalTerrain);
-			break;
-		case sf::Keyboard::Num6:
-			std::cout << "Switching to value noise terrain\n";
-			continuous2DSignalTerrain.setSignal(&valueNoise);
-			setTerrain(&continuous2DSignalTerrain);
-			break;
-		case sf::Keyboard::Num7:
-			std::cout << "Switching to fractional brownian value noise terrain\n";
-			fractionalBrownianMotion.setBaseNoise(&valueNoise);
-			continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
-			setTerrain(&continuous2DSignalTerrain);
-			break;
-		case sf::Keyboard::Num8:
-			std::cout << "Switching to hybrid multifractal terrain with perlin noise\n";
-			hybridMultiFractal.setBaseNoise(&perlinNoise);
-			continuous2DSignalTerrain.setSignal(&hybridMultiFractal);
-			setTerrain(&continuous2DSignalTerrain);
-			break;
-		case sf::Keyboard::Num9:
-			std::cout << "Switching to ridged multi fractal terrain with perlin noise\n";
-			ridgedMultiFractal.setBaseNoise(&perlinNoise);
-			continuous2DSignalTerrain.setSignal(&ridgedMultiFractal);
-			setTerrain(&continuous2DSignalTerrain);
-			break;
-		default:
-			return false;
-		}
+	case helsing::Keyboard::RETURN:
+	case helsing::Keyboard::SPACE:
+		reseedTerrain();
+		break;
+	case helsing::Keyboard::P:
+		increaseDetail();
+		break;
+	case helsing::Keyboard::O:
+		decreaseDetail();
+		break;
+	case helsing::Keyboard::L:
+		increaseAmplitude();
+		break;
+	case helsing::Keyboard::K:
+		decreaseAmplitude();
+		break;
+	case helsing::Keyboard::M:
+		increaseGain();
+		break;
+	case helsing::Keyboard::N:
+		decreaseGain();
+		break;
+	case helsing::Keyboard::B:
+		toggleBlur();
+		break;
+	case helsing::Keyboard::E:
+		toggleErosion();
+		break;
+	case helsing::Keyboard::U:
+		decreaseOctaves();
+		break;
+	case helsing::Keyboard::I:
+		increaseOctaves();
+		break;
+	case helsing::Keyboard::Z:
+		decreaseOffset();
+		break;
+	case helsing::Keyboard::X:
+		increaseOffset();
+		break;
+	case helsing::Keyboard::C:
+		decreaseLacunarity();
+		break;
+	case helsing::Keyboard::V:
+		increaseLacunarity();
+		break;
+	case helsing::Keyboard::Q:
+		togglePerspective();
+		break;
+	case helsing::Keyboard::TAB:
+		toggleTopTownView();
+		break;
+	case helsing::Keyboard::COMMA:
+		decreaseH();
+		break;
+	case helsing::Keyboard::PERIOD:
+		increaseH();
+		break;
+	case helsing::Keyboard::F1:
+		decreaseIterations();
+		break;
+	case helsing::Keyboard::F2:
+		increaseIterations();
+		break;
+	case helsing::Keyboard::F3:
+		decreaseSlope();
+		break;
+	case helsing::Keyboard::F4:
+		increaseSlope();
+		break;
+	case helsing::Keyboard::F5:
+		cycleShaders();
+		break;
+	case helsing::Keyboard::NUMBER_1:
+		std::cout << "Switching to midpoint displacement terrain\n";
+		setTerrain(&midpointDisplacementTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_2:
+		std::cout << "Switching to diamond square terrain\n";
+		setTerrain(&diamondSquareTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_3:
+		std::cout << "Switching to helsing square terrain\n";
+		setTerrain(&helsingSquareTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_4:
+		std::cout << "Switching to perlin noise terrain\n";
+		continuous2DSignalTerrain.setSignal(&perlinNoise);
+		setTerrain(&continuous2DSignalTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_5:
+		std::cout << "Switching to fractional brownian perlin noise terrain\n";
+		fractionalBrownianMotion.setBaseNoise(&perlinNoise);
+		continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
+		setTerrain(&continuous2DSignalTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_6:
+		std::cout << "Switching to value noise terrain\n";
+		continuous2DSignalTerrain.setSignal(&valueNoise);
+		setTerrain(&continuous2DSignalTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_7:
+		std::cout << "Switching to fractional brownian value noise terrain\n";
+		fractionalBrownianMotion.setBaseNoise(&valueNoise);
+		continuous2DSignalTerrain.setSignal(&fractionalBrownianMotion);
+		setTerrain(&continuous2DSignalTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_8:
+		std::cout << "Switching to hybrid multifractal terrain with perlin noise\n";
+		hybridMultiFractal.setBaseNoise(&perlinNoise);
+		continuous2DSignalTerrain.setSignal(&hybridMultiFractal);
+		setTerrain(&continuous2DSignalTerrain);
+		break;
+	case helsing::Keyboard::NUMBER_9:
+		std::cout << "Switching to ridged multi fractal terrain with perlin noise\n";
+		ridgedMultiFractal.setBaseNoise(&perlinNoise);
+		continuous2DSignalTerrain.setSignal(&ridgedMultiFractal);
+		setTerrain(&continuous2DSignalTerrain);
 		break;
 	default:
-		return false;
+		//don't do anything
+		break;
 	}
-	return false;
+}
+
+void PTGView::onMousePressed(bool left) {
+	if(left){
+		flymode = !flymode;
+		window->setMouseCursorVisible(!flymode);
+	}
 }
 
 void PTGView::onRender(){
@@ -188,31 +179,31 @@ void PTGView::onRender(){
 
 	//camera movement
 	const float speed = 0.5f; //todo scale with time
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::W)){
+	if(isKeyDown(helsing::Keyboard::W)){
 		camera.forward(speed);
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
+	if(isKeyDown(helsing::Keyboard::S)){
 		camera.forward(-speed);
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+	if(isKeyDown(helsing::Keyboard::A)){
 		camera.right(-speed);
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::D)){
+	if(isKeyDown(helsing::Keyboard::D)){
 		camera.right(speed);
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::R)){
+	if(isKeyDown(helsing::Keyboard::R)){
 		camera.up(speed);
 	}
-	if(sf::Keyboard::isKeyPressed(sf::Keyboard::F)){
+	if(isKeyDown(helsing::Keyboard::F)){
 		camera.up(-speed);
 	}
 
 	//Water levels
 	const float waterSpeed=0.1f; //todo scale with time
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::T)) {
+	if (isKeyDown(helsing::Keyboard::T)) {
 		raiseWater(waterSpeed);
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
+	if (isKeyDown(helsing::Keyboard::G)) {
 		raiseWater(-waterSpeed);
 	}
 

@@ -7,9 +7,9 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
-#include <GL/glew.h>
-#include <SFML/OpenGL.hpp>
-#include <SFML/Graphics.hpp>
+#include <helsing/Keyboard.hpp>
+
+#include <string>
 
 namespace helsing {
 
@@ -18,30 +18,24 @@ public:
 	class ApplicationSettings {
 	public:
 		ApplicationSettings():width(800),height(600), windowTitle("My Application"), fullscreen(false){}
-		uint32_t width, height;
+		unsigned int width, height;
 		std::string windowTitle;
 		bool fullscreen;
 	};
-	Application(const ApplicationSettings& = ApplicationSettings());
+	Application(){}
 	virtual ~Application();
-
-	virtual void start();
-	virtual void stop();
-
-	virtual bool isRunning() const {return running;}
+	virtual void start() = 0;
+	virtual void stop(){};
+	virtual bool isRunning(){return false;};
+	virtual bool isKeyDown(Keyboard::Key) = 0;
 protected:
 	virtual void onInit(){}
-	virtual void onRender();
-	virtual void onResize(uint32_t width, uint32_t height){}
-	virtual bool handleEvent(const sf::Event& event){return false;}
-
-//member data
-protected:
-	sf::RenderWindow * window;
-private:
-	const ApplicationSettings settings;
-	bool running;
+	virtual void onRender(){}
+	virtual void onResize(unsigned int width, unsigned int height){}
+	virtual void onClosed();
+	virtual void onKeyPressed(Keyboard::Key key){if(key==Keyboard::ESCAPE)stop();}
+	virtual void onMousePressed(bool left){}
 };
 
-} /* namespace helsing */
-#endif /* APPLICATION_HPP */
+} // namespace helsing
+#endif // APPLICATION_HPP
