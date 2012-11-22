@@ -100,12 +100,12 @@ TerrainMesh::TerrainMesh(const helsing::HeightMap& heightMap, helsing::Shader* s
 		if((row % 2) == 0){ // even rows
 			for(unsigned int col = 0; col < width; col++){
 				indices.push_back(col + (row+1) * width);
-				indices.push_back(col + row * width);
+				indices.push_back(col + (row) * width);
 			}
 		} else { // odd rows
-			for (unsigned int col = width - 1; col > 0; col--){
-				indices.push_back(col - 1 + row * width);
-				indices.push_back(col + (row+1) * width);
+			for (unsigned int col = width; col > 0; col--){
+				indices.push_back(col-1 + (row) * width);
+				indices.push_back(col-1 + (row+1) * width);
 			}
 		}
 	}
