@@ -60,7 +60,7 @@ public:
 		setPosition(position);
 	}
 	void pitch(Angle angle){
-		const Mat4 rotation = Mat4::rotation(getU(), angle);
+		const Mat4 rotation = Mat4::rotation(getU().normalize(), angle);
 		transformNormals(rotation);
 	}
 	void yaw(Angle angle){
