@@ -4,6 +4,7 @@
  * @author Johan Klokkhammer Helsing
  */
 #include <helsing/SFMLApplication.hpp>
+#include <helsing/Clock.hpp>
 
 #include <GL/glew.h>
 #include <SFML/OpenGL.hpp>
@@ -12,6 +13,7 @@
 #include <cstdlib>
 #include <cassert>
 #include <iostream>
+#include <sstream>
 
 namespace {
 
@@ -362,6 +364,10 @@ void SFMLApplication::start(){
 		std::cerr << "OpenGL 2.1 API not supported!\n";
 		exit(1); // or handle the error in a nicer way
 	}
+
+	helsing::Clock fpsClock;
+	unsigned int fps = 0;
+
 	onInit();
 	running = true;
 	while(running){
@@ -393,7 +399,17 @@ void SFMLApplication::start(){
 			window->setActive();
 			onRender();
 			window->display();
+			++fps;
+			std::cout.flush();
+			if(fpsClock.getAsMilliseconds() > 1000){
+				std::stringstream ss;
+				ss << settings.windowTitle << " FPS: " << fps;
+				window->setTitle(ss.str());
+				fps=0;
+				fpsClock.restart();
+			}
 		}
+
 	}
 }
 

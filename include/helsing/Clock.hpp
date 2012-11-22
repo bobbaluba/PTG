@@ -9,6 +9,7 @@
 
 #include <string>
 #include <ctime>
+#include <chrono>
 
 namespace helsing {
 
@@ -18,11 +19,13 @@ namespace helsing {
  */
 class Clock {
 public:
-	Clock():started(clock()){}
-	void restart(){started = clock();}
-	unsigned int getAsMilliseconds(){return (clock()-started)*1000/CLOCKS_PER_SEC;}
+	Clock():started(std::chrono::high_resolution_clock::now()){}
+	void restart(){started = std::chrono::high_resolution_clock::now();}
+	unsigned int getAsMilliseconds() const {
+		return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()-started).count();
+	}
 private:
-	unsigned int started;
+	std::chrono::high_resolution_clock::time_point started;
 };
 
 
