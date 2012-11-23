@@ -10,6 +10,6 @@ void main(void){
 	float k_a = 0.2;
 	float k_d = 0.5;
 	float i_a = k_a;
-	float i_d = k_d * dot(l, n);
+	float i_d = k_d * max(0, dot(l, n));
 	out_Color = vec4((i_a + i_d) * vec3(1,1,1),1);
 }
