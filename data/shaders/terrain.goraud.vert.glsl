@@ -10,7 +10,7 @@ in vec4 in_Normal;
 out vec3 ex_Color;
 
 void main(void){
-	mat4 MVP  = ProjectionMatrix * ModelViewMatrix;
+	//mat4 MVP  = ProjectionMatrix * ModelViewMatrix;
 
 	vec3 n = normalize(ModelViewMatrix * in_Normal).xyz; //switch to normal matrix?
 	vec3 s = normalize(ModelViewMatrix * vec4(1,1,1,0)).xyz; //direction towards light source
