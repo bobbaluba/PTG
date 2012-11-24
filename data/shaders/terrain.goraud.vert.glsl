@@ -20,7 +20,7 @@ void main(void){
 	gl_Position = ProjectionMatrix * ModelViewMatrix * in_Position;
 	float k_a = 0.2;
 	float k_d = 0.5;
-	float k_s = 0.2;
+	float k_s = 0.15;
 	float i_a = k_a;
 	float i_d = k_d * max(0, dot(n, s));
 	float i_s = k_s * max(0, pow(dot(r, v), 50) );
