@@ -24,9 +24,10 @@ namespace ptg {
  * Limitations and Artifacts
  * -------------------------
  * The size of the grid has to be 2^n+1
+ * This is and explicit procedural alrogithm, meaning it isn't possible to directly query for the value at a particular point.
  * The points inside an area depends on all the points along the edges,
- * this makes inconvenient to calculate just a portion of the heightMap.
- *
+ * this makes it inconvenient to calculate just a portion of the heightMap.
+
  * In terms of artifacts, the algorithm is a little better than midpoint displacement.
  * Mountain tops appear pinched, though. This might be fixed by using a different displacement
  * function.

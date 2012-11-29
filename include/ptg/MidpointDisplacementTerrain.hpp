@@ -35,7 +35,10 @@ namespace ptg {
  * -------------------------
  * The algorithm creates obvious artifacts in a square like pattern.
  *
- * The width of the terrain has to be 2^n+1 where n is a positive integer
+ * The size of the grid has to be 2^n+1
+ * This is and explicit procedural alrogithm, meaning it isn't possible to directly query for the value at a particular point.
+ * The points inside an area depends on all the points along the edges,
+ * this makes it inconvenient to calculate just a portion of the heightMap.
  *
  * Unless a bi-directional pseudo-random number generator is used,
  * the maximum level of detail or the maximum area the terrain covers are bounded.
