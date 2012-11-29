@@ -35,6 +35,9 @@ public:
 	virtual ~ValueNoise();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);
+	ValueNoise(const ValueNoise&) = default; //ideally the samples array would be shared across different copies,
+											 //since it doesn't change frequently, but this is easier.
+	ValueNoise & operator=(const ValueNoise&) = default;
 private:
 	void init(); //helper function, the same stuff should happen on construction and reseeding
 	float getSample(unsigned int x, unsigned int y){

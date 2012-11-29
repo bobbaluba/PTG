@@ -71,6 +71,9 @@ public:
 	 */
 	virtual void setLacunarity(float lacunarity){this->lacunarity=lacunarity;}
 	virtual float getLacunarity() const {return lacunarity;}
+
+	//TODO copy/assignment constructor
+	
 private:
 	Continuous2DSignal* baseNoise;
 	unsigned int octaves;

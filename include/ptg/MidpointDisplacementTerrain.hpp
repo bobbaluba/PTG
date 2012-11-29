@@ -17,6 +17,8 @@ namespace ptg {
  * ---------
  * Recursive algorithm. The displacement of each point depends on the displacement of the corners on
  * the level above.
+ * 
+ * This is an explicit procedural algorithm (it generates the exact points itself)
  *
  * Memory footprint
  * ----------------
@@ -50,6 +52,8 @@ public:
 		return amplitude;
 	}
 	virtual void setGain(float gain){this->gain=gain;}
+	MidpointDisplacementTerrain(const MidpointDisplacementTerrain&) = default;
+	MidpointDisplacementTerrain & operator=(const MidpointDisplacementTerrain&) = default;
 private:
 	///create noise between -0.5 and 0.5
 	float whiteNoise() const;

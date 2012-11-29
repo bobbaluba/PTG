@@ -23,6 +23,8 @@ public:
 	virtual ~GaussianBlurTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float gridSpacing);
 	virtual void setSource(Terrain*);
+	GaussianBlurTerrain(const GaussianBlurTerrain&) = default;
+	GaussianBlurTerrain & operator=(const GaussianBlurTerrain&) = default;
 private:
 	Terrain* source;
 };

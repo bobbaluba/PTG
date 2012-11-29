@@ -50,6 +50,8 @@ public:
 	virtual ~PerlinNoise();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);
+	PerlinNoise(const PerlinNoise&) = default;
+	PerlinNoise & operator=(const PerlinNoise&) = default;
 private:
 	/**
 	 * hash function

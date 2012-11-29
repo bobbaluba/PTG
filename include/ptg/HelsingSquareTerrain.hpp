@@ -45,6 +45,8 @@ public:
 	}
 	virtual float getAmplitude() const {return amplitude;}
 	virtual void setGain(float gain){this->gain=gain;}
+	HelsingSquareTerrain(const HelsingSquareTerrain&) = default;
+	HelsingSquareTerrain & operator=(const HelsingSquareTerrain&) = default;
 private:
 	float whiteNoise() const;
 	float amplitude;

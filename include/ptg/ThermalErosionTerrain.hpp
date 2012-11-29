@@ -45,6 +45,9 @@ public:
 	 */
 	virtual void setSlope(float slope){this->slope=slope;}
 	virtual float getSlope() const {return slope;}
+
+	ThermalErosionTerrain(const ThermalErosionTerrain&) = default;
+	ThermalErosionTerrain & operator=(const ThermalErosionTerrain&) = default;
 private:
 	Terrain* source;
 	unsigned int iterations;

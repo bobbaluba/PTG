@@ -46,6 +46,9 @@ public:
 	}
 	virtual float getAmplitude() const {return amplitude;}
 	virtual void setGain(float gain){this->gain=gain;}
+
+	DiamondSquareTerrain(const DiamondSquareTerrain&) = default;
+	DiamondSquareTerrain & operator=(const DiamondSquareTerrain&) = default;
 private:
 	float whiteNoise() const;
 	float amplitude;

@@ -91,6 +91,9 @@ public:
 	 */
 	virtual void setH(float H){this->H = H; initExponents();}
 	virtual float getH() const {return H;}
+
+	HybridMultiFractal(const HybridMultiFractal&) = default; //copies will share the same base noise, this means that seeding one, will seed both.
+	HybridMultiFractal & operator=(const HybridMultiFractal&) = default;
 private:
 	void initExponents();
 	Continuous2DSignal* baseNoise;

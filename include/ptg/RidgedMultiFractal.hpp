@@ -65,6 +65,9 @@ public:
 
 	virtual void setThreshold(float threshold){this->threshold=threshold;}
 	virtual float getThreshold() const {return threshold;}
+
+	RidgedMultiFractal(const RidgedMultiFractal&) = default;
+	RidgedMultiFractal & operator=(const RidgedMultiFractal&) = default;
 private:
 	void initExponents();
 	Continuous2DSignal* baseNoise;
