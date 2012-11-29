@@ -13,8 +13,10 @@ namespace ptg {
 
 /** @brief Terrain generated using a modified version of the diamond square algorithm.
  *
- * Solves some of the artifacts that occur in the diamond square algorithm, but introduces pointy tops
- * The pointy tops can be removed by using a blurring filter as an intermediate or last step.
+ * This algorithm is often mislabeled as diamond square, and if it has it's own name, I couldn't find out what it was.
+ *
+ * The algorithm Solves some of the artifacts that occur with the diamond square algorithm, but introduces pointy tops.
+ * The pointy tops can be removed by using a blurring or erosion filter as an intermediate or last step.
  *
  * Complexity
  * ----------
