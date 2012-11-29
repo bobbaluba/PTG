@@ -17,7 +17,7 @@ namespace ptg {
  */
 class Continuous2DSignalTerrain: public ptg::Terrain {
 public:
-	Continuous2DSignalTerrain(unsigned int seed=0);
+	explicit Continuous2DSignalTerrain(unsigned int seed=0);
 	virtual ~Continuous2DSignalTerrain();
 
 	///@brief Set source signal of the terrain

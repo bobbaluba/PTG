@@ -40,7 +40,7 @@ namespace ptg {
  */
 class MidpointDisplacementTerrain: public Terrain {
 public:
-	MidpointDisplacementTerrain(float gain=0.5, unsigned int seed = 0);
+	explicit MidpointDisplacementTerrain(float gain=0.5, unsigned int seed = 0);
 	virtual ~MidpointDisplacementTerrain();
 	virtual helsing::HeightMap generateHeightMap(unsigned int gridPoints, float resolution);
 	virtual void setAmplitude(float amplitude){

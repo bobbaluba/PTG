@@ -46,7 +46,7 @@ namespace ptg {
  */
 class PerlinNoise: public Continuous2DSignal {
 public:
-	PerlinNoise(unsigned int seed = 0);
+	explicit PerlinNoise(unsigned int seed = 0);
 	virtual ~PerlinNoise();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);

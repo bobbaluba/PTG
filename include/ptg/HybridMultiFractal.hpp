@@ -51,7 +51,7 @@ namespace ptg {
  */
 class HybridMultiFractal: public ptg::Continuous2DSignal {
 public:
-	HybridMultiFractal(unsigned int seed=0);
+	explicit HybridMultiFractal(unsigned int seed=0);
 	virtual ~HybridMultiFractal();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);

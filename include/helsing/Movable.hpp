@@ -13,8 +13,8 @@ namespace helsing {
 
 class Movable {
 public:
-	Movable():position(helsing::Vec4::origin()){}
-	Movable(const helsing::Vec4& position):position(position){}
+	explicit Movable():position(helsing::Vec4::origin()){}
+	explicit Movable(const helsing::Vec4& position):position(position){}
 	virtual ~Movable(){}
 	virtual helsing::Vec4 getPosition(){return position;}
 protected:

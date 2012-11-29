@@ -19,7 +19,7 @@ namespace helsing {
 
 class SFMLApplication: public Application{
 public:
-	SFMLApplication(const ApplicationSettings& = ApplicationSettings());
+	explicit SFMLApplication(const ApplicationSettings& = ApplicationSettings());
 	virtual void start();
 	virtual void stop();
 	virtual bool isRunning(){return running;}

@@ -16,8 +16,8 @@ namespace helsing{
  */
 class Vec2 {
 public:
-	Vec2(float x, float y):x(x),y(y){}
-	Vec2():Vec2(0,0){}
+	explicit Vec2(float x, float y):x(x),y(y){}
+	explicit Vec2():Vec2(0,0){}
 	union {
 		std::array<float, 2> array;
 		float cArray[2];

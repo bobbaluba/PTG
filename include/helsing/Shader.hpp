@@ -21,7 +21,7 @@ namespace helsing {
  */
 class Shader {
 public:
-	Shader(const std::string vertexShader, const std::string fragmentShader);
+	explicit Shader(const std::string vertexShader, const std::string fragmentShader);
 	virtual ~Shader();
 	virtual unsigned int getProgramHandle(){return hShaderProgram;}
 	virtual GLint getPositionAttributeIndex(){return glGetAttribLocation(hShaderProgram,"in_Position");}

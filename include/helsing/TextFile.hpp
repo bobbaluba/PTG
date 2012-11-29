@@ -19,7 +19,7 @@ class TextFile {
 public:
 	/// @brief Initialise a text file
 	/// @param filename Full or relative path to the file
-	TextFile(const std::string filename);
+	explicit TextFile(const std::string filename);
 	std::string str() const {return data;}
 private:
 	std::string data;

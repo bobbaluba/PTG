@@ -20,7 +20,7 @@
  */
 class Renderer{
 public:
-	Renderer(uint32_t width, uint32_t height);
+	explicit Renderer(uint32_t width, uint32_t height);
 	virtual ~Renderer();
 	virtual void draw();
 

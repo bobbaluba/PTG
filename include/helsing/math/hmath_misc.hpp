@@ -89,7 +89,7 @@ public:
 		return rad*180/pi();
 	}
 private:
-	Angle(float radians):rad(radians){}
+	explicit Angle(float radians):rad(radians){}
 	float rad;
 };
 

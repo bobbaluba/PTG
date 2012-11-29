@@ -44,7 +44,7 @@ namespace ptg {
  */
 class FractionalBrownianMotion: public ptg::Continuous2DSignal {
 public:
-	FractionalBrownianMotion(unsigned int seed=0);
+	explicit FractionalBrownianMotion(unsigned int seed=0);
 	virtual ~FractionalBrownianMotion();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);

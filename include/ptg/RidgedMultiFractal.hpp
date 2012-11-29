@@ -18,7 +18,7 @@ namespace ptg {
  */
 class RidgedMultiFractal: public ptg::Continuous2DSignal {
 public:
-	RidgedMultiFractal(unsigned int seed=0);
+	explicit RidgedMultiFractal(unsigned int seed=0);
 	virtual ~RidgedMultiFractal();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);

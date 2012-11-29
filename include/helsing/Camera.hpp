@@ -13,7 +13,7 @@ namespace helsing {
 
 class Camera {
 public:
-	Camera():position(Vec4::origin()), matrix(Mat4::identity()){
+	explicit Camera():position(Vec4::origin()), matrix(Mat4::identity()){
 	}
 	void lookAt(const Vec4& target, const Vec4& up = Vec4::vector(0,1,0)){
 		Vec4 n = (position-target).normalize();

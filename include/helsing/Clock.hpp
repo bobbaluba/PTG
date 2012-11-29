@@ -19,7 +19,7 @@ namespace helsing {
  */
 class Clock {
 public:
-	Clock():started(std::chrono::high_resolution_clock::now()){}
+	explicit Clock():started(std::chrono::high_resolution_clock::now()){}
 	void restart(){started = std::chrono::high_resolution_clock::now();}
 	unsigned int getAsMilliseconds() const {
 		return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()-started).count();

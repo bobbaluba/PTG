@@ -17,7 +17,7 @@ class Application {
 public:
 	class ApplicationSettings {
 	public:
-		ApplicationSettings():width(800),height(600), windowTitle("My Application"), fullscreen(false){}
+		explicit ApplicationSettings():width(800),height(600), windowTitle("My Application"), fullscreen(false){}
 		unsigned int width, height;
 		std::string windowTitle;
 		bool fullscreen;

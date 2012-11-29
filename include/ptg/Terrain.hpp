@@ -16,7 +16,7 @@ namespace ptg {
 /// @brief Interface for creating HeightMaps
 class Terrain: public Seedable {
 public:
-	Terrain(unsigned int seed = 0):Seedable(seed){}
+	explicit Terrain(unsigned int seed = 0):Seedable(seed){}
 	virtual ~Terrain(){}
 	/** @brief Generates a HeightMap
 	 * @param gridPoints number of gridPoints in one direction, or "width" of the HeightMap

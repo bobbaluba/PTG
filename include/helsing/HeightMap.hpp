@@ -21,10 +21,10 @@ namespace helsing {
 class HeightMap {
 public:
 	/// @param size width and height of the heightmap
-	HeightMap(uint32_t size);
+	explicit HeightMap(uint32_t size);
 
 	/// Initialize a heightmap by copying an array of floats
-	HeightMap(const float heights[], const uint32_t size);
+	explicit HeightMap(const float heights[], const uint32_t size);
 
 	virtual ~HeightMap();
 

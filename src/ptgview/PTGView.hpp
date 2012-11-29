@@ -30,7 +30,7 @@ using namespace ptg;
  */
 class PTGView: public helsing::SFMLApplication {
 public:
-	PTGView(const ApplicationSettings& = ApplicationSettings());
+	explicit PTGView(const ApplicationSettings& = ApplicationSettings());
 	virtual ~PTGView() {
 		delete renderer;
 	}

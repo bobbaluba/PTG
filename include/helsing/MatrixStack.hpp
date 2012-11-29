@@ -17,7 +17,7 @@ namespace helsing {
  */
 class MatrixStack {
 public:
-	MatrixStack():
+	explicit MatrixStack():
 		matrices({Mat4::identity()}),
 		top(&matrices.back()){
 	}

@@ -17,12 +17,12 @@ namespace helsing {
  */
 class Mat4 {
 public:
-	Mat4(){
+	explicit Mat4(){
 		for(uint32_t i=0; i<16; i++){
 			array[i]=0;
 		}
 	}
-	Mat4(const float data[16]){
+	explicit Mat4(const float data[16]){
 		std::copy(data,data+16, this->cArray);
 	}
 	const Vec4 operator *(const Vec4& rhs) const {

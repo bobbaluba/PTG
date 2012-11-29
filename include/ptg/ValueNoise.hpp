@@ -31,7 +31,7 @@ namespace ptg {
  */
 class ValueNoise: public Continuous2DSignal {
 public:
-	ValueNoise(unsigned int seed = 0);
+	explicit ValueNoise(unsigned int seed = 0);
 	virtual ~ValueNoise();
 	virtual float get(float x, float y);
 	virtual void onReSeed(unsigned int seed);

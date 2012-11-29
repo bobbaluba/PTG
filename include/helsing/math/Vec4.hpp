@@ -20,9 +20,9 @@ namespace helsing {
  */
 class Vec4 {
 public:
-	Vec4(float x, float y, float z, float w):x(x),y(y),z(z),w(w){}
-	Vec4(float x, float y, float z):x(x),y(y),z(z),w(1){}
-	Vec4(float* v){std::copy(v,v+4, this->cArray);}
+	explicit Vec4(float x, float y, float z, float w):x(x),y(y),z(z),w(w){}
+	explicit Vec4(float x, float y, float z):x(x),y(y),z(z),w(1){}
+	explicit Vec4(float* v){std::copy(v,v+4, this->cArray);}
 	const Vec4 operator -(const Vec4& rhs) const {
 		return Vec4(x-rhs.x,y-rhs.y,z-rhs.z,w-rhs.w);
 	}
