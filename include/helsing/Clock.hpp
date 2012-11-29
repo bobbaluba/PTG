@@ -24,6 +24,8 @@ public:
 	unsigned int getAsMilliseconds() const {
 		return std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now()-started).count();
 	}
+	Clock(const Clock&) = default;
+	Clock & operator=(const Clock&) = default;
 private:
 	std::chrono::high_resolution_clock::time_point started;
 };

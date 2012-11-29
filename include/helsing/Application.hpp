@@ -7,13 +7,15 @@
 #ifndef APPLICATION_HPP
 #define APPLICATION_HPP
 
+#include <helsing/NonCopyable.hpp>
+
 #include <helsing/Keyboard.hpp>
 
 #include <string>
 
 namespace helsing {
 
-class Application {
+class Application: public NonCopyable{
 public:
 	class ApplicationSettings {
 	public:

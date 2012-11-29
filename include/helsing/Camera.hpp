@@ -77,6 +77,9 @@ public:
 	Vec4 getPosition() const {
 		return position;
 	}
+
+	Camera(const Camera&) = default;
+	Camera & operator=(const Camera&) = default;
 private:
 	Vec4 getU() const {
 		const float * m = matrix.cArray;

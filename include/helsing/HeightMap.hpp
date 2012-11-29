@@ -49,7 +49,8 @@ public:
 	/// Sets all the heights to zero
 	virtual void flatten();
 
-
+	HeightMap(const HeightMap&) = default;
+	HeightMap & operator=(const HeightMap&) = default;
 
 private:
 	std::vector<float> heights;
