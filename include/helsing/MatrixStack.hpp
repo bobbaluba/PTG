@@ -71,6 +71,18 @@ public:
 	void rotate(const Vec4& axis, Angle angle){
 		*top = top->rotate(axis, angle);
 	}
+
+	MatrixStack(const MatrixStack& lhs){
+		matrices = lhs.matrices;
+		top = &matrices.back();
+	}
+
+	MatrixStack & operator=(const MatrixStack& lhs){
+		matrices = lhs.matrices;
+		top = &matrices.back();
+		return *this;
+	}	
+
 private:
 	std::vector<Mat4> matrices;
 	Mat4 * top;
