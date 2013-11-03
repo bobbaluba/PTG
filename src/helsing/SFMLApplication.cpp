@@ -347,6 +347,7 @@ void SFMLApplication::start(){
 	sf::ContextSettings contextSettings;
 	contextSettings.majorVersion = 2;
 	contextSettings.minorVersion = 1;
+	contextSettings.depthBits = settings.depthBits;
 
 	if(settings.fullscreen){
 		auto videoMode = sf::VideoMode::getDesktopMode();

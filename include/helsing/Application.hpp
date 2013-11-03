@@ -19,8 +19,15 @@ class Application: public NonCopyable{
 public:
 	class ApplicationSettings {
 	public:
-		explicit ApplicationSettings():width(800),height(600), windowTitle("My Application"), fullscreen(false){}
+		explicit ApplicationSettings():
+			width(800),
+			height(600),
+			depthBits(32),
+			windowTitle("My Application"),
+			fullscreen(false){
+		}
 		unsigned int width, height;
+		unsigned int depthBits;
 		std::string windowTitle;
 		bool fullscreen;
 	};
